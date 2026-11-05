@@ -7,10 +7,10 @@ Atualizar o tema: `quarto add mancano-tales/presentations --no-prompt`.
 Na raiz do repositório, execute:
 
 ```powershell
-pwsh -File tools/render-slides.ps1
+powershell -File tools/render-slides.ps1
 ```
 
-Requer PowerShell 7, Quarto e LaTeX com XeLaTeX (por exemplo, TinyTeX). As fontes usadas são Arial e Consolas. O script compila o PDF com Beamer. A saída é copiada para `assets/agentes-ia-pesquisa.pdf`, publicada no site.
+Requer PowerShell, Quarto e LaTeX com XeLaTeX (por exemplo, TinyTeX). As fontes usadas são Arial e Consolas. O script compila o PDF com Beamer. A capa traz a versão (`MAIOR.DIAS.BUILD`) e a data e hora da renderização. A saída é copiada para `assets/agentes-ia-pesquisa.pdf`, publicada no site com nome fixo, e para `_renders/`, não versionada, com data, hora e versão no nome.
 
 O modo `handout` consolida os incrementos no PDF, mantendo uma página por frame. O PDF não depende de impressão do navegador.
 

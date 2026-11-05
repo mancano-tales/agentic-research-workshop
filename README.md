@@ -55,7 +55,7 @@ quarto render ementa.qmd --to docx
 
 ```powershell
 # PDF Beamer Madrid das duas sessoes (PowerShell 7, Quarto e XeLaTeX); copia para assets/
-pwsh -File tools/render-slides.ps1
+powershell -File tools/render-slides.ps1
 ```
 
 O site é publicado automaticamente no GitHub Pages a cada push na `main` (`.github/workflows/publish.yml`). O PDF Beamer não é gerado no CI: renderize localmente e versione `assets/agentes-ia-pesquisa.pdf`.
