@@ -25,3 +25,7 @@ desktop.ini
 
 # Materiais confidenciais recebidos por e-mail (uso local)
 /materiais-locais/
+
+# PDFs datados de cada renderização dos slides
+/_renders/
+/sessions/versao.tex

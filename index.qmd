@@ -8,15 +8,15 @@ Minicurso do **Seminário Discente DCP-USP 2026**, em duas sessões de 1h30. O c
 
 ## Sessões
 
-| Sessão | Tema | Slides |
-|---|---|---|
-| 1 | Do chatbot ao agente: o que muda quando o modelo pode agir | [abrir](aulas/agentes-ia-pesquisa.html#/sessao-1) |
-| 2 | Habilidades práticas e governança: skills, hooks, MCP, `AGENTS.md` | [abrir](aulas/agentes-ia-pesquisa.html#/sessao-2) |
+| Sessão | Tema |
+|---|---|
+| 1 | Do chatbot ao agente: o que muda quando o modelo pode agir |
+| 2 | Habilidades práticas e governança: skills, hooks, MCP, `AGENTS.md` |
 
-Versão para impressão das duas sessões: [PDF](assets/agentes-ia-pesquisa.pdf).
+Os slides de cada sessão serão publicados aqui em PDF.
 
 ## Comece por aqui
 
-- [Ementa](ementa.qmd): objetivos, programa e bibliografia básica ([PDF](ementa.pdf), [DOCX](ementa.docx)).
-- [Materiais](materiais.qmd): bibliografia comentada e projeto de demonstração.
-- [Sobre](sobre.qmd): ministrantes, licença e como citar.
+- [Ementa](llm-agents-for-research-syllabus.qmd): objetivos, programa e bibliografia básica ([PDF](llm-agents-for-research-syllabus.pdf), [DOCX](llm-agents-for-research-syllabus.docx)).
+- [Materiais](materials.qmd): bibliografia comentada e projeto de demonstração.
+- [Sobre](about.qmd): ministrantes, licença e como citar.

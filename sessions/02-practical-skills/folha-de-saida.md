@@ -68,7 +68,7 @@ Esta skill é prosa: orienta o julgamento. As regras que não podem falhar estã
 
 ## Para continuar
 
-- Projeto de demonstração do curso: `aulas/02-habilidades-praticas/lab/projeto-demo/` no repositório [github.com/mancano-tales/2026-workshop-agentes-dcp-usp](https://github.com/mancano-tales/2026-workshop-agentes-dcp-usp).
+- Projeto de demonstração do curso: `sessions/02-practical-skills/lab/demo-project/` no repositório [github.com/mancano-tales/2026-workshop-agentes-dcp-usp](https://github.com/mancano-tales/2026-workshop-agentes-dcp-usp).
 - Scott Cunningham, série "Claude Code" (causalinf.substack.com) e repositório MixtapeTools (protocolo Referee 2; *hook* `protect-raw-data`).
 - Chris Blattman, claudeblattman.com — para quem não programa.
 - Pedro Sant'Anna, `claude-code-my-workflow` — *template* avançado para acadêmicos.

@@ -1,0 +1,517 @@
+---
+title: "Agentes de IA para Pesquisa"
+subtitle: "Sessão 1: O que muda quando o modelo pode agir"
+author:
+  - Manoel Galdino (DCP-USP)
+  - Felipe Lamarca (IESP-UERJ)
+  - Tales Mançano (DCP-USP)
+institute: "Seminário Discente DCP-USP 2026"
+lang: pt
+format:
+  madrid-web-beamer:
+    classoption: handout
+    mainfont: Arial
+    sansfont: Arial
+    monofont: Consolas
+    fontsize: 11pt
+    keep-tex: false
+    include-in-header: ../madrid-header.tex
+---
+
+## Sumário do minicurso {.smaller}
+
+::: {.columns}
+::: {.column width="50%"}
+**Sessão 1 — conceitos**
+
+1. LLMs como agentes
+2. Modelos e ferramentas
+3. Benefícios e custos
+4. O *harness*: isolamento
+5. Prosa vs. regra
+:::
+::: {.column width="50%"}
+**Sessão 2 — demonstrações**
+
+1. *Skills* e auditoria
+2. *Hooks* e *code as policy*
+3. MCP e segurança
+4. `AGENTS.md`, Git e reprodutibilidade
+5. Aplicações exemplares
+:::
+:::
+
+
+## Plano geral das aulas {.smaller}
+
+| | Sessão 1 | Sessão 2 |
+|---|---|---|
+| Foco | Conceitos | Demonstrações |
+| Duração | 90 minutos | 90 minutos |
+| Condução | Felipe Lamarca | Tales Mançano |
+| Pergunta | O que muda quando o modelo pode agir? | Como manter rigor, registro e revisão? |
+| Material | Este PDF | PDF da Sessão 2 |
+
+Ninguém precisa instalar nada: as demonstrações ficam com os ministrantes.
+
+## Sessão 1 em revisão
+
+::: {.alerta}
+Felipe Lamarca vai refazer esta sessão. Todo o conteúdo a seguir, até o início da Sessão 2, é provisório e pode mudar por inteiro.
+:::
+
+## Três perguntas rápidas {.smaller}
+
+Levante a mão se você já…
+
+1. usou um chatbot (ChatGPT, Claude, Gemini) na pesquisa;
+2. usou um agente que roda comandos ou edita arquivos no seu computador;
+3. usou IA para classificar dados que entraram numa análise.
+
+## O uso na pesquisa social {.smaller}
+
+Pesquisa com 1.260 cientistas sociais quantitativos (fev.–mar. 2026):
+
+- **81%** já usaram chatbots; **20%** usam agentes; entre cientistas políticos, **25%**
+- quem usa agentes posta **50% mais** *working papers*; as submissões a periódicos permanecem semelhantes
+
+::: {.fonte}
+Lyttelton, Massenkoff e Wilmers (2026), *Coding Agents in the Social Sciences*, Anthropic Research.
+:::
+
+# 1. LLMs como agentes
+
+## Do chat ao loop
+
+::: {.columns}
+::: {.column width="50%"}
+**Chat**
+
+- você formula cada passo
+- o modelo não vê seu computador
+- **você** copia, cola, roda e confere
+- o humano é o orquestrador
+:::
+::: {.column width="50%"}
+**Agente**
+
+- recebe um objetivo
+- lê arquivos, roda scripts, vê erros
+- corrige e tenta de novo
+- volta a você para validar ou quando há ambiguidade
+:::
+:::
+
+. . .
+
+Exemplo: codificar 2.000 discursos da Câmara segundo um livro de códigos.
+
+::: notes
+Pergunta para a turma: que tarefa da pesquisa de vocês segue esse padrão — vocês fazendo à mão o que poderia ser um loop?
+:::
+
+## Três componentes
+
+1. **Raciocínio iterativo** — avaliar, decidir, executar, observar, reavaliar
+2. **Memória e contexto** — a janela de contexto é finita; a memória do projeto mora em arquivos
+3. **Ferramentas** — rodar código, ler e editar arquivos, consultar APIs, buscar na web
+
+::: {.tese}
+Um agente é um LLM que roda ferramentas em loop para atingir um objetivo.
+:::
+
+::: {.fonte}
+Definição operacional de Simon Willison (2025). Distinção entre *workflows* e agentes: Anthropic, *Building Effective Agents* (2024).
+:::
+
+## O modelo solicita; o harness executa {.smaller}
+
+Exercício de mesa (2 voluntários):
+
+- **"Modelo"**: só pode escrever pedidos num cartão ("leia o arquivo X", "rode o script Y")
+- **"Harness"**: executa o pedido, se permitido, e devolve o resultado
+
+. . .
+
+- Quem decide o que é permitido? **O harness.**
+- Quem guarda o que já foi feito? **Arquivos e registros do projeto.**
+- Onde entra a regra que não pode falhar? **Nos controles executáveis do harness.**
+
+::: notes
+Ideia emprestada do workshop da Australian Political Studies Association (2026), que encena o funcionamento do modelo com papel e dados. Leva 3 minutos e prepara os blocos 4 e 5.
+:::
+
+## Um caso real {.smaller}
+
+Scott Cunningham (Baylor; *Causal Inference: The Mixtape*):
+
+- nov. 2025: passa a usar um agente de terminal na pesquisa empírica; escreve mais de 50 textos sobre isso
+- reclassifica **305 mil discursos** do Congresso dos EUA (artigo da *PNAS*) por **~US$ 11**
+  - 69% de concordância discurso a discurso; tendências agregadas quase iguais
+- mar. 2026: fala sobre o tema ao *Board of Governors* do Federal Reserve
+
+## O ganho depende de saber avaliar {.smaller}
+
+Duas lições do caso de Cunningham:
+
+- o ganho vem de **executar, observar e corrigir dentro do projeto**, com critérios definidos pelo pesquisador
+- o ganho é maior para quem **já sabe avaliar o resultado** — e há risco de erodir essa formação
+
+A verificação dos resultados concentra o principal desafio da produção científica com agentes.
+
+::: {.fonte}
+Cunningham, série "Claude Code" no *Scott's Mixtape Substack*, posts 22 (fev. 2026) e 44 (abr. 2026).
+:::
+
+# 2. Modelos e ferramentas
+
+## Duas camadas
+
+::: {.columns}
+::: {.column width="50%"}
+**Modelo**
+
+O LLM: Claude, GPT, Gemini, DeepSeek, Qwen…
+
+Acessado por assinatura (aplicativo) ou por API (pago por uso).
+:::
+::: {.column width="50%"}
+**Harness**
+
+O programa em volta: dá acesso a arquivos e terminal, monta o contexto, **impõe limites**.
+
+Claude Code, Codex, Gemini CLI, OpenCode, Cursor…
+:::
+:::
+
+::: {.tese}
+Agente = modelo + harness.
+:::
+
+O mesmo modelo se comporta diferente em harnesses diferentes. Os *benchmarks* de agentes medem os dois juntos.
+
+## Famílias de modelos <span class="data-carimbo">nov/2026</span> {.smaller}
+
+| Fornecedor | Linha atual | Tipo | O que importa para a pesquisa |
+|---|---|---|---|
+| Anthropic | Claude Fable 5.1, Opus 5.5, Sonnet 5.5, Haiku 5.5 | Fechado | Forte em tarefas agênticas longas; base do Claude Code |
+| OpenAI | GPT-6 Astra, GPT-6.1 Sol, GPT-6.1 Terra, GPT-6 Luna | Fechado | Base do Codex; Luna é muito barato para lote |
+| Google | Gemini 4 Argon, Gemini 3.8 Flash | Fechado | Contexto longo; base do Gemini CLI e do Antigravity |
+
+## Alternativas de pesos abertos {.smaller}
+
+| Fornecedor | Linha atual | Tipo | O que importa para a pesquisa |
+|---|---|---|---|
+| DeepSeek, Qwen, Kimi | V4, Qwen3.8, K3 | Pesos abertos (em geral) | Baratos; podem rodar fora do fornecedor |
+| Mistral e outros | Large 3, Small 4 | Pesos abertos | Rodar localmente: dados sensíveis |
+
+::: {.alerta}
+Nomes e preços mudam em semanas. Conferir na véspera.
+:::
+
+::: notes
+Fechados e preços conferidos nas páginas oficiais em 05/11/2026; abertos, em fontes secundárias de outubro. O Gemini 4 Argon dobra de preço em 01/12/2026 e o Gemini 3.8 Flash em 01/01/2027. Ponto de ênfase: pesos abertos e versionados podem ser rodados de novo daqui a cinco anos; modelos fechados são descontinuados pelo fornecedor (Spirling 2023; Barrie, Palmer e Spirling 2025).
+:::
+
+## Aberto, fechado e replicação
+
+- Modelos fechados são **atualizados e aposentados** pelo fornecedor
+  - ex.: um modelo usado num projeto iniciado em 2025 pode não existir mais na revisão do artigo
+- Uma versão de **pesos abertos**, registrada, pode ser rodada de novo anos depois
+- **Dados sensíveis** (entrevistas, dados identificados): modelo local, ou contrato institucional — gancho para o comitê de ética e a LGPD
+
+::: {.fonte}
+Spirling (2023), *Nature*; Barrie, Palmer e Spirling (2025), manuscrito. A deriva de versão como problema de pesquisa: curso de Olsson e Valli, EUI (2026–27).
+:::
+
+## Onde o LLM fica na replicação {.smaller}
+
+| | **Replicação exata não é possível** | **Replicação exata é possível** |
+|---|---|---|
+| **Frágil (depende do sistema)** | **LLMs** | Código e dados estáticos |
+| **Não frágil** | *Crowdsourcing*, assistentes de pesquisa | Regra explícita de codificação |
+
+::: {.alerta}
+LLMs somam as fraquezas do *crowdsourcing* (variância) e do código (fragilidade), sem a vantagem de nenhum dos dois.
+:::
+
+::: {.fonte}
+Barrie, Palmer e Spirling (2025), tabela 1 (adaptada).
+:::
+
+::: notes
+Ler a tabela no sentido horário a partir do canto superior direito. Código e dados estáticos replicam exatamente, mas só com o mesmo sistema. A regra explícita (ex.: a lista de estados do Sul de Key) replica exatamente e sem depender de computador. O crowdsourcing não replica exatamente, mas não depende do sistema. O LLM não replica exatamente e ainda depende do modelo e da versão. Daí a tese do curso: o que puder virar regra explícita deve virar.
+:::
+
+## Oito meses rodando a mesma tarefa {.smaller}
+
+- Três LLMs (GPT-4, Gemini, Llama 2) e trabalhadores de *crowdsourcing* codificam, **uma vez por mês**, tarefas de artigos publicados (manifestos, protestos, populismo)
+- **Quem acerta mais depende da tarefa**: humanos vão bem nos manifestos, LLMs nos protestos. Os LLMs fechados **variam mais** entre rodadas; o Llama local teve variância quase nula na amostra fixa
+- Refazendo uma regressão publicada com codificações de LLMs, quase todas as variáveis **deixam de ser significativas** na maioria das estimativas; modelos com acurácia parecida dão coeficientes diferentes
+- Versões de modelos fechados foram **aposentadas** durante o estudo
+
+::: {.tese}
+Relatar o *prompt* de uma rodada não basta: é preciso rodar de novo e relatar a variância.
+:::
+
+::: {.fonte}
+Barrie, Palmer e Spirling (2025), manuscrito de dez. 2024. Reanálises de Bor e Petersen (2022) e Bonikowski et al. (2022).
+:::
+
+::: notes
+Resumo conferido no manuscrito de 17/12/2024; não localizamos a versão publicada. Abril a dezembro de 2024, oito rodadas; amostra fixa e amostra mensal de 1000 linhas por fonte (os humanos codificaram só a fixa; populismo não teve humanos). A exceção na regressão de Bor e Petersen é a agressividade, e a reanálise usou cinco modelos da OpenAI. Na reanálise de populismo, os coeficientes ficaram abaixo de um terço dos publicados. O ponto para a plateia: o problema não é só acurácia média, ele muda conclusões substantivas.
+:::
+
+## Onde o agente roda
+
+- **Terminal**: Claude Code, Codex CLI, Gemini CLI, OpenCode, goose
+- **Editor**: Cursor, VS Code + Copilot, Positron Assistant (Posit, para quem usa R)
+- **Aplicativos de desktop e nuvem**: os próprios fornecedores já trazem modos agênticos
+
+Para quem usa R: `ellmer`, `mall`, `mcptools`, `btw`.
+
+. . .
+
+**Padrões abertos** — o que se aprende não fica preso a um fornecedor:
+
+`AGENTS.md` (o quê) · *Agent Skills* (como) · MCP (com quê) · Agentic AI Foundation, Linux Foundation (quem governa)
+
+# 3. Benefícios e custos
+
+## Quando vale a pena?
+
+::: {.tese}
+Repetitivo, volumoso e verificável.
+:::
+
+| Tende a valer | Tende a não valer |
+|---|---|
+| Limpar e padronizar bases (TSE, INEP, IPEA) | Tarefa de 10 minutos, feita uma vez |
+| Classificar milhares de documentos | O julgamento teórico central do trabalho |
+| Organizar e triar pastas de PDFs | Quando não há como checar o resultado |
+| Transcrever e pré-codificar entrevistas | Dados que não podem sair da máquina, sem modelo local |
+| Depurar código; replicar um artigo | Escrever o argumento substantivo |
+
+::: notes
+Tom Pepinsky (Cornell, jan. 2026) recomenda agentes para tarefas que seguem regras e reserva a elaboração de respostas, argumentos e interpretações ao pesquisador.
+:::
+
+## O que a evidência diz
+
+- **METR (jul. 2025)**: desenvolvedores experientes ficaram **19% mais lentos** com IA, mas *achavam* ter ficado 20% mais rápidos
+  - fev. 2026: a METR declarou o resultado desatualizado; o desenho ruiu porque muitos se recusaram a trabalhar sem IA
+- **Cientistas sociais (2026)**: aumento de *working papers*; submissões a periódicos estáveis
+- Adoção desigual: por gênero e por prestígio da instituição
+
+::: {.tese}
+A percepção de ganho é um mau estimador do ganho.
+:::
+
+## Quanto custa? <span class="data-carimbo">nov/2026</span> {.smaller}
+
+**Assinatura** (valor fixo, limite por janela de horas): Claude Pro e ChatGPT Plus custam US$ 20 (cerca de R$ 110) e incluem o agente (Claude Code, Codex).
+
+**API** (por milhão de tokens): para processar em lote. Desconto de 50% com *batch*.
+
+## Custo de uma tarefa em lote {.smaller}
+
+Classificar **1.000 documentos** (~2.000 tokens cada, rótulo curto de saída):
+
+| Modelo | Em dólares | Em reais |
+|---|---|---|
+| GPT-6 Luna / Claude Haiku 5.5 | US$ 0,30 | R$ 1,60 |
+| Gemini 3.8 Flash | US$ 2,25 | R$ 12 |
+| Claude Sonnet 5.5 / GPT-6.1 Sol | US$ 6 | R$ 33 |
+| Claude Opus 5.5 | US$ 12 | R$ 66 |
+| GPT-6 Astra | US$ 30 | R$ 164 |
+
+Transcrever **10 horas de áudio**: de US$ 1,80 a 3,60 via API (R$ 10 a 20); zero com Whisper local.
+
+::: {.alerta}
+O mais caro equivale a 8% de uma bolsa CAPES de mestrado (R$ 2.100). O tempo de validação humana domina o custo total.
+:::
+
+::: {.fonte}
+Preços oficiais em 05/11/2026; PTAX de venda de 04/11/2026 (R$ 5,48).
+:::
+
+::: notes
+Cálculo e premissas: docs/research/2026-10-05_code-as-policy-modelos-harness.md, seção 2.6. Premissa: 2 milhões de tokens de entrada e 0,2 milhão de saída, sem desconto de *batch*. Reconferir preços e câmbio na véspera. Modelos com raciocínio ligado podem multiplicar os tokens de saída.
+:::
+
+# 4. O *harness*: isolamento
+
+## O que o harness controla
+
+1. **Contexto**: instruções, `AGENTS.md`, *skills*
+2. **Ferramentas**: terminal, edição, web, MCP
+3. **O loop**: modelo → ferramenta → resultado → modelo
+4. **Limites**: permissões, *sandbox*, *hooks*
+5. **Estado entre sessões**: Git, arquivos de progresso
+
+Modos de permissão: perguntar sempre → aprovar leituras e perguntar escritas → autonomia total.
+
+::: {.alerta}
+Autonomia total só dentro de um ambiente isolado.
+:::
+
+## Raio de dano
+
+::: {.tese}
+Qual é o pior comando que esse agente poderia rodar — e o que ele destruiria?
+:::
+
+| Nível de isolamento | Isola | Esforço |
+|---|---|---|
+| Permissões do harness | as decisões do agente | baixo |
+| *Sandbox* nativo | comandos: disco e rede | baixo |
+| Contêiner (*devcontainer*) | o ambiente inteiro | médio |
+| Máquina virtual / nuvem | o sistema inteiro | alto / nenhum |
+
+O agente que baixa dados do TSE precisa de internet e da pasta do projeto. **De mais nada.**
+
+::: notes
+No Windows nativo, o sandbox do Claude Code não funciona (só com WSL2); o Codex tem sandbox nativo no Windows. O isolamento não muda o que é enviado ao modelo: o que o agente lê vai para o fornecedor.
+:::
+
+## A tríade letal
+
+Um agente pode ser manipulado (*prompt injection*) quando junta:
+
+1. acesso a **dados privados**
+2. exposição a **conteúdo não confiável** (páginas, PDFs, e-mails)
+3. capacidade de **comunicar-se com o exterior**
+
+. . .
+
+Na pesquisa: raspar sites e ler PDFs de terceiros **é** conteúdo não confiável. Com entrevistas sigilosas e internet no mesmo agente, as três pernas estão presentes.
+
+::: {.tese}
+Corte pelo menos uma das três pernas.
+:::
+
+::: {.fonte}
+Simon Willison, "The Lethal Trifecta for AI Agents" (jun. 2025).
+:::
+
+# 5. Prosa vs. regra
+
+## Duas formas de controlar um agente {.smaller}
+
+::: {.columns}
+::: {.column width="50%"}
+::: {.caixa .prosa}
+**Instrução em prosa**
+
+"Por favor, não altere os dados brutos."
+
+- o modelo decide, a cada vez
+- funciona *quase* sempre
+- serve para julgamento, estilo, ambiguidade
+:::
+:::
+::: {.column width="50%"}
+::: {.caixa .regra}
+**Regra determinística**
+
+Um script que bloqueia qualquer escrita em `dados/brutos/`.
+
+- o código decide, sempre igual
+- funciona sempre — dentro do que cobre
+- serve para integridade, formato, sigilo, registro
+:::
+:::
+:::
+
+::: {.tese}
+Prosa orienta. Regra garante.
+:::
+
+## Por que o pedido falha
+
+- o contexto enche e a instrução se perde
+- o modelo "acha" que tem uma boa razão
+- um PDF malicioso manda o contrário
+
+. . .
+
+O Claude Code impõe as regras de permissão por meio do harness.
+
+Instrução no `AGENTS.md` muda o que o agente **tenta**; o harness decide o que ele **pode**.
+
+::: {.fonte}
+Documentação do Claude Code, "Permissions" (consultada em out. 2026).
+:::
+
+## *Code as policy*: dois sentidos
+
+| | Liang et al. (2022), robótica | Uso atual com agentes |
+|---|---|---|
+| Quem escreve o código | o **modelo** gera o programa que controla o robô | **nós** escrevemos as regras que limitam o modelo |
+| O que é a "política" | a função que leva da observação à ação | as regras do projeto, executáveis |
+| Parentesco | — | *policy as code* em infraestrutura |
+
+::: {.tese}
+O que une os dois: a regra que vale é a que roda.
+:::
+
+## Por que a pesquisa precisa de regra
+
+1. **Variância**: mesmo modelo, mesmo *prompt*, respostas diferentes em dias diferentes; fixar a temperatura não resolve, e a variação chega aos coeficientes da regressão
+2. **"LLM hacking"**: modelo, *prompt* e temperatura mudam conclusões — um novo grau de liberdade do pesquisador
+3. **Validade da medida**: o erro de classificação não é aleatório e enviesa a regressão; a saída é uma **amostra de validação humana** com estimadores que corrigem o viés
+
+::: {.alerta}
+Dados brutos, formato das variáveis, registro do que foi feito e amostra de validação exigem regras executáveis de proteção.
+:::
+
+::: {.fonte}
+Barrie, Palmer e Spirling (2025); Baumann et al. (2025); Egami et al. (2023); Ludwig, Mullainathan e Rambachan (2026).
+:::
+
+::: notes
+A API da Anthropic removeu `temperature`, `top_p` e `top_k` na versão 2026-10-21 (página de descontinuações, consultada em 05/11/2026): em alguns fornecedores, nem há mais como fixar a temperatura.
+:::
+
+## Um pesquisador, três tentativas {.smaller}
+
+A trajetória de Scott Cunningham para proteger os dados brutos:
+
+| Quando | Como | O que aconteceu |
+|---|---|---|
+| fev. 2026 | Instrução no `CLAUDE.md` | Depende do modelo |
+| abr. 2026 | Skill limita a três tentativas | Um laço esgota os tokens |
+| ago. 2026 | Hook protege `data/raw` | Um script contorna o hook |
+| ago. 2026 | Hook, sistema operacional e integridade | Defesa em camadas |
+
+A proteção combina controles em várias camadas.
+
+::: {.fonte}
+Cunningham, posts 23 e 41 (2026) e repositório MixtapeTools, `hooks/protect-raw-data` (ago. 2026). A distinção entre instruções em prosa e restrições executáveis é atribuída por ele a Paul Goldsmith-Pinkham (NBER, 2026).
+:::
+
+## Limites dos controles determinísticos
+
+- uma regra que proíbe o agente de editar um arquivo **não** pega um script R que o agente escreve e que abre esse arquivo
+- um *hook* local do Git se pula com `--no-verify`
+- o *sandbox* não impede que o conteúdo lido vá para o fornecedor
+
+::: {.tese}
+Defesa em camadas: harness, Git, servidor (GitHub), revisão independente.
+:::
+
+Na Sessão 2: como cada camada funciona, ao vivo.
+
+## Para levar
+
+1. **Agente = modelo + harness + loop**; o harness decide o que ele pode fazer
+2. Vale automatizar o que é **repetitivo, volumoso e verificável**
+3. O que afeta **validade e replicação** exige regras executáveis de proteção
+
+. . .
+
+**Entre as sessões:** Korinek (2025), *AI Agents for Economic Research*, introdução; um texto da série de Cunningham.
+
+Materiais: [github.com/mancano-tales/course-llm-agents-for-research](https://github.com/mancano-tales/course-llm-agents-for-research)
+
+Continua no PDF da Sessão 2: *Habilidades práticas e governança*.

@@ -19,15 +19,13 @@ jobs:
       - uses: actions/checkout@v4
       - uses: quarto-dev/quarto-actions/setup@v2
       - name: Renderizar site e ementa (PDF/DOCX)
-        # Arquivo por arquivo: o render completo tentaria gerar o PDF Beamer,
-        # que exige LaTeX e fontes ausentes no runner (o PDF vem de assets/).
+        # Arquivo por arquivo: os PDFs Beamer exigem LaTeX e fontes ausentes no runner.
         run: |
-          for f in index.qmd materiais.qmd sobre.qmd aulas/index.qmd ementa.qmd; do
+          for f in index.qmd materials.qmd about.qmd sessions/index.qmd llm-agents-for-research-syllabus.qmd; do
             quarto render "$f"
           done
-          quarto render aulas/agentes-ia-pesquisa.qmd --to madrid-web-revealjs
-          quarto render ementa.qmd --to typst
-          quarto render ementa.qmd --to docx
+          quarto render llm-agents-for-research-syllabus.qmd --to typst
+          quarto render llm-agents-for-research-syllabus.qmd --to docx
       - uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages

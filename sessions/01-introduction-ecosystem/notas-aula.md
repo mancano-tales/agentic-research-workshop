@@ -1,6 +1,6 @@
 # Sessão 1: Introdução aos Agentes de IA — Conceitos, Modelos e Ecossistema
 
-Roteiro do instrutor para a primeira sessão expositiva (1h30). Formato: bloco por tópico, com cues de tempo, pontos de ênfase, exemplos para apoio da fala e perguntas de engajamento. Alinhado a [ementa.qmd](../../ementa.qmd), Seção 4, Sessão 1 (os blocos 1 a 5 correspondem aos itens 1 a 5 da ementa). Sessão estritamente conceitual — nenhuma habilidade prática é ensinada aqui (fica para a Sessão 2).
+Roteiro do instrutor para a primeira sessão expositiva (1h30). Formato: bloco por tópico, com cues de tempo, pontos de ênfase, exemplos para apoio da fala e perguntas de engajamento. Alinhado a [llm-agents-for-research-syllabus.qmd](../../llm-agents-for-research-syllabus.qmd), Seção 4, Sessão 1 (os blocos 1 a 5 correspondem aos itens 1 a 5 da ementa). Sessão estritamente conceitual — nenhuma habilidade prática é ensinada aqui (fica para a Sessão 2).
 
 Visão de conjunto, casos-âncora e checklist de preparação: [docs/plan/plano-geral.md](../../docs/plan/plano-geral.md). Referências citadas: [referencias.md](../../referencias.md).
 
@@ -90,7 +90,7 @@ Contar, em forma de narrativa, o relato de Scott Cunningham (Baylor; autor de *C
 
 **Objetivo do bloco:** a turma consegue situar os nomes que ouve (Claude, GPT, Gemini, DeepSeek, Claude Code, Codex, Cursor...) em duas camadas distintas: o **modelo** e a **ferramenta/harness** que o envolve.
 
-**Aviso ao instrutor:** versões e preços mudam em semanas. Os slides trazem os nomes vigentes em outubro de 2026, com o carimbo "out/2026"; conferir tudo na véspera da aula. Fontes oficiais e datas: `docs/pesquisa/2026-10-05_code-as-policy-modelos-harness.md`, bloco 2. Datas já conhecidas: o GPT-5.5 sai do ChatGPT e do Codex em 14/10/2026; o Claude Haiku 4.5 pode ser aposentado a partir de 15/10/2026.
+**Aviso ao instrutor:** versões e preços mudam em semanas. Os slides trazem os nomes vigentes em outubro de 2026, com o carimbo "out/2026"; conferir tudo na véspera da aula. Fontes oficiais e datas: `docs/research/2026-10-05_code-as-policy-modelos-harness.md`, bloco 2. Datas já conhecidas: o GPT-5.5 sai do ChatGPT e do Codex em 14/10/2026; o Claude Haiku 4.5 pode ser aposentado a partir de 15/10/2026.
 
 ### 2.1 Duas camadas: modelo e ferramenta (3 min)
 
@@ -157,7 +157,7 @@ Apresentar a evidência com honestidade — ela é mista e muda rápido:
 - **Assinatura de aplicativo** (valor mensal fixo, com limites de uso): previsível, bom para uso interativo diário.
 - **API por token** (paga-se por milhão de tokens de entrada e de saída): bom para processamento em lote; exige cuidado com limites de gasto.
 - Regra de bolso: 1 token ≈ 3/4 de palavra em inglês; em português um pouco menos.
-- **Exemplo de conta no quadro** (caso-âncora A): 2.000 discursos × ~1.500 tokens de entrada + ~100 de saída ≈ 3,2 milhões de tokens. Multiplicar pelo preço vigente por milhão de tokens do modelo escolhido. Referência de outubro de 2026, para 1.000 documentos de ~2.000 tokens com saída curta: ~US$ 0,30 (GPT-6 Luna), ~US$ 2 (Gemini 3.8 Flash), ~US$ 6 (Claude Sonnet 5.5 ou GPT-6.1 Sol), ~US$ 12 (Claude Opus 5.5), ~US$ 30 (GPT-6 Astra); metade disso com *batch*. Transcrever 10 h de áudio: US$ 1,80 a 3,60 via API, ou zero com Whisper local. Premissas do cálculo: `docs/pesquisa/2026-10-05_code-as-policy-modelos-harness.md`, seção 2.6. Converter para reais na semana da aula e comparar com o valor de uma bolsa de mestrado.
+- **Exemplo de conta no quadro** (caso-âncora A): 2.000 discursos × ~1.500 tokens de entrada + ~100 de saída ≈ 3,2 milhões de tokens. Multiplicar pelo preço vigente por milhão de tokens do modelo escolhido. Referência de outubro de 2026, para 1.000 documentos de ~2.000 tokens com saída curta: ~US$ 0,30 (GPT-6 Luna), ~US$ 2 (Gemini 3.8 Flash), ~US$ 6 (Claude Sonnet 5.5 ou GPT-6.1 Sol), ~US$ 12 (Claude Opus 5.5), ~US$ 30 (GPT-6 Astra); metade disso com *batch*. Transcrever 10 h de áudio: US$ 1,80 a 3,60 via API, ou zero com Whisper local. Premissas do cálculo: `docs/research/2026-10-05_code-as-policy-modelos-harness.md`, seção 2.6. Converter para reais na semana da aula e comparar com o valor de uma bolsa de mestrado.
 - Modelos com raciocínio ligado podem multiplicar os tokens de saída; o tokenizador novo do Claude gera cerca de 30% mais tokens para o mesmo texto.
 - **Custo escondido**: o tempo de verificação humana. Sempre orçar o tempo de validar uma amostra.
 

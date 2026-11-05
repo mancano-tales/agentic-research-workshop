@@ -26,7 +26,7 @@ Os *hooks* e a *skill* seguem o formato do Claude Code. A lógica é portável: 
 
 - R (≥ 4.1) com `jsonlite`, `readr`, `dplyr` e `stringr`.
 - Um agente de terminal que suporte *hooks* (roteiro escrito para o Claude Code).
-- Abrir o agente **nesta pasta** (`projeto-demo/`), para que `.claude/` e `AGENTS.md` sejam carregados.
+- Abrir o agente **nesta pasta** (`demo-project/`), para que `.claude/` e `AGENTS.md` sejam carregados.
 
 ## Roteiro das demonstrações
 

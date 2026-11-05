@@ -4,9 +4,9 @@ Issue: #3. Complementa o [plano geral](plano-geral.md), que continua valendo par
 
 Pesquisas completas, com fontes e datas:
 
-- [Cursos e workshops sobre agentes](../pesquisa/2026-10-05_cursos-sobre-agentes.md): 25 cursos da indústria, de universidades e para pesquisadores, comparados por tópico.
-- [Code as policy, modelos e harnesses](../pesquisa/2026-10-05_code-as-policy-modelos-harness.md): hooks e permissões em oito harnesses, o GitHub como camada de política, modelos e preços de outubro de 2026, custos de tarefas típicas.
-- [Scott Cunningham](../pesquisa/2026-10-06_scott-cunningham.md): o que ele publicou sobre agentes na pesquisa empírica.
+- [Cursos e workshops sobre agentes](../research/2026-10-05_cursos-sobre-agentes.md): 25 cursos da indústria, de universidades e para pesquisadores, comparados por tópico.
+- [Code as policy, modelos e harnesses](../research/2026-10-05_code-as-policy-modelos-harness.md): hooks e permissões em oito harnesses, o GitHub como camada de política, modelos e preços de outubro de 2026, custos de tarefas típicas.
+- [Scott Cunningham](../research/2026-10-06_scott-cunningham.md): o que ele publicou sobre agentes na pesquisa empírica.
 
 ---
 

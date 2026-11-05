@@ -16,6 +16,7 @@
 }
 \setbeamersize{text margin left=8mm,text margin right=8mm}
 \setlength{\emergencystretch}{2em}
+\usepackage{fancyvrb}
 \AtBeginEnvironment{verbatim}{\footnotesize}
 \fvset{fontsize=\footnotesize}
 \setbeamertemplate{section page}{%
@@ -24,3 +25,6 @@
     \usebeamerfont{section title}\insertsection
   \end{beamercolorbox}
 }
+% Versão e data da capa, gravadas por tools/render-slides.ps1.
+\setbeamerfont{author}{size=\footnotesize}
+\IfFileExists{../versao.tex}{\AtBeginDocument{\input{../versao.tex}}}{}

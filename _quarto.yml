@@ -3,13 +3,13 @@ project:
   output-dir: _site
   render:
     - index.qmd
-    - ementa.qmd
-    - aulas/index.qmd
-    - aulas/agentes-ia-pesquisa.qmd
-    - materiais.qmd
-    - sobre.qmd
+    - llm-agents-for-research-syllabus.qmd
+    - sessions/index.qmd
+    - sessions/01-introduction-ecosystem/llm-agents-for-research-session-1-slides.qmd
+    - sessions/02-practical-skills/llm-agents-for-research-session-2-slides.qmd
+    - materials.qmd
+    - about.qmd
   resources:
-    - assets/
     - referencias.bib
 
 lang: pt
@@ -23,13 +23,13 @@ website:
     left:
       - href: index.qmd
         text: Início
-      - href: ementa.qmd
+      - href: llm-agents-for-research-syllabus.qmd
         text: Ementa
-      - href: aulas/index.qmd
-        text: Aulas
-      - href: materiais.qmd
+      - href: sessions/index.qmd
+        text: Sessões
+      - href: materials.qmd
         text: Materiais
-      - href: sobre.qmd
+      - href: about.qmd
         text: Sobre
     right:
       - icon: github
