@@ -2,7 +2,7 @@
 
 Roteiro do instrutor para a segunda sessão (1h30), com demonstrações ao vivo conduzidas pelos ministrantes. Alinhado a [ementa.qmd](../../ementa.qmd), Seção 4, Sessão 2 (os blocos 1 a 5 correspondem aos itens 1 a 5 da ementa). Os participantes **não** precisam instalar nada nem saber Git: eles assistem, perguntam e sugerem pedidos ao agente.
 
-Todas as demonstrações usam o [projeto de demonstração](lab/projeto-demo/) (caso-âncora A, discursos parlamentares fictícios). Passo a passo técnico e plano de *backup*: [lab/projeto-demo/README.md](lab/projeto-demo/README.md). Visão de conjunto: [docs/plan/plano-geral.md](../../docs/plan/plano-geral.md). Referências: [referencias.md](../../referencias.md).
+Todas as demonstrações usam o [projeto de demonstração](lab/demo-project/) (caso-âncora A, discursos parlamentares fictícios). Passo a passo técnico e plano de *backup*: [lab/demo-project/README.md](lab/demo-project/README.md). Visão de conjunto: [docs/plan/plano-geral.md](../../docs/plan/plano-geral.md). Referências: [referencias.md](../../referencias.md).
 
 **Distribuição de tempo (90 min):**
 
@@ -184,7 +184,7 @@ Armadilhas comuns:
 - Escada de camadas, num slide: pedido (`AGENTS.md`, probabilístico) → *harness* (permissões, *hooks*, *sandbox*; determinístico e local) → *hooks* do Git (determinísticos, locais, puláveis com `--no-verify`) → GitHub (CI, checks obrigatórios, regras de *merge*, CODEOWNERS, bloqueio de segredos; determinístico e no servidor) → revisão por outra pessoa ou outro agente (inferencial, mas obrigatória por regra).
 - Frase para o slide: *a revisão por IA é julgamento; o que a torna política é a regra que a exige.*
 - **Exemplo vivo, o repositório do minicurso**: o trailer `Agent:` em todo commit, conferido por *hook* e de novo no servidor; o *hook* que recusa caminhos absolutos de máquina; e "quem escreve não revisa". Mostrar o PR #4: a revisão do Codex apontou que o *hook* de validação do projeto de demonstração não disparava quando o agente gravava o arquivo pelo terminal, e a correção entrou antes da aula. É um caso real de revisão independente pegando uma brecha numa regra determinística.
-- Tabela de exemplos de pesquisa (prosa → regra): proteger dados brutos, validar o livro de códigos, reprodutibilidade numa máquina limpa, bloqueio de segredos, autoria. Fonte e detalhes: `docs/pesquisa/2026-10-05_code-as-policy-modelos-harness.md`, seções 1.5 e 1.6.
+- Tabela de exemplos de pesquisa (prosa → regra): proteger dados brutos, validar o livro de códigos, reprodutibilidade numa máquina limpa, bloqueio de segredos, autoria. Fonte e detalhes: `docs/research/2026-10-05_code-as-policy-modelos-harness.md`, seções 1.5 e 1.6.
 
 ---
 

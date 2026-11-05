@@ -2,8 +2,8 @@
 
 Documento de organização pedagógica das duas sessões. Serve como ponto de partida para a divisão de trabalho entre os ministrantes e para a preparação dos slides. Os roteiros detalhados de fala estão em:
 
-- [Sessão 1 — Introdução aos Agentes](../../aulas/01-introducao-ecossistema/notas-aula.md)
-- [Sessão 2 — Habilidades Práticas e Governança](../../aulas/02-habilidades-praticas/notas-aula.md)
+- [Sessão 1 — Introdução aos Agentes](../../sessions/01-introduction-ecosystem/notas-aula.md)
+- [Sessão 2 — Habilidades Práticas e Governança](../../sessions/02-practical-skills/notas-aula.md)
 - [Bibliografia comentada](../../referencias.md) ([BibTeX](../../referencias.bib))
 
 Tudo aqui segue a ementa submetida ([2026-workshop-agentes-dcp-usp-ementa.qmd](../../2026-workshop-agentes-dcp-usp-ementa.qmd)); nenhum tópico novo foi acrescentado ao programa, apenas detalhado.
@@ -29,7 +29,7 @@ Para que os exemplos não fiquem abstratos, sugerimos repetir os mesmos três ca
 
 | Caso | Tarefa | Onde aparece |
 |---|---|---|
-| **A. Discursos parlamentares** | Classificar discursos da Câmara dos Deputados segundo um livro de códigos (ex.: posição sobre política educacional) | S1 bloco 1 (chat vs. agente); S2 skills, hooks e auditoria — é o [projeto de demonstração](../../aulas/02-habilidades-praticas/lab/projeto-demo/) |
+| **A. Discursos parlamentares** | Classificar discursos da Câmara dos Deputados segundo um livro de códigos (ex.: posição sobre política educacional) | S1 bloco 1 (chat vs. agente); S2 skills, hooks e auditoria — é o [projeto de demonstração](../../sessions/02-practical-skills/lab/demo-project/) |
 | **B. Entrevistas qualitativas** | Transcrever e pré-codificar tematicamente entrevistas semiestruturadas | S1 bloco 3 (custos); S2 bloco 5 (aplicações: transcrição local, sigilo) |
 | **C. Dados públicos** | Baixar e limpar dados do TSE/INEP/IPEA e montar uma base analítica | S1 bloco 4 (*harness*); S2 bloco 3 (MCP, APIs governamentais) |
 
@@ -68,9 +68,9 @@ Para que os exemplos não fiquem abstratos, sugerimos repetir os mesmos três ca
 | Ementa (PDF/DOCX) | Pronto | Submetida em 2026-08-31 |
 | Roteiro da Sessão 1 | Pronto (este commit) | Revisar exemplos e distribuir blocos |
 | Roteiro da Sessão 2 | Pronto (este commit) | Idem |
-| Projeto de demonstração (`lab/projeto-demo/`) | Pronto (este commit) | Ensaiar pelo menos uma vez com o agente que será usado ao vivo |
+| Projeto de demonstração (`lab/demo-project/`) | Pronto (este commit) | Ensaiar pelo menos uma vez com o agente que será usado ao vivo |
 | Bibliografia comentada | Pronto (este commit) | Decidir se uma lista curta entra na ementa |
-| Slides (Quarto Reveal.js) | A fazer | Sugestão: `aulas/0X-*/slides.qmd`, renderizados para `docs/` |
+| Slides (Quarto Reveal.js) | A fazer | Sugestão: `sessions/0X-*/slides.qmd`, renderizados para `docs/` |
 | Gravação de *backup* das demonstrações | A fazer | Vídeo curto de cada demo, caso a rede ou a API falhe |
 | Folha-resumo de uma página para os participantes | A fazer | Checklist do bloco de encerramento da Sessão 2 |
 

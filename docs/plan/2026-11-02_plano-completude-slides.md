@@ -1,6 +1,6 @@
 # Plano de completude dos slides (2026-11-02)
 
-Issue: #3. Objetivo: deixar `aulas/agentes-ia-pesquisa.qmd` pronto (web e PDF Beamer) até sexta, 2026-11-06. A aula é na semana seguinte; o que só pode ser feito na véspera (preços, ensaio das demos) fica separado no fim.
+Issue: #3. Objetivo: deixar `sessions/*/slides.qmd` pronto (web e PDF Beamer) até sexta, 2026-11-06. A aula é na semana seguinte; o que só pode ser feito na véspera (preços, ensaio das demos) fica separado no fim.
 
 ## Atualização de 2026-11-05
 
@@ -67,4 +67,13 @@ Issue: #3. Objetivo: deixar `aulas/agentes-ia-pesquisa.qmd` pronto (web e PDF Be
 - Reconferir modelos, preços e câmbio na véspera; reemitir o PDF se algo mudar.
 - Ensaio completo das demos numa máquina limpa (R e `jsonlite` instalados; WSL2 se for Windows), chave de API com limite baixo.
 - Gravar o *backup* das demos.
-- Folha de saída (`aulas/02-habilidades-praticas/folha-de-saida.md`) revisada e linkada no site.
+- Folha de saída (`sessions/02-practical-skills/folha-de-saida.md`) revisada e linkada no site.
+
+## Reestruturação de 2026-11-05
+
+Decisões do autor, que substituem o que este plano diz sobre arquivo único e `assets/`:
+
+- Dois decks Beamer, um por sessão, em `sessions/0N-*/slides.qmd`. A Sessão 1 traz o plano geral das aulas, e um deck remete ao outro.
+- Os slides saíram do site; os dois PDFs entram nele depois. `assets/` foi removida, porque só guardava o PDF único.
+- A estrutura de pastas fica em inglês: `aulas/` virou `sessions/`, `docs/pesquisa/` virou `docs/research/` e `projeto-demo/` virou `demo-project/`.
+- Os PDFs ficam em `_renders/`, não versionada, com data, hora, sessão e versão no nome.

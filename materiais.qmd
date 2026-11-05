@@ -4,7 +4,7 @@ title: "Materiais"
 
 ## Projeto de demonstração
 
-O [projeto de demonstração](https://github.com/mancano-tales/course-llm-agents-for-research/tree/main/aulas/02-habilidades-praticas/lab/projeto-demo) da Sessão 2 aplica *skill*, *hooks* em R, subagente auditor e `AGENTS.md` à codificação de discursos parlamentares fictícios. Clone o repositório para reproduzir.
+O [projeto de demonstração](https://github.com/mancano-tales/course-llm-agents-for-research/tree/main/sessions/02-practical-skills/lab/demo-project) da Sessão 2 aplica *skill*, *hooks* em R, subagente auditor e `AGENTS.md` à codificação de discursos parlamentares fictícios. Clone o repositório para reproduzir.
 
 ## Bibliografia comentada
 

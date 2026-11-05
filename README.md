@@ -27,12 +27,12 @@ Materiais, ementa, slides e laboratório do minicurso. Material de terceiros rec
 * **Ementa Completa**: Consulte a versão em código em [ementa.qmd](ementa.qmd), a versão compilada (HTML, PDF e DOCX) no site.
 * **Plano Geral das Aulas**: [docs/plan/plano-geral.md](docs/plan/plano-geral.md) — fio condutor, casos-âncora, cronograma, divisão de papéis e checklist de preparação.
 * **Plano de Preparação (out. 2026)**: [docs/plan/2026-10-06_plano-preparacao-aulas.md](docs/plan/2026-10-06_plano-preparacao-aulas.md) — síntese da pesquisa exploratória, decisões propostas e pauta da reunião dos ministrantes.
-* **Pesquisa Exploratória**: [docs/pesquisa/](docs/pesquisa/) — panorama de cursos sobre agentes, *code as policy*, modelos e *harnesses*, e o que Scott Cunningham tem publicado.
-* **Slides**: fonte única das duas sessões em [aulas/agentes-ia-pesquisa.qmd](aulas/agentes-ia-pesquisa.qmd). Gera os slides web do site e o [PDF Beamer](assets/agentes-ia-pesquisa.pdf), com o tema [madrid-web](https://github.com/mancano-tales/presentations/tree/main/_extensions/madrid-web) (`_extensions/`).
+* **Pesquisa Exploratória**: [docs/research/](docs/research/) — panorama de cursos sobre agentes, *code as policy*, modelos e *harnesses*, e o que Scott Cunningham tem publicado.
+* **Slides**: um deck por sessão, em [sessions/01-introduction-ecosystem/slides.qmd](sessions/01-introduction-ecosystem/slides.qmd) e [sessions/02-practical-skills/slides.qmd](sessions/02-practical-skills/slides.qmd). Geram PDFs Beamer com o tema [madrid-web](https://github.com/mancano-tales/presentations/tree/main/_extensions/madrid-web) (`_extensions/`).
 * **Roteiros do Instrutor**:
-  * [Sessão 1: Introdução aos Agentes](aulas/01-introducao-ecossistema/notas-aula.md)
-  * [Sessão 2: Habilidades Práticas e Governança](aulas/02-habilidades-praticas/notas-aula.md)
-* **Projeto de Demonstração (Sessão 2)**: [aulas/02-habilidades-praticas/lab/projeto-demo/](aulas/02-habilidades-praticas/lab/projeto-demo/) — *skill*, *hooks* em R, subagente auditor e `AGENTS.md` aplicados à codificação de discursos parlamentares fictícios.
+  * [Sessão 1: Introdução aos Agentes](sessions/01-introduction-ecosystem/notas-aula.md)
+  * [Sessão 2: Habilidades Práticas e Governança](sessions/02-practical-skills/notas-aula.md)
+* **Projeto de Demonstração (Sessão 2)**: [sessions/02-practical-skills/lab/demo-project/](sessions/02-practical-skills/lab/demo-project/) — *skill*, *hooks* em R, subagente auditor e `AGENTS.md` aplicados à codificação de discursos parlamentares fictícios.
 * **Bibliografia Comentada**: [referencias.md](referencias.md) ([BibTeX](referencias.bib)).
 
 ---
@@ -54,11 +54,11 @@ quarto render ementa.qmd --to docx
 ```
 
 ```powershell
-# PDF Beamer Madrid das duas sessoes (PowerShell 7, Quarto e XeLaTeX); copia para assets/
+# PDFs Beamer das duas sessoes (PowerShell, Quarto e XeLaTeX); saida datada em _renders/
 powershell -File tools/render-slides.ps1
 ```
 
-O site é publicado automaticamente no GitHub Pages a cada push na `main` (`.github/workflows/publish.yml`). O PDF Beamer não é gerado no CI: renderize localmente e versione `assets/agentes-ia-pesquisa.pdf`.
+O site é publicado automaticamente no GitHub Pages a cada push na `main` (`.github/workflows/publish.yml`). Os PDFs Beamer não são gerados no CI e ainda não estão no site: renderize localmente.
 
 ## Licença
 

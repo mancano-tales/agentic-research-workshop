@@ -8,12 +8,12 @@ Minicurso do **Seminário Discente DCP-USP 2026**, em duas sessões de 1h30. O c
 
 ## Sessões
 
-| Sessão | Tema | Slides |
-|---|---|---|
-| 1 | Do chatbot ao agente: o que muda quando o modelo pode agir | [abrir](aulas/agentes-ia-pesquisa.html#/sessao-1) |
-| 2 | Habilidades práticas e governança: skills, hooks, MCP, `AGENTS.md` | [abrir](aulas/agentes-ia-pesquisa.html#/sessao-2) |
+| Sessão | Tema |
+|---|---|
+| 1 | Do chatbot ao agente: o que muda quando o modelo pode agir |
+| 2 | Habilidades práticas e governança: skills, hooks, MCP, `AGENTS.md` |
 
-Versão para impressão das duas sessões: [PDF](assets/agentes-ia-pesquisa.pdf).
+Os slides de cada sessão serão publicados aqui em PDF.
 
 ## Comece por aqui
 

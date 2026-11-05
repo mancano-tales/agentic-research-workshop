@@ -1,0 +1,16 @@
+---
+title: "Sessões"
+toc: false
+---
+
+Os slides de cada sessão serão publicados aqui em PDF.
+
+## Sessão 1 — O que muda quando o modelo pode agir
+
+LLMs como agentes, panorama de modelos e ferramentas, prosa versus instruções determinísticas, isolamento e custos.
+
+## Sessão 2 — Habilidades práticas e governança
+
+Skills, hooks (*code as policy*), MCP e segurança, `AGENTS.md` e reprodutibilidade, com demonstração ao vivo.
+
+[Projeto de demonstração](https://github.com/mancano-tales/course-llm-agents-for-research/tree/main/sessions/02-practical-skills/lab/demo-project){.btn .btn-outline-secondary}

@@ -4,12 +4,12 @@ project:
   render:
     - index.qmd
     - ementa.qmd
-    - aulas/index.qmd
-    - aulas/agentes-ia-pesquisa.qmd
+    - sessions/index.qmd
+    - sessions/01-introduction-ecosystem/slides.qmd
+    - sessions/02-practical-skills/slides.qmd
     - materiais.qmd
     - sobre.qmd
   resources:
-    - assets/
     - referencias.bib
 
 lang: pt
@@ -25,8 +25,8 @@ website:
         text: Início
       - href: ementa.qmd
         text: Ementa
-      - href: aulas/index.qmd
-        text: Aulas
+      - href: sessions/index.qmd
+        text: Sessões
       - href: materiais.qmd
         text: Materiais
       - href: sobre.qmd
