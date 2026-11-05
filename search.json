@@ -11,7 +11,7 @@
     "href": "index.html#sessões",
     "title": "Agentes de IA para Pesquisa",
     "section": "Sessões",
-    "text": "Sessões\n\n\n\nSessão\nTema\nSlides\n\n\n\n\n1\nDo chatbot ao agente: o que muda quando o modelo pode agir\nabrir\n\n\n2\nHabilidades práticas e governança: skills, hooks, MCP, AGENTS.md\nabrir\n\n\n\nVersão para impressão das duas sessões: PDF."
+    "text": "Sessões\n\n\n\n\n\n\n\nSessão\nTema\n\n\n\n\n1\nDo chatbot ao agente: o que muda quando o modelo pode agir\n\n\n2\nHabilidades práticas e governança: skills, hooks, MCP, AGENTS.md\n\n\n\nOs slides de cada sessão serão publicados aqui em PDF."
   },
   {
     "objectID": "index.html#comece-por-aqui",
@@ -21,176 +21,169 @@
     "text": "Comece por aqui\n\nEmenta: objetivos, programa e bibliografia básica (PDF, DOCX).\nMateriais: bibliografia comentada e projeto de demonstração.\nSobre: ministrantes, licença e como citar."
   },
   {
-    "objectID": "materiais.html",
-    "href": "materiais.html",
+    "objectID": "materials.html",
+    "href": "materials.html",
     "title": "Materiais",
     "section": "",
     "text": "O projeto de demonstração da Sessão 2 aplica skill, hooks em R, subagente auditor e AGENTS.md à codificação de discursos parlamentares fictícios. Clone o repositório para reproduzir."
   },
   {
-    "objectID": "materiais.html#projeto-de-demonstração",
-    "href": "materiais.html#projeto-de-demonstração",
+    "objectID": "materials.html#projeto-de-demonstração",
+    "href": "materials.html#projeto-de-demonstração",
     "title": "Materiais",
     "section": "",
     "text": "O projeto de demonstração da Sessão 2 aplica skill, hooks em R, subagente auditor e AGENTS.md à codificação de discursos parlamentares fictícios. Clone o repositório para reproduzir."
   },
   {
-    "objectID": "materiais.html#bibliografia-comentada",
-    "href": "materiais.html#bibliografia-comentada",
+    "objectID": "materials.html#bibliografia-comentada",
+    "href": "materials.html#bibliografia-comentada",
     "title": "Materiais",
     "section": "Bibliografia comentada",
     "text": "Bibliografia comentada\nEntradas BibTeX: referencias.bib."
   },
   {
-    "objectID": "materiais.html#leituras-essenciais",
-    "href": "materiais.html#leituras-essenciais",
+    "objectID": "materials.html#leituras-essenciais",
+    "href": "materials.html#leituras-essenciais",
     "title": "Materiais",
     "section": "1. Leituras essenciais",
-    "text": "1. Leituras essenciais\n\nKorinek, Anton (2025). AI Agents for Economic Research. NBER Working Paper 34202. [S1][S2][E] Atualização (ago. 2025) do artigo de Korinek no Journal of Economic Literature (2023). Explica o que são agentes, como planejam e usam ferramentas, e traz exemplos passo a passo — revisão de literatura, código econométrico, coleta de dados — pensados para quem não programa. Melhor introdução acadêmica única ao tema. https://www.nber.org/papers/w34202\nCunningham, Scott (2025–2026). Série “Claude Code” no Scott’s Mixtape Substack (mais de 50 textos). [S1][S2][E] Cunningham é professor de economia na Baylor University (professor visitante no Departamento de Governo de Harvard em 2025–26 e na Harvard Kennedy School em 2026–27), autor de Causal Inference: The Mixtape (Yale University Press, 2021) e de Causal Inference: The Remix (Yale University Press, 2026). A série documenta, em tempo real, a adoção de agentes de terminal na pesquisa empírica aplicada: organização de projetos, replicação, depuração e — o ponto mais citável — os “retornos à expertise”: o agente amplifica quem já sabe avaliar o resultado e pode corroer a formação de quem não sabe. Em março de 2026 falou sobre o tema ao Board of Governors do Federal Reserve (ele confirma a palestra; o título “AI Agents for Research Workers” e a demonstração ao vivo vêm de reportagem da Forbes, não conferida na fonte). Não encontramos livro com esse título. Levantamento detalhado, com datas e links: docs/pesquisa/2026-10-06_scott-cunningham.md. https://causalinf.substack.com/s/claude-code\nCunningham, Scott. MixtapeTools (repositório GitHub), em especial o protocolo Referee 2. [S2][E] Auditoria em cinco etapas (correção do código, replicação em outra linguagem, estrutura de pastas, automação das saídas, econometria), executada por uma instância nova do agente que nunca viu o trabalho. Base conceitual do subagente auditor do projeto de demonstração. O repositório traz também, desde agosto de 2026, o primeiro hook dele (hooks/protect-raw-data): um hook que bloqueia edição em data/raw, uma trava do sistema operacional e uma impressão digital SHA-256 dos arquivos, porque um hook sozinho é contornável por um script (“The fix is not a bigger hook. It is a stack.”). É a mesma lógica de guarda e sensor do projeto de demonstração. https://github.com/scunning1975/MixtapeTools\nLyttelton, Thomas; Massenkoff, Maxim; Wilmers, Nathan (2026). Coding Agents in the Social Sciences. Anthropic Research, 27 maio 2026. [S1][E] Pesquisa com 1.260 cientistas sociais quantitativos (fev.–mar. 2026): 81% usaram chatbots, 20% usam agentes (39% entre economistas, 25% entre cientistas políticos). Usuários de agentes postam 50% mais working papers, sem diferença em submissões a periódicos. Adoção desigual por gênero e prestígio institucional. Útil tanto como dado de abertura quanto como objeto de discussão sobre desigualdade. https://www.anthropic.com/research/coding-agents-social-sciences\nBarrie, Christopher; Palmer, Alexis; Spirling, Arthur (2025). “Replication for Language Models: Problems, Principles, and Best Practice for Political Science”. American Journal of Political Science (aceito). [S1][S2][E] Desenho de replicação iterada ao longo de meses: LLMs podem ser muito precisos, mas a variância entre execuções é frequentemente inaceitável, e controlar a temperatura não resolve. Referência central da ciência política sobre replicabilidade com LLMs. https://arthurspirling.org/documents/BarriePalmerSpirling_TrustMeBro.pdf\nLudwig, Jens; Mullainathan, Sendhil; Rambachan, Ashesh (2026). “Large Language Models: An Applied Econometric Framework”. Annual Review of Economics 18. [S1][S2][E] Quando um LLM é usado para medir um conceito que entra numa análise, a inferência válida exige combinar a saída do modelo com uma pequena amostra de validação; quando é usado para prever, exige garantir que não houve vazamento de treino. Fundamento do passo “amostra de validação humana” da skill de demonstração. https://www.nber.org/papers/w33344\nAnthropic — Schluntz, Erik; Zhang, Barry (2024). Building Effective Agents. [S1][E] Texto curto e muito citado que distingue fluxos de trabalho (caminho definido pelo programador) de agentes (o modelo decide o caminho) e recomenda começar pelo mais simples. https://www.anthropic.com/engineering/building-effective-agents"
+    "text": "1. Leituras essenciais\n\nKorinek, Anton (2025). AI Agents for Economic Research. NBER Working Paper 34202. [S1][S2][E] Atualização (ago. 2025) do artigo de Korinek no Journal of Economic Literature (2023). Explica o que são agentes, como planejam e usam ferramentas, e traz exemplos passo a passo — revisão de literatura, código econométrico, coleta de dados — pensados para quem não programa. Melhor introdução acadêmica única ao tema. https://www.nber.org/papers/w34202\nCunningham, Scott (2025–2026). Série “Claude Code” no Scott’s Mixtape Substack (mais de 50 textos). [S1][S2][E] Cunningham é professor de economia na Baylor University (professor visitante no Departamento de Governo de Harvard em 2025–26 e na Harvard Kennedy School em 2026–27), autor de Causal Inference: The Mixtape (Yale University Press, 2021) e de Causal Inference: The Remix (Yale University Press, 2026). A série documenta, em tempo real, a adoção de agentes de terminal na pesquisa empírica aplicada: organização de projetos, replicação, depuração e — o ponto mais citável — os “retornos à expertise”: o agente amplifica quem já sabe avaliar o resultado e pode corroer a formação de quem não sabe. Em março de 2026 falou sobre o tema ao Board of Governors do Federal Reserve (ele confirma a palestra; o título “AI Agents for Research Workers” e a demonstração ao vivo vêm de reportagem da Forbes, não conferida na fonte). Não encontramos livro com esse título. Levantamento detalhado, com datas e links: docs/research/2026-10-06_scott-cunningham.md. https://causalinf.substack.com/s/claude-code\nCunningham, Scott. MixtapeTools (repositório GitHub), em especial o protocolo Referee 2. [S2][E] Auditoria em cinco etapas (correção do código, replicação em outra linguagem, estrutura de pastas, automação das saídas, econometria), executada por uma instância nova do agente que nunca viu o trabalho. Base conceitual do subagente auditor do projeto de demonstração. O repositório traz também, desde agosto de 2026, o primeiro hook dele (hooks/protect-raw-data): um hook que bloqueia edição em data/raw, uma trava do sistema operacional e uma impressão digital SHA-256 dos arquivos, porque um hook sozinho é contornável por um script (“The fix is not a bigger hook. It is a stack.”). É a mesma lógica de guarda e sensor do projeto de demonstração. https://github.com/scunning1975/MixtapeTools\nLyttelton, Thomas; Massenkoff, Maxim; Wilmers, Nathan (2026). Coding Agents in the Social Sciences. Anthropic Research, 27 maio 2026. [S1][E] Pesquisa com 1.260 cientistas sociais quantitativos (fev.–mar. 2026): 81% usaram chatbots, 20% usam agentes (39% entre economistas, 25% entre cientistas políticos). Usuários de agentes postam 50% mais working papers, sem diferença em submissões a periódicos. Adoção desigual por gênero e prestígio institucional. Útil tanto como dado de abertura quanto como objeto de discussão sobre desigualdade. https://www.anthropic.com/research/coding-agents-social-sciences\nBarrie, Christopher; Palmer, Alexis; Spirling, Arthur (2025). “Replication for Language Models: Problems, Principles, and Best Practice for Political Science”. American Journal of Political Science (aceito). [S1][S2][E] Desenho de replicação iterada ao longo de meses: LLMs podem ser muito precisos, mas a variância entre execuções é frequentemente inaceitável, e controlar a temperatura não resolve. Referência central da ciência política sobre replicabilidade com LLMs. https://arthurspirling.org/documents/BarriePalmerSpirling_TrustMeBro.pdf\nLudwig, Jens; Mullainathan, Sendhil; Rambachan, Ashesh (2026). “Large Language Models: An Applied Econometric Framework”. Annual Review of Economics 18. [S1][S2][E] Quando um LLM é usado para medir um conceito que entra numa análise, a inferência válida exige combinar a saída do modelo com uma pequena amostra de validação; quando é usado para prever, exige garantir que não houve vazamento de treino. Fundamento do passo “amostra de validação humana” da skill de demonstração. https://www.nber.org/papers/w33344\nAnthropic — Schluntz, Erik; Zhang, Barry (2024). Building Effective Agents. [S1][E] Texto curto e muito citado que distingue fluxos de trabalho (caminho definido pelo programador) de agentes (o modelo decide o caminho) e recomenda começar pelo mais simples. https://www.anthropic.com/engineering/building-effective-agents"
   },
   {
-    "objectID": "materiais.html#agentes-conceitos-arquitetura-e-engenharia-de-contexto",
-    "href": "materiais.html#agentes-conceitos-arquitetura-e-engenharia-de-contexto",
+    "objectID": "materials.html#agentes-conceitos-arquitetura-e-engenharia-de-contexto",
+    "href": "materials.html#agentes-conceitos-arquitetura-e-engenharia-de-contexto",
     "title": "Materiais",
     "section": "2. Agentes: conceitos, arquitetura e engenharia de contexto",
     "text": "2. Agentes: conceitos, arquitetura e engenharia de contexto\n\nWillison, Simon (2025). “I think ‘agent’ may finally have a widely enough agreed upon definition to be useful jargon now” — definição operacional “um LLM que roda ferramentas em loop para atingir um objetivo”. Blog pessoal (simonwillison.net), set. 2025. [S1]\nAnthropic (2025). Effective Context Engineering for AI Agents. Por que a janela de contexto é um recurso finito, e como subagentes, arquivos de memória e carregamento sob demanda ajudam a administrá-la. [S1][S2] https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents\nAnthropic (2025). Claude Code: Best Practices for Agentic Coding; documentação oficial de hooks, skills, subagentes e CLAUDE.md. Referência técnica para o formato usado no projeto de demonstração. [S2] https://code.claude.com/docs\nLiu, Jiacheng; Zhao, Xiaohan; Shang, Xinyi; Shen, Zhiqiang (2026). “Dive into Claude Code: The Design Space of Today’s and Future AI Agent Systems”. arXiv:2604.14228. Análise acadêmica da arquitetura de agentes de terminal: permissões, hooks, subagentes, memória. Útil para quem quiser aprofundar o bloco sobre harness. [S1] https://arxiv.org/abs/2604.14228"
   },
   {
-    "objectID": "materiais.html#padrões-abertos",
-    "href": "materiais.html#padrões-abertos",
+    "objectID": "materials.html#padrões-abertos",
+    "href": "materials.html#padrões-abertos",
     "title": "Materiais",
     "section": "3. Padrões abertos",
     "text": "3. Padrões abertos\n\nModel Context Protocol (MCP) — especificação e documentação. Doado pela Anthropic à Agentic AI Foundation (Linux Foundation) em 9 dez. 2025. [S1][S2] https://modelcontextprotocol.io\nAGENTS.md — formato aberto de instruções de projeto para agentes, contribuído pela OpenAI à mesma fundação; adotado por mais de 60 mil projetos. [S2] https://agents.md\nAgent Skills — padrão aberto de skills, publicado pela Anthropic em 18 dez. 2025. [S2] https://agentskills.io\nLinux Foundation (2025). Anúncio da formação da Agentic AI Foundation (AAIF). [S1] https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation"
   },
   {
-    "objectID": "materiais.html#fluxos-de-trabalho-de-pesquisadores-pontos-de-partida-práticos",
-    "href": "materiais.html#fluxos-de-trabalho-de-pesquisadores-pontos-de-partida-práticos",
+    "objectID": "materials.html#fluxos-de-trabalho-de-pesquisadores-pontos-de-partida-práticos",
+    "href": "materials.html#fluxos-de-trabalho-de-pesquisadores-pontos-de-partida-práticos",
     "title": "Materiais",
     "section": "4. Fluxos de trabalho de pesquisadores (pontos de partida práticos)",
     "text": "4. Fluxos de trabalho de pesquisadores (pontos de partida práticos)\n\nSant’Anna, Pedro H. C. (2026). claude-code-my-workflow — template para acadêmicos (LaTeX/Beamer, Quarto, R) com agentes revisores, portões de qualidade e protocolos de replicação; extraído do curso de doutorado Causal Panel Data (Emory). Adaptado por grupos de economia e ciência política. [S2] https://github.com/pedrohcgs/claude-code-my-workflow\nBlattman, Christopher (2026). Claude Blattman — AI for Professionals Who Don’t Code. Site aberto de um economista político (Chicago Harris) sem formação em programação, com skills, fluxos de “críticos paralelos” e tutoriais para iniciantes. Excelente para o público-alvo do minicurso. [S2] https://claudeblattman.com\nCrawfurd, Lee. claude-skills — skills para revisão de artigos, revisão de código e auditoria de reprodutibilidade computacional. [S2] https://github.com/lcrawfurd/claude-skills\nKorinek, Anton (2023). “Generative AI for Economic Research: Use Cases and Implications for Economists”. Journal of Economic Literature 61(4): 1281–1317. Versão anterior, centrada em chatbots; boa para contrastar com a de 2025. [S1]"
   },
   {
-    "objectID": "materiais.html#llms-como-instrumento-de-medida-nas-ciências-sociais",
-    "href": "materiais.html#llms-como-instrumento-de-medida-nas-ciências-sociais",
+    "objectID": "materials.html#llms-como-instrumento-de-medida-nas-ciências-sociais",
+    "href": "materials.html#llms-como-instrumento-de-medida-nas-ciências-sociais",
     "title": "Materiais",
     "section": "5. LLMs como instrumento de medida nas ciências sociais",
     "text": "5. LLMs como instrumento de medida nas ciências sociais\n\nEgami, Naoki; Hinck, Musashi; Stewart, Brandon M.; Wei, Hanying (2023). “Using Imperfect Surrogates for Downstream Inference: Design-based Supervised Learning for Social Science Applications of Large Language Models”. NeurIPS. Como usar rótulos de LLM numa regressão sem viés, com uma amostra de validação. Pacote R dsl. [S1][S2]\nBaumann, Joachim et al. (2025). “Large Language Model Hacking: Quantifying the Hidden Risks of Using LLMs for Text Annotation”. arXiv:2509.08825. Escolhas de modelo, prompt e temperatura mudam conclusões substantivas — um novo grau de liberdade do pesquisador. [S1] https://arxiv.org/abs/2509.08825\nGilardi, Fabrizio; Alizadeh, Meysam; Kubli, Maël (2023). “ChatGPT Outperforms Crowd Workers for Text-Annotation Tasks”. PNAS 120(30). O artigo que popularizou a anotação com LLMs na ciência política. [S1]\nTörnberg, Petter (2024). “Best Practices for Text Annotation with Large Language Models”. Sociologica 18(2). Lista prática de cuidados: validação, documentação, modelos abertos. [S2]\nSpirling, Arthur (2023). “Why Open-Source Generative AI Models Are an Ethical Choice for Science”. Nature 616: 413. [S1][S2]\nArgyle, Lisa P. et al. (2023). “Out of One, Many: Using Language Models to Simulate Human Samples”. Political Analysis 31(3). Referência para a discussão (fora do escopo principal do curso) sobre “amostras de silício”. [S1]\nBail, Christopher A. (2024). “Can Generative AI Improve Social Science?”. PNAS 121(21). Panorama equilibrado de usos e riscos. [S1]"
   },
   {
-    "objectID": "materiais.html#evidência-sobre-produtividade",
-    "href": "materiais.html#evidência-sobre-produtividade",
+    "objectID": "materials.html#evidência-sobre-produtividade",
+    "href": "materials.html#evidência-sobre-produtividade",
     "title": "Materiais",
     "section": "6. Evidência sobre produtividade",
     "text": "6. Evidência sobre produtividade\n\nBecker, Joel et al. / METR (2025). “Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity”. Ensaio randomizado: desenvolvedores experientes 19% mais lentos com IA, embora se percebessem 20% mais rápidos. [S1] https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/\nMETR (2026). “We Are Changing Our Developer Productivity Experiment Design” (24 fev. 2026). O resultado anterior está desatualizado; ganhos parecem prováveis, mas a recusa de trabalhar sem IA comprometeu o desenho. Bom exemplo, para a turma, de problema de seleção num experimento. [S1] https://metr.org/blog/2026-02-24-uplift-update/\nLyttelton, Massenkoff e Wilmers (2026) — ver item 4 das leituras essenciais."
   },
   {
-    "objectID": "materiais.html#segurança",
-    "href": "materiais.html#segurança",
+    "objectID": "materials.html#segurança",
+    "href": "materials.html#segurança",
     "title": "Materiais",
     "section": "7. Segurança",
     "text": "7. Segurança\n\nWillison, Simon (2025). “The Lethal Trifecta for AI Agents: Private Data, Untrusted Content, and External Communication”. Blog pessoal, 16 jun. 2025. Modelo mental mais útil para explicar prompt injection a não especialistas. [S1][S2] https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/"
   },
   {
-    "objectID": "materiais.html#ecossistema-r-para-o-público-do-dcp",
-    "href": "materiais.html#ecossistema-r-para-o-público-do-dcp",
+    "objectID": "materials.html#ecossistema-r-para-o-público-do-dcp",
+    "href": "materials.html#ecossistema-r-para-o-público-do-dcp",
     "title": "Materiais",
     "section": "8. Ecossistema R (para o público do DCP)",
     "text": "8. Ecossistema R (para o público do DCP)\n\nellmer (Posit) — interface do R para LLMs, com suporte a ferramentas (tool calling). https://ellmer.tidyverse.org\nmall (Posit) — aplica LLMs a colunas de data frames (classificação, extração, sentimento). https://mlverse.github.io/mall/\nmcptools e btw (Posit) — expõem a sessão R e a documentação de pacotes a agentes via MCP.\ndsl — implementação em R do design-based supervised learning de Egami et al. (2023)."
   },
   {
-    "objectID": "materiais.html#leitura-de-fundo-divulgação",
-    "href": "materiais.html#leitura-de-fundo-divulgação",
+    "objectID": "materials.html#leitura-de-fundo-divulgação",
+    "href": "materials.html#leitura-de-fundo-divulgação",
     "title": "Materiais",
     "section": "9. Leitura de fundo (divulgação)",
     "text": "9. Leitura de fundo (divulgação)\n\nMollick, Ethan (2024). Co-Intelligence: Living and Working with AI. Portfolio/Penguin. E o boletim One Useful Thing (oneusefulthing.org), atualizado com frequência sobre modelos e agentes."
   },
   {
-    "objectID": "materiais.html#nota-sobre-verificação",
-    "href": "materiais.html#nota-sobre-verificação",
+    "objectID": "materials.html#nota-sobre-verificação",
+    "href": "materials.html#nota-sobre-verificação",
     "title": "Materiais",
     "section": "Nota sobre verificação",
     "text": "Nota sobre verificação\nAs referências das seções 1, 3, 4, 6 e 7 foram conferidas online em setembro de 2026. As das demais seções são publicações consolidadas, citadas de memória bibliográfica: conferir volume, páginas e DOI antes de usá-las em citação formal (slides ou ementa). Dados que envelhecem rápido — versões de modelos, preços, número de adotantes de padrões — devem ser reconferidos na semana da aula (ver checklist em docs/plan/plano-geral.md)."
   },
   {
-    "objectID": "sobre.html",
-    "href": "sobre.html",
+    "objectID": "about.html",
+    "href": "about.html",
     "title": "Sobre",
     "section": "",
     "text": "Manoel Galdino (@mgaldino): professor no Departamento de Ciência Política da USP.\nFelipe Lamarca (@felipelmc): mestrando em Ciência Política no IESP-UERJ.\nTales Mançano (@mancano-tales): mestrando em Ciência Política no DCP-USP."
   },
   {
-    "objectID": "sobre.html#ministrantes",
-    "href": "sobre.html#ministrantes",
+    "objectID": "about.html#ministrantes",
+    "href": "about.html#ministrantes",
     "title": "Sobre",
     "section": "",
     "text": "Manoel Galdino (@mgaldino): professor no Departamento de Ciência Política da USP.\nFelipe Lamarca (@felipelmc): mestrando em Ciência Política no IESP-UERJ.\nTales Mançano (@mancano-tales): mestrando em Ciência Política no DCP-USP."
   },
   {
-    "objectID": "sobre.html#licença",
-    "href": "sobre.html#licença",
+    "objectID": "about.html#licença",
+    "href": "about.html#licença",
     "title": "Sobre",
     "section": "Licença",
     "text": "Licença\nO conteúdo (textos e slides) está sob CC BY 4.0; o código, sob licença MIT. Veja LICENSE.md."
   },
   {
-    "objectID": "sobre.html#como-citar",
-    "href": "sobre.html#como-citar",
+    "objectID": "about.html#como-citar",
+    "href": "about.html#como-citar",
     "title": "Sobre",
     "section": "Como citar",
     "text": "Como citar\n\nGaldino, M.; Lamarca, F.; Mançano, T. Agentes de IA para Pesquisa. Minicurso, Seminário Discente DCP-USP, 2026. Disponível em: https://mancano-tales.github.io/course-llm-agents-for-research/."
   },
   {
-    "objectID": "sobre.html#código-fonte",
-    "href": "sobre.html#código-fonte",
+    "objectID": "about.html#código-fonte",
+    "href": "about.html#código-fonte",
     "title": "Sobre",
     "section": "Código-fonte",
     "text": "Código-fonte\nhttps://github.com/mancano-tales/course-llm-agents-for-research"
   },
   {
-    "objectID": "aulas/index.html",
-    "href": "aulas/index.html",
-    "title": "Aulas",
+    "objectID": "sessions/index.html",
+    "href": "sessions/index.html",
+    "title": "Sessões",
     "section": "",
-    "text": "As duas sessões estão numa única apresentação, que abre no navegador. Use F para tela cheia, S para as notas do apresentador e Esc para a visão geral."
+    "text": "Os slides de cada sessão serão publicados aqui em PDF."
   },
   {
-    "objectID": "aulas/index.html#sessão-1-o-que-muda-quando-o-modelo-pode-agir",
-    "href": "aulas/index.html#sessão-1-o-que-muda-quando-o-modelo-pode-agir",
-    "title": "Aulas",
+    "objectID": "sessions/index.html#sessão-1-o-que-muda-quando-o-modelo-pode-agir",
+    "href": "sessions/index.html#sessão-1-o-que-muda-quando-o-modelo-pode-agir",
+    "title": "Sessões",
     "section": "Sessão 1 — O que muda quando o modelo pode agir",
-    "text": "Sessão 1 — O que muda quando o modelo pode agir\nLLMs como agentes, panorama de modelos e ferramentas, prosa versus instruções determinísticas, isolamento e custos.\nAbrir os slides"
+    "text": "Sessão 1 — O que muda quando o modelo pode agir\nLLMs como agentes, panorama de modelos e ferramentas, prosa versus instruções determinísticas, isolamento e custos."
   },
   {
-    "objectID": "aulas/index.html#sessão-2-habilidades-práticas-e-governança",
-    "href": "aulas/index.html#sessão-2-habilidades-práticas-e-governança",
-    "title": "Aulas",
+    "objectID": "sessions/index.html#sessão-2-habilidades-práticas-e-governança",
+    "href": "sessions/index.html#sessão-2-habilidades-práticas-e-governança",
+    "title": "Sessões",
     "section": "Sessão 2 — Habilidades práticas e governança",
-    "text": "Sessão 2 — Habilidades práticas e governança\nSkills, hooks (code as policy), MCP e segurança, AGENTS.md e reprodutibilidade, com demonstração ao vivo.\nAbrir os slides Projeto de demonstração"
+    "text": "Sessão 2 — Habilidades práticas e governança\nSkills, hooks (code as policy), MCP e segurança, AGENTS.md e reprodutibilidade, com demonstração ao vivo.\nProjeto de demonstração"
   },
   {
-    "objectID": "aulas/index.html#versão-para-impressão",
-    "href": "aulas/index.html#versão-para-impressão",
-    "title": "Aulas",
-    "section": "Versão para impressão",
-    "text": "Versão para impressão\nAs duas sessões num único PDF (Beamer): baixar."
-  },
-  {
-    "objectID": "ementa.html",
-    "href": "ementa.html",
+    "objectID": "llm-agents-for-research-syllabus.html",
+    "href": "llm-agents-for-research-syllabus.html",
     "title": "Agentes de Inteligência Artificial para Pesquisa",
     "section": "",
     "text": "No último ano, o uso mais interessante dos modelos de linguagem (LLMs) transicionou dos chatbots para agentes: os modelos ganharam a capacidade de executar comandos no computador, consultar arquivos e encontrar informações autonomamente. Na pesquisa acadêmica, isso significa executar planos com várias etapas, manipular dados empíricos, usar ferramentas externas (editar e ler arquivos, chamar APIs, pesquisar na internet) e testar os resultados das próprias tarefas. Isso já é útil para diversas tarefas que antes tomavam muito tempo e agora saem com custo bem mais baixo: análise exploratória de dados, transcrição de entrevistas, organização e triagem de arquivos extensos, classificação de notícias e outros documentos, e criação de bases de dados, entre outras.\nEste minicurso, oferecido no âmbito do Seminário Discente DCP-USP 2026, tem como propósito introduzir pesquisadores aos fundamentos para usar agentes de IA de forma rigorosa — evitando problemas comuns como alucinações, falta de registro do que foi feito e falta de replicabilidade, e garantindo a possibilidade de revisar o trabalho depois. Isso passa por code as policy: regras rígidas sobre o que um agente pode e não pode fazer, para evitar problemas de reprodutibilidade e rigor na pesquisa com agentes."
   },
   {
-    "objectID": "ementa.html#sessão-1-introdução-aos-agentes-1h30",
-    "href": "ementa.html#sessão-1-introdução-aos-agentes-1h30",
+    "objectID": "llm-agents-for-research-syllabus.html#sessão-1-introdução-aos-agentes-1h30",
+    "href": "llm-agents-for-research-syllabus.html#sessão-1-introdução-aos-agentes-1h30",
     "title": "Agentes de Inteligência Artificial para Pesquisa",
     "section": "Sessão 1: Introdução aos Agentes (1h30)",
     "text": "Sessão 1: Introdução aos Agentes (1h30)\nFoco: caráter estritamente conceitual — o que muda quando um LLM ganha capacidade de agir. Nenhuma habilidade prática é ensinada nesta sessão.\n\nLLMs como Agentes\n\nLLMs como agentes: o que muda quando o modelo tem acesso a terminal, edita arquivos locais ou em rede, e executa tarefas de várias etapas sem supervisão a cada passo.\n\nPanorama de Modelos e Ferramentas\n\nPrincipais famílias de modelos hoje (Claude, GPT, Gemini, DeepSeek, modelos abertos) e o que muda entre elas na prática de pesquisa.\nAgentes de terminal e de editor (Open Code, Claude Code, entre outros): o que são e como se diferenciam de um chatbot comum.\n\nBenefícios, Vantagens e Custos\n\nQue tarefas de pesquisa se beneficiam de automação com agentes — e quais não valem o esforço de configurar um agente.\nModelos de cobrança: assinatura de aplicativo vs. cobrança por uso de API (tokens); ordem de grandeza de custo para tarefas típicas de pesquisa.\n\nO Harness do Agente: Isolamento e Containerização\n\nHarness: o ambiente que envolve o modelo e viabiliza sua execução — quem controla permissões de leitura/escrita, o que o agente pode acessar, quem decide quando parar.\nContainerização: rodar agentes em sandbox/container limita o raio de dano de uma ação indevida.\n\nInstrução em Prosa vs. Restrições Determinísticas\n\nQuando confiar no julgamento do modelo (instrução em prosa) e quando impor uma regra fixa que executa sempre da mesma forma.\nPor que a pesquisa empírica exige, em certos pontos do processo, uma previsibilidade que demanda regras determinísticas.\nGancho para a Sessão 2: essa distinção é a base de hooks e code as policy."
   },
   {
-    "objectID": "ementa.html#sessão-2-habilidades-práticas-e-governança-1h30",
-    "href": "ementa.html#sessão-2-habilidades-práticas-e-governança-1h30",
+    "objectID": "llm-agents-for-research-syllabus.html#sessão-2-habilidades-práticas-e-governança-1h30",
+    "href": "llm-agents-for-research-syllabus.html#sessão-2-habilidades-práticas-e-governança-1h30",
     "title": "Agentes de Inteligência Artificial para Pesquisa",
     "section": "Sessão 2: Habilidades Práticas e Governança (1h30)",
     "text": "Sessão 2: Habilidades Práticas e Governança (1h30)\nFoco: colocar a mão na massa nas ferramentas que tornam um agente confiável e útil para a pesquisa.\n\nSkills: Instruções Reutilizáveis\n\nO que são skills: instruções empacotadas e reutilizáveis para tarefas de pesquisa recorrentes.\nPara quem quiser ir além: orquestração de múltiplos agentes trabalhando em conjunto numa mesma tarefa — por exemplo, separar um agente que implementa de outro que só valida o que foi feito, mantendo o contexto de cada etapa enxuto e a revisão independente da execução.\n\nControle Determinístico com Hooks\n\nHooks de agente: validações e bloqueios (guardrails) que sempre disparam antes ou depois da execução do modelo, independente do “bom senso” do modelo — a mesma lógica dos git hooks, usada aqui apenas como analogia conceitual para intuir o mecanismo, sem exigir conhecimento prévio de Git.\nCode as policy: checagem de integridade de dados, validação de formato e auditoria de commits como regras executáveis, não como pedido em prosa — apresentado via demonstração ao vivo pelos ministrantes, não como exercício prático dos participantes.\n\nMCP, Linha de Comando e Segurança\n\nModel Context Protocol (MCP): como conectar agentes a bases de dados locais, APIs (inclusive governamentais) e ferramentas de busca de forma padronizada.\nBoas práticas de segurança: isolamento de chaves de API e permissões de execução — por que “menos acesso” é o padrão seguro.\n\nAGENTS.md e Reprodutibilidade\n\nEstrutura, nível de detalhe e armadilhas comuns ao instruir um agente sobre como operar em um repositório ou projeto de pesquisa.\nRastreabilidade: logs de execução e padrões de versionamento que permitem revisar o trabalho do agente depois.\n\nSoftware com IA para Pesquisa — Aplicações Exemplares\n\nO que caracteriza uma boa aplicação de IA no fluxo de pesquisa: respostas rastreáveis até a fonte, integração com as ferramentas que o pesquisador já usa, e transparência sobre o que foi automatizado.\nCategorias com boas alternativas de IA hoje: gestão de referências (Zotero + Beaver), transcrição de áudio, análise de dados, etc.\nGerenciamento de contexto como boa prática recorrente nessas aplicações: por que separar o agente que executa do agente que audita o resultado reduz viés de confirmação e mantém cada etapa com um contexto mais enxuto e específico."

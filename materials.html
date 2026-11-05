@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt" xml:lang="pt"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.9">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Materiais – Agentes de IA para Pesquisa</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-8d3ad9c781c51ccd60b292c95058b2c2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Saltar para o conteúdo principal</a>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Sítio">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Agentes de IA para Pesquisa</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Início</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./llm-agents-for-research-syllabus.html"> 
+<span class="menu-text">Ementa</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./sessions/index.html"> 
+<span class="menu-text">Sessões</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./materials.html" aria-current="page"> 
+<span class="menu-text">Materiais</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">Sobre</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/mancano-tales/course-llm-agents-for-research"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+            <div id="quarto-search" class="" title="Procurar"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#projeto-de-demonstração" id="toc-projeto-de-demonstração" class="nav-link active" data-scroll-target="#projeto-de-demonstração">Projeto de demonstração</a></li>
+  <li><a href="#bibliografia-comentada" id="toc-bibliografia-comentada" class="nav-link" data-scroll-target="#bibliografia-comentada">Bibliografia comentada</a></li>
+  <li><a href="#bibliografia-comentada-workshop-agentes-dcp-usp-2026" id="toc-bibliografia-comentada-workshop-agentes-dcp-usp-2026" class="nav-link" data-scroll-target="#bibliografia-comentada-workshop-agentes-dcp-usp-2026">Bibliografia Comentada — Workshop Agentes (DCP-USP 2026)</a>
+  <ul class="collapse">
+  <li><a href="#leituras-essenciais" id="toc-leituras-essenciais" class="nav-link" data-scroll-target="#leituras-essenciais">1. Leituras essenciais</a></li>
+  <li><a href="#agentes-conceitos-arquitetura-e-engenharia-de-contexto" id="toc-agentes-conceitos-arquitetura-e-engenharia-de-contexto" class="nav-link" data-scroll-target="#agentes-conceitos-arquitetura-e-engenharia-de-contexto">2. Agentes: conceitos, arquitetura e engenharia de contexto</a></li>
+  <li><a href="#padrões-abertos" id="toc-padrões-abertos" class="nav-link" data-scroll-target="#padrões-abertos">3. Padrões abertos</a></li>
+  <li><a href="#fluxos-de-trabalho-de-pesquisadores-pontos-de-partida-práticos" id="toc-fluxos-de-trabalho-de-pesquisadores-pontos-de-partida-práticos" class="nav-link" data-scroll-target="#fluxos-de-trabalho-de-pesquisadores-pontos-de-partida-práticos">4. Fluxos de trabalho de pesquisadores (pontos de partida práticos)</a></li>
+  <li><a href="#llms-como-instrumento-de-medida-nas-ciências-sociais" id="toc-llms-como-instrumento-de-medida-nas-ciências-sociais" class="nav-link" data-scroll-target="#llms-como-instrumento-de-medida-nas-ciências-sociais">5. LLMs como instrumento de medida nas ciências sociais</a></li>
+  <li><a href="#evidência-sobre-produtividade" id="toc-evidência-sobre-produtividade" class="nav-link" data-scroll-target="#evidência-sobre-produtividade">6. Evidência sobre produtividade</a></li>
+  <li><a href="#segurança" id="toc-segurança" class="nav-link" data-scroll-target="#segurança">7. Segurança</a></li>
+  <li><a href="#ecossistema-r-para-o-público-do-dcp" id="toc-ecossistema-r-para-o-público-do-dcp" class="nav-link" data-scroll-target="#ecossistema-r-para-o-público-do-dcp">8. Ecossistema R (para o público do DCP)</a></li>
+  <li><a href="#leitura-de-fundo-divulgação" id="toc-leitura-de-fundo-divulgação" class="nav-link" data-scroll-target="#leitura-de-fundo-divulgação">9. Leitura de fundo (divulgação)</a></li>
+  <li><a href="#nota-sobre-verificação" id="toc-nota-sobre-verificação" class="nav-link" data-scroll-target="#nota-sobre-verificação">Nota sobre verificação</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content" tabindex="-1">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Materiais</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="projeto-de-demonstração" class="level2">
+<h2 class="anchored" data-anchor-id="projeto-de-demonstração">Projeto de demonstração</h2>
+<p>O <a href="https://github.com/mancano-tales/course-llm-agents-for-research/tree/main/sessions/02-practical-skills/lab/demo-project">projeto de demonstração</a> da Sessão 2 aplica <em>skill</em>, <em>hooks</em> em R, subagente auditor e <code>AGENTS.md</code> à codificação de discursos parlamentares fictícios. Clone o repositório para reproduzir.</p>
+</section>
+<section id="bibliografia-comentada" class="level2">
+<h2 class="anchored" data-anchor-id="bibliografia-comentada">Bibliografia comentada</h2>
+<p>Entradas BibTeX: <a href="referencias.bib">referencias.bib</a>.</p>
+</section>
+<section id="bibliografia-comentada-workshop-agentes-dcp-usp-2026" class="level1">
+<h1>Bibliografia Comentada — Workshop Agentes (DCP-USP 2026)</h1>
+<p>Referências de apoio às duas sessões, atualizadas em setembro de 2026. Organizadas por função no curso, não por ordem alfabética. Entradas BibTeX correspondentes em <a href="referencias.bib">referencias.bib</a>.</p>
+<p>Convenção: <strong>[S1]</strong> e <strong>[S2]</strong> indicam em que sessão a referência é usada; <strong>[E]</strong> marca as leituras essenciais, candidatas a entrar numa lista curta na ementa.</p>
+<p>Observação: boa parte do material mais útil sobre agentes de pesquisa circula em <em>working papers</em>, blogs e repositórios, não em periódicos. Isso reflete a velocidade da área, e deve ser dito à turma: são fontes para orientar a prática, a serem lidas com o mesmo senso crítico de qualquer literatura cinzenta.</p>
+<hr>
+<section id="leituras-essenciais" class="level2">
+<h2 class="anchored" data-anchor-id="leituras-essenciais">1. Leituras essenciais</h2>
+<ol type="1">
+<li><p><strong>Korinek, Anton (2025).</strong> <em>AI Agents for Economic Research</em>. NBER Working Paper 34202. <strong>[S1][S2][E]</strong> Atualização (ago. 2025) do artigo de Korinek no <em>Journal of Economic Literature</em> (2023). Explica o que são agentes, como planejam e usam ferramentas, e traz exemplos passo a passo — revisão de literatura, código econométrico, coleta de dados — pensados para quem não programa. Melhor introdução acadêmica única ao tema. <a href="https://www.nber.org/papers/w34202" class="uri">https://www.nber.org/papers/w34202</a></p></li>
+<li><p><strong>Cunningham, Scott (2025–2026).</strong> Série “Claude Code” no <em>Scott’s Mixtape Substack</em> (mais de 50 textos). <strong>[S1][S2][E]</strong> Cunningham é professor de economia na Baylor University (professor visitante no Departamento de Governo de Harvard em 2025–26 e na Harvard Kennedy School em 2026–27), autor de <em>Causal Inference: The Mixtape</em> (Yale University Press, 2021) e de <em>Causal Inference: The Remix</em> (Yale University Press, 2026). A série documenta, em tempo real, a adoção de agentes de terminal na pesquisa empírica aplicada: organização de projetos, replicação, depuração e — o ponto mais citável — os “retornos à expertise”: o agente amplifica quem já sabe avaliar o resultado e pode corroer a formação de quem não sabe. Em março de 2026 falou sobre o tema ao <em>Board of Governors</em> do Federal Reserve (ele confirma a palestra; o título “AI Agents for Research Workers” e a demonstração ao vivo vêm de reportagem da Forbes, não conferida na fonte). Não encontramos livro com esse título. Levantamento detalhado, com datas e links: <a href="https://github.com/mancano-tales/course-llm-agents-for-research/blob/main/docs/research/2026-10-06_scott-cunningham.md">docs/research/2026-10-06_scott-cunningham.md</a>. <a href="https://causalinf.substack.com/s/claude-code" class="uri">https://causalinf.substack.com/s/claude-code</a></p></li>
+<li><p><strong>Cunningham, Scott.</strong> <em>MixtapeTools</em> (repositório GitHub), em especial o protocolo <strong>Referee 2</strong>. <strong>[S2][E]</strong> Auditoria em cinco etapas (correção do código, replicação em outra linguagem, estrutura de pastas, automação das saídas, econometria), executada por uma instância nova do agente que nunca viu o trabalho. Base conceitual do subagente auditor do projeto de demonstração. O repositório traz também, desde agosto de 2026, o primeiro <em>hook</em> dele (<code>hooks/protect-raw-data</code>): um <em>hook</em> que bloqueia edição em <code>data/raw</code>, uma trava do sistema operacional e uma impressão digital SHA-256 dos arquivos, porque um <em>hook</em> sozinho é contornável por um script (“The fix is not a bigger hook. It is a stack.”). É a mesma lógica de guarda e sensor do projeto de demonstração. <a href="https://github.com/scunning1975/MixtapeTools" class="uri">https://github.com/scunning1975/MixtapeTools</a></p></li>
+<li><p><strong>Lyttelton, Thomas; Massenkoff, Maxim; Wilmers, Nathan (2026).</strong> <em>Coding Agents in the Social Sciences</em>. Anthropic Research, 27 maio 2026. <strong>[S1][E]</strong> Pesquisa com 1.260 cientistas sociais quantitativos (fev.–mar. 2026): 81% usaram chatbots, 20% usam agentes (39% entre economistas, 25% entre cientistas políticos). Usuários de agentes postam 50% mais <em>working papers</em>, sem diferença em submissões a periódicos. Adoção desigual por gênero e prestígio institucional. Útil tanto como dado de abertura quanto como objeto de discussão sobre desigualdade. <a href="https://www.anthropic.com/research/coding-agents-social-sciences" class="uri">https://www.anthropic.com/research/coding-agents-social-sciences</a></p></li>
+<li><p><strong>Barrie, Christopher; Palmer, Alexis; Spirling, Arthur (2025).</strong> “Replication for Language Models: Problems, Principles, and Best Practice for Political Science”. <em>American Journal of Political Science</em> (aceito). <strong>[S1][S2][E]</strong> Desenho de replicação iterada ao longo de meses: LLMs podem ser muito precisos, mas a variância entre execuções é frequentemente inaceitável, e controlar a temperatura não resolve. Referência central da ciência política sobre replicabilidade com LLMs. <a href="https://arthurspirling.org/documents/BarriePalmerSpirling_TrustMeBro.pdf" class="uri">https://arthurspirling.org/documents/BarriePalmerSpirling_TrustMeBro.pdf</a></p></li>
+<li><p><strong>Ludwig, Jens; Mullainathan, Sendhil; Rambachan, Ashesh (2026).</strong> “Large Language Models: An Applied Econometric Framework”. <em>Annual Review of Economics</em> 18. <strong>[S1][S2][E]</strong> Quando um LLM é usado para <em>medir</em> um conceito que entra numa análise, a inferência válida exige combinar a saída do modelo com uma pequena amostra de validação; quando é usado para <em>prever</em>, exige garantir que não houve vazamento de treino. Fundamento do passo “amostra de validação humana” da <em>skill</em> de demonstração. <a href="https://www.nber.org/papers/w33344" class="uri">https://www.nber.org/papers/w33344</a></p></li>
+<li><p><strong>Anthropic — Schluntz, Erik; Zhang, Barry (2024).</strong> <em>Building Effective Agents</em>. <strong>[S1][E]</strong> Texto curto e muito citado que distingue <em>fluxos de trabalho</em> (caminho definido pelo programador) de <em>agentes</em> (o modelo decide o caminho) e recomenda começar pelo mais simples. <a href="https://www.anthropic.com/engineering/building-effective-agents" class="uri">https://www.anthropic.com/engineering/building-effective-agents</a></p></li>
+</ol>
+<hr>
+</section>
+<section id="agentes-conceitos-arquitetura-e-engenharia-de-contexto" class="level2">
+<h2 class="anchored" data-anchor-id="agentes-conceitos-arquitetura-e-engenharia-de-contexto">2. Agentes: conceitos, arquitetura e engenharia de contexto</h2>
+<ul>
+<li><strong>Willison, Simon (2025).</strong> “I think ‘agent’ may finally have a widely enough agreed upon definition to be useful jargon now” — definição operacional <em>“um LLM que roda ferramentas em loop para atingir um objetivo”</em>. Blog pessoal (simonwillison.net), set. 2025. <strong>[S1]</strong></li>
+<li><strong>Anthropic (2025).</strong> <em>Effective Context Engineering for AI Agents</em>. Por que a janela de contexto é um recurso finito, e como subagentes, arquivos de memória e carregamento sob demanda ajudam a administrá-la. <strong>[S1][S2]</strong> <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" class="uri">https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents</a></li>
+<li><strong>Anthropic (2025).</strong> <em>Claude Code: Best Practices for Agentic Coding</em>; documentação oficial de <em>hooks</em>, <em>skills</em>, subagentes e <code>CLAUDE.md</code>. Referência técnica para o formato usado no projeto de demonstração. <strong>[S2]</strong> <a href="https://code.claude.com/docs" class="uri">https://code.claude.com/docs</a></li>
+<li><strong>Liu, Jiacheng; Zhao, Xiaohan; Shang, Xinyi; Shen, Zhiqiang (2026).</strong> “Dive into Claude Code: The Design Space of Today’s and Future AI Agent Systems”. arXiv:2604.14228. Análise acadêmica da arquitetura de agentes de terminal: permissões, <em>hooks</em>, subagentes, memória. Útil para quem quiser aprofundar o bloco sobre <em>harness</em>. <strong>[S1]</strong> <a href="https://arxiv.org/abs/2604.14228" class="uri">https://arxiv.org/abs/2604.14228</a></li>
+</ul>
+</section>
+<section id="padrões-abertos" class="level2">
+<h2 class="anchored" data-anchor-id="padrões-abertos">3. Padrões abertos</h2>
+<ul>
+<li><strong>Model Context Protocol (MCP)</strong> — especificação e documentação. Doado pela Anthropic à Agentic AI Foundation (Linux Foundation) em 9 dez. 2025. <strong>[S1][S2]</strong> <a href="https://modelcontextprotocol.io" class="uri">https://modelcontextprotocol.io</a></li>
+<li><strong>AGENTS.md</strong> — formato aberto de instruções de projeto para agentes, contribuído pela OpenAI à mesma fundação; adotado por mais de 60 mil projetos. <strong>[S2]</strong> <a href="https://agents.md" class="uri">https://agents.md</a></li>
+<li><strong>Agent Skills</strong> — padrão aberto de <em>skills</em>, publicado pela Anthropic em 18 dez. 2025. <strong>[S2]</strong> <a href="https://agentskills.io" class="uri">https://agentskills.io</a></li>
+<li><strong>Linux Foundation (2025).</strong> Anúncio da formação da Agentic AI Foundation (AAIF). <strong>[S1]</strong> <a href="https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation" class="uri">https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation</a></li>
+</ul>
+</section>
+<section id="fluxos-de-trabalho-de-pesquisadores-pontos-de-partida-práticos" class="level2">
+<h2 class="anchored" data-anchor-id="fluxos-de-trabalho-de-pesquisadores-pontos-de-partida-práticos">4. Fluxos de trabalho de pesquisadores (pontos de partida práticos)</h2>
+<ul>
+<li><strong>Sant’Anna, Pedro H. C. (2026).</strong> <em>claude-code-my-workflow</em> — <em>template</em> para acadêmicos (LaTeX/Beamer, Quarto, R) com agentes revisores, portões de qualidade e protocolos de replicação; extraído do curso de doutorado <em>Causal Panel Data</em> (Emory). Adaptado por grupos de economia e ciência política. <strong>[S2]</strong> <a href="https://github.com/pedrohcgs/claude-code-my-workflow" class="uri">https://github.com/pedrohcgs/claude-code-my-workflow</a></li>
+<li><strong>Blattman, Christopher (2026).</strong> <em>Claude Blattman — AI for Professionals Who Don’t Code</em>. Site aberto de um economista político (Chicago Harris) sem formação em programação, com <em>skills</em>, fluxos de “críticos paralelos” e tutoriais para iniciantes. Excelente para o público-alvo do minicurso. <strong>[S2]</strong> <a href="https://claudeblattman.com" class="uri">https://claudeblattman.com</a></li>
+<li><strong>Crawfurd, Lee.</strong> <em>claude-skills</em> — <em>skills</em> para revisão de artigos, revisão de código e auditoria de reprodutibilidade computacional. <strong>[S2]</strong> <a href="https://github.com/lcrawfurd/claude-skills" class="uri">https://github.com/lcrawfurd/claude-skills</a></li>
+<li><strong>Korinek, Anton (2023).</strong> “Generative AI for Economic Research: Use Cases and Implications for Economists”. <em>Journal of Economic Literature</em> 61(4): 1281–1317. Versão anterior, centrada em chatbots; boa para contrastar com a de 2025. <strong>[S1]</strong></li>
+</ul>
+</section>
+<section id="llms-como-instrumento-de-medida-nas-ciências-sociais" class="level2">
+<h2 class="anchored" data-anchor-id="llms-como-instrumento-de-medida-nas-ciências-sociais">5. LLMs como instrumento de medida nas ciências sociais</h2>
+<ul>
+<li><strong>Egami, Naoki; Hinck, Musashi; Stewart, Brandon M.; Wei, Hanying (2023).</strong> “Using Imperfect Surrogates for Downstream Inference: Design-based Supervised Learning for Social Science Applications of Large Language Models”. <em>NeurIPS</em>. Como usar rótulos de LLM numa regressão sem viés, com uma amostra de validação. Pacote R <code>dsl</code>. <strong>[S1][S2]</strong></li>
+<li><strong>Baumann, Joachim et al.&nbsp;(2025).</strong> “Large Language Model Hacking: Quantifying the Hidden Risks of Using LLMs for Text Annotation”. arXiv:2509.08825. Escolhas de modelo, <em>prompt</em> e temperatura mudam conclusões substantivas — um novo grau de liberdade do pesquisador. <strong>[S1]</strong> <a href="https://arxiv.org/abs/2509.08825" class="uri">https://arxiv.org/abs/2509.08825</a></li>
+<li><strong>Gilardi, Fabrizio; Alizadeh, Meysam; Kubli, Maël (2023).</strong> “ChatGPT Outperforms Crowd Workers for Text-Annotation Tasks”. <em>PNAS</em> 120(30). O artigo que popularizou a anotação com LLMs na ciência política. <strong>[S1]</strong></li>
+<li><strong>Törnberg, Petter (2024).</strong> “Best Practices for Text Annotation with Large Language Models”. <em>Sociologica</em> 18(2). Lista prática de cuidados: validação, documentação, modelos abertos. <strong>[S2]</strong></li>
+<li><strong>Spirling, Arthur (2023).</strong> “Why Open-Source Generative AI Models Are an Ethical Choice for Science”. <em>Nature</em> 616: 413. <strong>[S1][S2]</strong></li>
+<li><strong>Argyle, Lisa P. et al.&nbsp;(2023).</strong> “Out of One, Many: Using Language Models to Simulate Human Samples”. <em>Political Analysis</em> 31(3). Referência para a discussão (fora do escopo principal do curso) sobre “amostras de silício”. <strong>[S1]</strong></li>
+<li><strong>Bail, Christopher A. (2024).</strong> “Can Generative AI Improve Social Science?”. <em>PNAS</em> 121(21). Panorama equilibrado de usos e riscos. <strong>[S1]</strong></li>
+</ul>
+</section>
+<section id="evidência-sobre-produtividade" class="level2">
+<h2 class="anchored" data-anchor-id="evidência-sobre-produtividade">6. Evidência sobre produtividade</h2>
+<ul>
+<li><strong>Becker, Joel et al.&nbsp;/ METR (2025).</strong> “Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity”. Ensaio randomizado: desenvolvedores experientes 19% mais lentos com IA, embora se percebessem 20% mais rápidos. <strong>[S1]</strong> <a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/" class="uri">https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/</a></li>
+<li><strong>METR (2026).</strong> “We Are Changing Our Developer Productivity Experiment Design” (24 fev. 2026). O resultado anterior está desatualizado; ganhos parecem prováveis, mas a recusa de trabalhar sem IA comprometeu o desenho. Bom exemplo, para a turma, de problema de seleção num experimento. <strong>[S1]</strong> <a href="https://metr.org/blog/2026-02-24-uplift-update/" class="uri">https://metr.org/blog/2026-02-24-uplift-update/</a></li>
+<li><strong>Lyttelton, Massenkoff e Wilmers (2026)</strong> — ver item 4 das leituras essenciais.</li>
+</ul>
+</section>
+<section id="segurança" class="level2">
+<h2 class="anchored" data-anchor-id="segurança">7. Segurança</h2>
+<ul>
+<li><strong>Willison, Simon (2025).</strong> “The Lethal Trifecta for AI Agents: Private Data, Untrusted Content, and External Communication”. Blog pessoal, 16 jun. 2025. Modelo mental mais útil para explicar <em>prompt injection</em> a não especialistas. <strong>[S1][S2]</strong> <a href="https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/" class="uri">https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/</a></li>
+</ul>
+</section>
+<section id="ecossistema-r-para-o-público-do-dcp" class="level2">
+<h2 class="anchored" data-anchor-id="ecossistema-r-para-o-público-do-dcp">8. Ecossistema R (para o público do DCP)</h2>
+<ul>
+<li><strong><code>ellmer</code></strong> (Posit) — interface do R para LLMs, com suporte a ferramentas (<em>tool calling</em>). <a href="https://ellmer.tidyverse.org" class="uri">https://ellmer.tidyverse.org</a></li>
+<li><strong><code>mall</code></strong> (Posit) — aplica LLMs a colunas de <em>data frames</em> (classificação, extração, sentimento). <a href="https://mlverse.github.io/mall/" class="uri">https://mlverse.github.io/mall/</a></li>
+<li><strong><code>mcptools</code></strong> e <strong><code>btw</code></strong> (Posit) — expõem a sessão R e a documentação de pacotes a agentes via MCP.</li>
+<li><strong><code>dsl</code></strong> — implementação em R do <em>design-based supervised learning</em> de Egami et al.&nbsp;(2023).</li>
+</ul>
+</section>
+<section id="leitura-de-fundo-divulgação" class="level2">
+<h2 class="anchored" data-anchor-id="leitura-de-fundo-divulgação">9. Leitura de fundo (divulgação)</h2>
+<ul>
+<li><strong>Mollick, Ethan (2024).</strong> <em>Co-Intelligence: Living and Working with AI</em>. Portfolio/Penguin. E o boletim <em>One Useful Thing</em> (oneusefulthing.org), atualizado com frequência sobre modelos e agentes.</li>
+</ul>
+<hr>
+</section>
+<section id="nota-sobre-verificação" class="level2">
+<h2 class="anchored" data-anchor-id="nota-sobre-verificação">Nota sobre verificação</h2>
+<p>As referências das seções 1, 3, 4, 6 e 7 foram conferidas online em setembro de 2026. As das demais seções são publicações consolidadas, citadas de memória bibliográfica: conferir volume, páginas e DOI antes de usá-las em citação formal (slides ou ementa). Dados que envelhecem rápido — versões de modelos, preços, número de adotantes de padrões — devem ser reconferidos na semana da aula (ver checklist em <code>docs/plan/plano-geral.md</code>).</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/mancano-tales\.github\.io\/course-llm-agents-for-research\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+          if (!link.classList.contains('no-external-icon')) {
+          }
+        }
+      }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
+          if (lineIds.length > 0) {
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            placeBand(gutterDiv, el, lastEl);
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Código deslocável","output":"Saída deslocável"};
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Seminário Discente DCP-USP 2026 · Conteúdo sob CC BY 4.0</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

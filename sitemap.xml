@@ -2,26 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://mancano-tales.github.io/course-llm-agents-for-research/index.html</loc>
-    <lastmod>2026-10-19T00:43:25.494Z</lastmod>
+    <lastmod>2026-11-05T21:28:13.122Z</lastmod>
   </url>
   <url>
-    <loc>https://mancano-tales.github.io/course-llm-agents-for-research/materiais.html</loc>
-    <lastmod>2026-10-19T00:43:25.494Z</lastmod>
+    <loc>https://mancano-tales.github.io/course-llm-agents-for-research/materials.html</loc>
+    <lastmod>2026-11-05T21:28:13.122Z</lastmod>
   </url>
   <url>
-    <loc>https://mancano-tales.github.io/course-llm-agents-for-research/sobre.html</loc>
-    <lastmod>2026-10-19T00:43:25.494Z</lastmod>
+    <loc>https://mancano-tales.github.io/course-llm-agents-for-research/about.html</loc>
+    <lastmod>2026-11-05T21:28:13.121Z</lastmod>
   </url>
   <url>
-    <loc>https://mancano-tales.github.io/course-llm-agents-for-research/aulas/index.html</loc>
-    <lastmod>2026-10-19T00:43:25.493Z</lastmod>
+    <loc>https://mancano-tales.github.io/course-llm-agents-for-research/sessions/index.html</loc>
+    <lastmod>2026-11-05T21:28:13.125Z</lastmod>
   </url>
   <url>
-    <loc>https://mancano-tales.github.io/course-llm-agents-for-research/ementa.html</loc>
-    <lastmod>2026-10-19T00:43:25.494Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mancano-tales.github.io/course-llm-agents-for-research/aulas/agentes-ia-pesquisa.html</loc>
-    <lastmod>2026-10-19T00:43:25.493Z</lastmod>
+    <loc>https://mancano-tales.github.io/course-llm-agents-for-research/llm-agents-for-research-syllabus.html</loc>
+    <lastmod>2026-11-05T21:28:13.122Z</lastmod>
   </url>
 </urlset>
