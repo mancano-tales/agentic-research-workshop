@@ -44,13 +44,6 @@ format:
 :::
 :::
 
-::: {.tese}
-A verificação dos resultados é o principal gargalo da pesquisa com agentes.
-:::
-
-::: notes
-Roteiro completo: aulas/01-introducao-ecossistema/notas-aula.md. A tese abre e fecha as duas sessões.
-:::
 
 # Sessão 1: O que muda quando o modelo pode agir {#sessao-1}
 
@@ -222,6 +215,44 @@ Fontes oficiais e datas: docs/pesquisa/2026-10-05_code-as-policy-modelos-harness
 Spirling (2023), *Nature*; Barrie, Palmer e Spirling (2025), *AJPS*. A deriva de versão como problema de pesquisa: curso de Olsson e Valli, EUI (2026–27).
 :::
 
+
+## Onde o LLM fica na replicação {.smaller}
+
+| | **Replicação exata não é possível** | **Replicação exata é possível** |
+|---|---|---|
+| **Frágil (depende do sistema)** | **LLMs** | Código e dados estáticos |
+| **Não frágil** | *Crowdsourcing*, assistentes de pesquisa | Regra explícita de codificação |
+
+::: {.alerta}
+LLMs somam as fraquezas do *crowdsourcing* (variância) e do código (fragilidade), sem a vantagem de nenhum dos dois.
+:::
+
+::: {.fonte}
+Barrie, Palmer e Spirling (2025), tabela 1 (adaptada).
+:::
+
+::: notes
+Ler a tabela no sentido horário a partir do canto superior direito. Código e dados estáticos replicam exatamente, mas só com o mesmo sistema. A regra explícita (ex.: a lista de estados do Sul de Key) replica exatamente e sem depender de computador. O crowdsourcing não replica exatamente, mas não depende do sistema. O LLM não replica exatamente e ainda depende do modelo e da versão. Daí a tese do curso: o que puder virar regra explícita deve virar.
+:::
+
+## Oito meses rodando a mesma tarefa {.smaller}
+
+- Três LLMs e trabalhadores de *crowdsourcing* codificam, **uma vez por mês**, tarefas de artigos publicados (manifestos, protestos, populismo)
+- Os LLMs costumam ser **mais precisos** que os humanos, mas **variam mais** entre rodadas; o modelo aberto e local (Llama) teve variância quase nula
+- Refazendo uma regressão publicada com codificações de LLMs, a maioria dos coeficientes **deixa de ser significativa**; modelos com acurácia parecida dão coeficientes diferentes
+- Versões de modelos fechados foram **aposentadas** durante o estudo
+
+::: {.tese}
+Relatar o *prompt* de uma rodada não basta: é preciso rodar de novo e relatar a variância.
+:::
+
+::: {.fonte}
+Barrie, Palmer e Spirling (2025). Reanálises de Bor e Petersen (2022) e Bonikowski et al. (2022).
+:::
+
+::: notes
+Conferir os números na versão publicada (AJPS) antes da aula; o resumo acima segue a versão de dezembro de 2024. Abril a dezembro de 2024; amostra fixa e amostra mensal de 1000 linhas por fonte. Na reanálise de populismo, os coeficientes ficaram abaixo de um terço dos publicados. O ponto para a plateia: o problema não é só acurácia média, ele muda conclusões substantivas.
+:::
 ## Onde o agente roda
 
 - **Terminal**: Claude Code, Codex CLI, Gemini CLI, OpenCode, goose
@@ -413,7 +444,7 @@ O que une os dois: a regra que vale é a que roda.
 
 ## Por que a pesquisa precisa de regra
 
-1. **Variância**: mesmo modelo, mesmo *prompt*, respostas diferentes em dias diferentes; fixar a temperatura não resolve
+1. **Variância**: mesmo modelo, mesmo *prompt*, respostas diferentes em dias diferentes; fixar a temperatura não resolve, e a variação chega aos coeficientes da regressão
 2. **"LLM hacking"**: modelo, *prompt* e temperatura mudam conclusões — um novo grau de liberdade do pesquisador
 3. **Validade da medida**: o erro de classificação não é aleatório e enviesa a regressão; a saída é uma **amostra de validação humana** com estimadores que corrigem o viés
 
@@ -1180,13 +1211,13 @@ Compare uma execução inicial com o fluxo revisado, usando os mesmos casos.
 | Qualidade | Quantos erros a revisão encontrou? |
 | Cobertura | Quantos casos ficaram faltando ou sem fonte? |
 | Retrabalho | Quanto tempo foi gasto corrigindo a entrega? |
-| Repetibilidade | Uma nova execução produziu diferenças relevantes? |
+| Repetibilidade | Rodando de novo, em dias diferentes, quanto variou? A variância foi relatada? |
 | Custo total | Execução, API e revisão humana compensaram? |
 
 **Para códigos usados em análise:** medir qualidade por meio de uma amostra de validação humana.
 
 ::: notes
-Manter constantes corpus, protocolo e critérios de avaliação quando o objetivo for comparar workflows. Uma melhoria observada em poucos exemplos não demonstra ganho geral. Essas métricas servem para avaliar a operação, sem substituir a avaliação metodológica da medida.
+Manter constantes corpus, protocolo e critérios de avaliação quando o objetivo for comparar workflows. Repetibilidade segue a recomendação de Barrie, Palmer e Spirling (2025): rodar o mesmo procedimento várias vezes, em dias ou semanas diferentes, e relatar a variância observada. Uma melhoria observada em poucos exemplos não demonstra ganho geral. Essas métricas servem para avaliar a operação, sem substituir a avaliação metodológica da medida.
 :::
 
 ## Uma tarefa da sua pesquisa {.smaller}
