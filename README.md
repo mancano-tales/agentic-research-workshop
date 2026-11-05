@@ -42,7 +42,7 @@ Materiais, ementa, slides e laboratório do minicurso. Material de terceiros rec
 Este projeto utiliza [Quarto](https://quarto.org) para renderização de documentos e apresentações:
 
 ```bash
-# Site completo em _site/ (o mesmo que o GitHub Actions publica)
+# Site e PDFs Beamer em _site/ (exige LaTeX; o GitHub Actions publica só as páginas e a ementa)
 quarto render
 quarto preview
 ```
