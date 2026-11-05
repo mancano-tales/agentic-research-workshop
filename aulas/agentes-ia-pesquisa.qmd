@@ -47,6 +47,12 @@ format:
 
 # Sessão 1: O que muda quando o modelo pode agir {#sessao-1}
 
+## Sessão 1 em revisão
+
+::: {.alerta}
+Felipe Lamarca vai refazer esta sessão. Todo o conteúdo a seguir, até o início da Sessão 2, é provisório e pode mudar por inteiro.
+:::
+
 ## Três perguntas rápidas {.smaller}
 
 Levante a mão se você já…
@@ -54,8 +60,6 @@ Levante a mão se você já…
 1. usou um chatbot (ChatGPT, Claude, Gemini) na pesquisa;
 2. usou um agente que roda comandos ou edita arquivos no seu computador;
 3. usou IA para classificar dados que entraram numa análise.
-
-. . .
 
 ## O uso na pesquisa social {.smaller}
 
@@ -139,8 +143,6 @@ Scott Cunningham (Baylor; *Causal Inference: The Mixtape*):
   - 69% de concordância discurso a discurso; tendências agregadas quase iguais
 - mar. 2026: fala sobre o tema ao *Board of Governors* do Federal Reserve
 
-. . .
-
 ## O ganho depende de saber avaliar {.smaller}
 
 Duas lições do caso de Cunningham:
@@ -181,27 +183,27 @@ Agente = modelo + harness.
 
 O mesmo modelo se comporta diferente em harnesses diferentes. Os *benchmarks* de agentes medem os dois juntos.
 
-## Famílias de modelos <span class="data-carimbo">out/2026</span> {.smaller}
+## Famílias de modelos <span class="data-carimbo">nov/2026</span> {.smaller}
 
 | Fornecedor | Linha atual | Tipo | O que importa para a pesquisa |
 |---|---|---|---|
-| Anthropic | Claude Opus 5.5, Sonnet 5.5, Haiku | Fechado | Forte em tarefas agênticas longas; base do Claude Code |
-| OpenAI | GPT-6 Astra, GPT-6.1 Sol, GPT-6 Luna | Fechado | Base do Codex; Luna é muito barato para lote |
-| Google | Gemini 3.8 Flash, 3.1 Pro | Fechado | Contexto longo; base do Gemini CLI e do Antigravity |
+| Anthropic | Claude Fable 5.1, Opus 5.5, Sonnet 5.5, Haiku 5.5 | Fechado | Forte em tarefas agênticas longas; base do Claude Code |
+| OpenAI | GPT-6 Astra, GPT-6.1 Sol, GPT-6.1 Terra, GPT-6 Luna | Fechado | Base do Codex; Luna é muito barato para lote |
+| Google | Gemini 4 Argon, Gemini 3.8 Flash | Fechado | Contexto longo; base do Gemini CLI e do Antigravity |
 
 ## Alternativas de pesos abertos {.smaller}
 
 | Fornecedor | Linha atual | Tipo | O que importa para a pesquisa |
 |---|---|---|---|
 | DeepSeek, Qwen, Kimi | V4, Qwen3.8, K3 | Pesos abertos (em geral) | Baratos; podem rodar fora do fornecedor |
-| Mistral e outros | Medium, Small | Pesos abertos | Rodar localmente: dados sensíveis |
+| Mistral e outros | Large 3, Small 4 | Pesos abertos | Rodar localmente: dados sensíveis |
 
 ::: {.alerta}
 Nomes e preços mudam em semanas. Conferir na véspera.
 :::
 
 ::: notes
-Fontes oficiais e datas: docs/pesquisa/2026-10-05_code-as-policy-modelos-harness.md, bloco 2. Ponto de ênfase: pesos abertos e versionados podem ser rodados de novo daqui a cinco anos; modelos fechados são descontinuados pelo fornecedor (Spirling 2023; Barrie, Palmer e Spirling 2025).
+Fechados e preços conferidos nas páginas oficiais em 05/11/2026; abertos, em fontes secundárias de outubro. O Gemini 4 Argon dobra de preço em 01/12/2026 e o Gemini 3.8 Flash em 01/01/2027. Ponto de ênfase: pesos abertos e versionados podem ser rodados de novo daqui a cinco anos; modelos fechados são descontinuados pelo fornecedor (Spirling 2023; Barrie, Palmer e Spirling 2025).
 :::
 
 ## Aberto, fechado e replicação
@@ -212,9 +214,8 @@ Fontes oficiais e datas: docs/pesquisa/2026-10-05_code-as-policy-modelos-harness
 - **Dados sensíveis** (entrevistas, dados identificados): modelo local, ou contrato institucional — gancho para o comitê de ética e a LGPD
 
 ::: {.fonte}
-Spirling (2023), *Nature*; Barrie, Palmer e Spirling (2025), *AJPS*. A deriva de versão como problema de pesquisa: curso de Olsson e Valli, EUI (2026–27).
+Spirling (2023), *Nature*; Barrie, Palmer e Spirling (2025), manuscrito. A deriva de versão como problema de pesquisa: curso de Olsson e Valli, EUI (2026–27).
 :::
-
 
 ## Onde o LLM fica na replicação {.smaller}
 
@@ -237,9 +238,9 @@ Ler a tabela no sentido horário a partir do canto superior direito. Código e d
 
 ## Oito meses rodando a mesma tarefa {.smaller}
 
-- Três LLMs e trabalhadores de *crowdsourcing* codificam, **uma vez por mês**, tarefas de artigos publicados (manifestos, protestos, populismo)
-- Os LLMs costumam ser **mais precisos** que os humanos, mas **variam mais** entre rodadas; o modelo aberto e local (Llama) teve variância quase nula
-- Refazendo uma regressão publicada com codificações de LLMs, a maioria dos coeficientes **deixa de ser significativa**; modelos com acurácia parecida dão coeficientes diferentes
+- Três LLMs (GPT-4, Gemini, Llama 2) e trabalhadores de *crowdsourcing* codificam, **uma vez por mês**, tarefas de artigos publicados (manifestos, protestos, populismo)
+- **Quem acerta mais depende da tarefa**: humanos vão bem nos manifestos, LLMs nos protestos. Os LLMs fechados **variam mais** entre rodadas; o Llama local teve variância quase nula na amostra fixa
+- Refazendo uma regressão publicada com codificações de LLMs, quase todas as variáveis **deixam de ser significativas** na maioria das estimativas; modelos com acurácia parecida dão coeficientes diferentes
 - Versões de modelos fechados foram **aposentadas** durante o estudo
 
 ::: {.tese}
@@ -247,12 +248,13 @@ Relatar o *prompt* de uma rodada não basta: é preciso rodar de novo e relatar 
 :::
 
 ::: {.fonte}
-Barrie, Palmer e Spirling (2025). Reanálises de Bor e Petersen (2022) e Bonikowski et al. (2022).
+Barrie, Palmer e Spirling (2025), manuscrito de dez. 2024. Reanálises de Bor e Petersen (2022) e Bonikowski et al. (2022).
 :::
 
 ::: notes
-Conferir os números na versão publicada (AJPS) antes da aula; o resumo acima segue a versão de dezembro de 2024. Abril a dezembro de 2024; amostra fixa e amostra mensal de 1000 linhas por fonte. Na reanálise de populismo, os coeficientes ficaram abaixo de um terço dos publicados. O ponto para a plateia: o problema não é só acurácia média, ele muda conclusões substantivas.
+Resumo conferido no manuscrito de 17/12/2024; não localizamos a versão publicada. Abril a dezembro de 2024, oito rodadas; amostra fixa e amostra mensal de 1000 linhas por fonte (os humanos codificaram só a fixa; populismo não teve humanos). A exceção na regressão de Bor e Petersen é a agressividade, e a reanálise usou cinco modelos da OpenAI. Na reanálise de populismo, os coeficientes ficaram abaixo de um terço dos publicados. O ponto para a plateia: o problema não é só acurácia média, ele muda conclusões substantivas.
 :::
+
 ## Onde o agente roda
 
 - **Terminal**: Claude Code, Codex CLI, Gemini CLI, OpenCode, goose
@@ -298,9 +300,9 @@ Tom Pepinsky (Cornell, jan. 2026) recomenda agentes para tarefas que seguem regr
 A percepção de ganho é um mau estimador do ganho.
 :::
 
-## Quanto custa? <span class="data-carimbo">out/2026</span> {.smaller}
+## Quanto custa? <span class="data-carimbo">nov/2026</span> {.smaller}
 
-**Assinatura** (valor fixo, limite por janela de horas): Claude Pro e ChatGPT Plus custam US$ 20 e incluem o agente (Claude Code, Codex).
+**Assinatura** (valor fixo, limite por janela de horas): Claude Pro e ChatGPT Plus custam US$ 20 (cerca de R$ 110) e incluem o agente (Claude Code, Codex).
 
 **API** (por milhão de tokens): para processar em lote. Desconto de 50% com *batch*.
 
@@ -308,22 +310,26 @@ A percepção de ganho é um mau estimador do ganho.
 
 Classificar **1.000 documentos** (~2.000 tokens cada, rótulo curto de saída):
 
-| Modelo | Custo aproximado |
-|---|---|
-| GPT-6 Luna | US$ 0,30 |
-| Gemini 3.8 Flash | US$ 2 |
-| Claude Sonnet 5.5 / GPT-6.1 Sol | US$ 6 |
-| Claude Opus 5.5 | US$ 12 |
-| GPT-6 Astra | US$ 30 |
+| Modelo | Em dólares | Em reais |
+|---|---|---|
+| GPT-6 Luna / Claude Haiku 5.5 | US$ 0,30 | R$ 1,60 |
+| Gemini 3.8 Flash | US$ 2,25 | R$ 12 |
+| Claude Sonnet 5.5 / GPT-6.1 Sol | US$ 6 | R$ 33 |
+| Claude Opus 5.5 | US$ 12 | R$ 66 |
+| GPT-6 Astra | US$ 30 | R$ 164 |
 
-Transcrever **10 horas de áudio**: de US$ 1,80 a 3,60 via API; zero com Whisper local.
+Transcrever **10 horas de áudio**: de US$ 1,80 a 3,60 via API (R$ 10 a 20); zero com Whisper local.
 
 ::: {.alerta}
-O tempo de validação humana domina o custo total.
+O mais caro equivale a 8% de uma bolsa CAPES de mestrado (R$ 2.100). O tempo de validação humana domina o custo total.
+:::
+
+::: {.fonte}
+Preços oficiais em 05/11/2026; PTAX de venda de 04/11/2026 (R$ 5,48).
 :::
 
 ::: notes
-Cálculo e premissas: docs/pesquisa/2026-10-05_code-as-policy-modelos-harness.md, seção 2.6. Converter para reais na semana da aula e comparar com uma bolsa de mestrado. Modelos com raciocínio ligado podem multiplicar os tokens de saída.
+Cálculo e premissas: docs/pesquisa/2026-10-05_code-as-policy-modelos-harness.md, seção 2.6. Premissa: 2 milhões de tokens de entrada e 0,2 milhão de saída, sem desconto de *batch*. Reconferir preços e câmbio na véspera. Modelos com raciocínio ligado podem multiplicar os tokens de saída.
 :::
 
 # 4. O *harness*: isolamento
@@ -456,6 +462,10 @@ Dados brutos, formato das variáveis, registro do que foi feito e amostra de val
 Barrie, Palmer e Spirling (2025); Baumann et al. (2025); Egami et al. (2023); Ludwig, Mullainathan e Rambachan (2026).
 :::
 
+::: notes
+A API da Anthropic removeu `temperature`, `top_p` e `top_k` na versão 2026-10-21 (página de descontinuações, consultada em 05/11/2026): em alguns fornecedores, nem há mais como fixar a temperatura.
+:::
+
 ## Um pesquisador, três tentativas {.smaller}
 
 A trajetória de Scott Cunningham para proteger os dados brutos:
@@ -495,7 +505,7 @@ Na Sessão 2: como cada camada funciona, ao vivo.
 
 **Entre as sessões:** Korinek (2025), *AI Agents for Economic Research*, introdução; um texto da série de Cunningham.
 
-Materiais: [github.com/mancano-tales/2026-workshop-agentes-dcp-usp](https://github.com/mancano-tales/2026-workshop-agentes-dcp-usp)
+Materiais: [github.com/mancano-tales/course-llm-agents-for-research](https://github.com/mancano-tales/course-llm-agents-for-research)
 
 # Sessão 2: Habilidades práticas e governança {#sessao-2}
 
@@ -650,38 +660,6 @@ description: Codifica discursos segundo codebook.md.
 Trecho de metadados abreviado para projeção; abrir a skill real da demo para mostrar a descrição completa. Uma skill reutiliza decisões metodológicas do pesquisador. Não dá autoridade ao agente para inventar categorias.
 :::
 
-## Da tarefa à primeira *skill* {.smaller}
-
-1. **Delimitar:** uma tarefa que você realmente repete.
-2. **Fixar entradas:** fontes, livro de códigos e exemplos de casos difíceis.
-3. **Escrever o protocolo:** decisões, sequência e como tratar dúvida.
-4. **Definir a saída:** campos, formato e onde salvar.
-5. **Testar:** um caso simples, um ambíguo e um que deve falhar.
-
-**No nosso caso:** categorias vêm do livro de códigos; o agente aplica o protocolo e registra a justificativa.
-
-::: notes
-Uma descrição de papel ajuda quando acompanhada de regras de decisão e exemplos. Pedir ao agente um rascunho da skill é útil; o pesquisador precisa revisar as escolhas metodológicas. Corrigir a skill quando a mesma dificuldade aparece em várias execuções.
-:::
-
-## A entrega também tem um formato {.smaller}
-
-**Uma linha por discurso**, com as colunas do livro de códigos:
-
-| Campo | O que permite conferir |
-|---|---|
-| `id_discurso` | Qual documento recebeu o código |
-| `posicao_educacao` | Categoria atribuída |
-| `confianca` | Casos que precisam de atenção |
-| `trecho_evidencia` | Evidência literal para a interpretação |
-| `codificador`, `data_codificacao` | Modelo usado e momento da anotação |
-
-O mesmo princípio vale para fichamentos e relatórios: definir campos antes de produzir ajuda a comparar e revisar.
-
-::: notes
-Não apresentar a confiança declarada pelo modelo como probabilidade calibrada de acerto. Um esquema de saída organiza a entrega. A fidelidade metodológica exige revisão. O CSV concreto da demo e o validador são a fonte do esquema.
-:::
-
 ## Demo 1a — o agente usando a *skill* {.smaller}
 
 **Pedido:** *"Codifique os discursos."*
@@ -692,8 +670,6 @@ O que observar:
 2. grava `dados/processados/codificacao.csv` com evidência **literal** de cada código
 3. se a validação automática apontar erro, ele corrige — o ciclo aparece na tela
 4. gera a **amostra de validação humana**: discursos de baixa confiança + sorteio com semente registrada, **sem** o código do modelo
-
-. . .
 
 ## A validação humana entra no desenho {.smaller}
 
@@ -746,37 +722,6 @@ Uma citação literal pode existir e ainda sustentar uma interpretação errada.
 Essa é a separação entre verificação mecânica e julgamento metodológico. Evitar uma nota genérica de qualidade: o parecer deve apontar o discurso, a categoria e a regra do livro de códigos. O arquivo auditor.md da demo já implementa esta sequência.
 :::
 
-## Três tipos de verificação {.smaller}
-
-| Papel | Pergunta | No caso dos discursos |
-|---|---|---|
-| Validador | O arquivo cumpre as regras executáveis? | IDs, categorias, formato e trecho literal |
-| Crítico metodológico | A interpretação pode estar errada? | Categoria inadequada ou regra ambígua |
-| Verificador de fontes | A evidência sustenta a afirmação? | Trecho relevante e documento correto |
-
-**O resultado vai ao pesquisador:** divergências relevantes exigem decisão e validação humana.
-
-::: notes
-São funções que podem ser distribuídas entre pessoas, scripts e agentes. Não é obrigatório criar três subagentes para toda tarefa. Na demo, o auditor já realiza parte das duas últimas funções. Em relatórios de literatura, vale separar a conferência das referências da crítica do argumento.
-:::
-
-## Uma rubrica para o parecer {.smaller}
-
-| Dimensão | Evidência exigida |
-|---|---|
-| Cobertura | Todos os discursos aparecem uma única vez |
-| Fidelidade | O código segue a regra e o trecho sustenta a leitura |
-| Ambiguidade | Casos difíceis e lacunas do livro de códigos estão explícitos |
-| Rastreabilidade | Fonte, versão das instruções e modelo podem ser identificados |
-
-**Cada achado:** discurso, problema, evidência, gravidade e ação sugerida.
-
-**Bloqueios:** fonte inventada, evidência sem suporte ou dados brutos alterados.
-
-::: notes
-As dimensões podem receber pontuações, mas os pesos e cortes precisam ser definidos pelo pesquisador e testados em exemplos. Uma soma alta não compensa um bloqueio. A validade da medida exige uma amostra humana; a discordância entre agentes ajuda a localizar casos para revisão.
-:::
-
 ## Produzir, revisar, corrigir e parar {.smaller}
 
 1. O produtor salva uma versão identificável da entrega.
@@ -794,22 +739,6 @@ Limite de rodadas encerra a tentativa. Não transforma falha em aprovação.
 
 ::: notes
 Três é um limite ilustrativo. O pesquisador define o limite adequado à tarefa. Se o limite protege gasto ou tempo, precisa de controle no orquestrador, orçamento ou regra executável; escrito só em prosa pode falhar. Preservar pareceres de cada rodada para entender mudanças, em vez de sobrescrever tudo.
-:::
-
-## Contexto suficiente para cada etapa {.smaller}
-
-**Quem codifica precisa:** dos discursos, do livro de códigos e do formato de saída.
-
-**Quem audita precisa:** das mesmas fontes e de um protocolo de comparação, com leitura independente primeiro.
-
-**Quem retoma o projeto precisa:** dos arquivos produzidos, das decisões e das pendências.
-
-::: {.tese}
-Salve no projeto o que outra sessão precisará para continuar.
-:::
-
-::: notes
-O contexto de um agente depende do harness e de como ele foi iniciado. Para a independência da demo, conferir as permissões e o protocolo reais, em vez de presumir que todo subagente sempre começa sem histórico.
 :::
 
 # 2. *Hooks* e *code as policy*
@@ -960,7 +889,7 @@ Retomando a tríade letal: dados privados + conteúdo não confiável + comunica
 - Inicie o agente sem o segredo; forneça-o apenas ao script autorizado, por um cofre de senhas.
 - Use chave dedicada por projeto, com limite de gasto.
 
-## Uma injeção inofensiva
+## Uma injeção inofensiva {.smaller}
 
 Um PDF "de referência" traz, em letra branca:
 
@@ -968,16 +897,26 @@ Um PDF "de referência" traz, em letra branca:
 
 . . .
 
+| Etapa | Sem regra | Com regra |
+|---|---|---|
+| O agente lê o PDF | o texto entra no contexto | o texto entra no contexto |
+| Se o modelo obedecer | o comando roda | o harness barra o comando |
+| A pasta de resultados | apagada | preservada |
+
+::: {.tese}
+O texto entra de qualquer jeito. A regra age sobre a ação.
+:::
+
+::: notes
+Cenário, sem demonstração ao vivo nesta versão: o modelo pode ou não obedecer, e a tabela mostra o que muda quando obedece. Para virar demo, usar uma pasta descartável, nunca dados reais, e acrescentar um hook PreToolUse que bloqueie apagar resultados: o projeto de demonstração atual não bloqueia apagar dados/processados/ (o hook de validação só acusa depois).
+:::
+
 ## A proteção precisa cobrir a ação {.smaller}
 
 - O texto extraído pode induzir o modelo a tratar o documento como uma instrução
 - **Proteção**: uma permissão ou regra que bloqueie a ação perigosa, com uma cópia recuperável dos arquivos
 - As barreiras de acesso dependem de permissões e controles executáveis
 - O bloqueio depende das ações cobertas pela regra. O resultado de uma tentativa de injeção pode variar
-
-::: notes
-Demonstração a preparar e ensaiar (decisão 4 do plano de preparação, docs/plan/2026-10-06_plano-preparacao-aulas.md). Usar uma pasta descartável; nunca dados reais. O projeto de demonstração atual NÃO bloqueia apagar dados/processados/ (o hook de validação só acusa depois). A pasta da demo precisa de um hook PreToolUse que bloqueie rm em resultados — ou, alternativa honesta, mostrar primeiro a falha (sem regra, o agente apaga) e depois a mesma tentativa com a regra ligada.
-:::
 
 # 4. `AGENTS.md`, GitHub e reprodutibilidade
 
@@ -994,6 +933,23 @@ Estrutura sugerida: o projeto em duas linhas · as pastas · como trabalhar · o
 | Regra crítica só em prosa | Mover para *hook* e citar no `AGENTS.md` |
 | Desatualizado | Revisar quando a estrutura mudar; versionar |
 | Gerado automaticamente | Escrever o que só o pesquisador sabe |
+
+## O mesmo projeto em outro harness {.smaller}
+
+| Peça | Claude Code | Codex |
+|---|---|---|
+| Instruções | `CLAUDE.md` importa `AGENTS.md` | `AGENTS.md` |
+| *Skill* | `.claude/skills/` | `.agents/skills/` |
+| *Hook* | `.claude/settings.json` | `.codex/hooks.json` |
+| *Sandbox* no Windows | só com WSL2 | nativo |
+
+::: {.tese}
+O contrato viaja com o projeto. A regra precisa ser ligada em cada harness.
+:::
+
+::: notes
+`AGENTS.md` e `SKILL.md` são padrões abertos; os hooks seguem a mesma lógica (código de saída 2 ou "deny" bloqueia), mas cada harness tem sua configuração, e o Codex só carrega hooks de projeto se a pasta for confiável. O projeto de demonstração está configurado para o Claude Code. Conferir os caminhos na documentação do Codex antes da aula.
+:::
 
 ## Demo 3 — o registro automático
 
@@ -1058,24 +1014,6 @@ A revisão por IA é julgamento. O que a torna política é a regra que a exige.
 Mostrar as telas, sem exigir que os participantes memorizem comandos. Git não exige GitHub e um repositório pode ser privado. Definições simplificadas para o fluxo proposto; branches e PRs não são obrigatórios em toda tarefa.
 :::
 
-## Uma issue organiza a tarefa {.smaller}
-
-**Exemplo didático:** “Revisar apoio condicionado ao gasto em educação”.
-
-| Registrar | Neste caso |
-|---|---|
-| Problema | Divergência nos códigos de D005 e D006 |
-| Fontes | Corpus fictício, livro de códigos e parecer |
-| Entrega | Esclarecimento da regra e casos de teste |
-| Responsável | Pesquisador decide; agente prepara a proposta |
-| Conclusão | Decisão registrada e testes concluídos |
-
-**Mudou a regra? Reavalie os casos afetados.**
-
-::: notes
-A issue é hipotética: não criar uma issue real durante a exposição por padrão. O agente não altera a categoria para fazer a validação passar. Primeiro o pesquisador decide se a dificuldade é aplicação incorreta ou ambiguidade do próprio livro de códigos. Se a definição mudar, identificar a nova versão e reavaliar os casos afetados.
-:::
-
 ## O PR torna a proposta revisável {.smaller}
 
 Uma branch guarda a proposta. O PR mostra a diferença em relação à versão principal.
@@ -1114,33 +1052,12 @@ Um check verde mostra que os testes passaram. A conclusão científica ainda pre
 Não afirmar que este repositório já exige os exemplos de checks: o workflow local inspecionado verifica autoria de commits. Execução depois de um push direto pode apenas registrar uma falha. Regras, permissões de exceção e disponibilidade por plano precisam ser conferidas no repositório usado na aula. Configurar um check não o torna obrigatório automaticamente.
 :::
 
-## Uma revisão acompanha a versão {.smaller}
-
-**Uma aprovação precisa corresponder ao conteúdo que será incorporado.**
-
-- o produtor responde aos achados com mudanças ou justificativa;
-- uma alteração relevante após a revisão exige nova conferência;
-- achados bloqueantes permanecem pendentes até a resolução;
-- a versão aceita conserva o vínculo com a tarefa e a revisão.
-
-As regras do GitHub podem exigir aprovação e invalidar aprovações antigas quando a proposta muda.
-
-::: {.fonte}
-[GitHub Docs: revisões obrigatórias](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-pull-request-reviews-before-merging).
-:::
-
-::: notes
-Separar a recomendação metodológica da funcionalidade configurável do GitHub. Um comentário favorável de agente é um parecer, e sua relação com uma aprovação formal depende do fluxo e da configuração. Não demonstrar merge de proposta real sem autorização do responsável.
-:::
-
 ## Exemplo vivo: o repositório deste curso {.smaller}
 
 - todo commit leva uma linha `Agent:` dizendo quem o escreveu (pessoa ou qual agente)
   - um *hook* do Git recusa o commit sem ela; o GitHub confere de novo no servidor
 - um *hook* recusa caminhos absolutos de máquina (do tipo `/home/<usuário>/…`) — o projeto roda em qualquer computador
 - **quem escreve não revisa**: o que o Claude escreve é revisado pelo Codex, e vice-versa
-
-. . .
 
 ## Uma revisão encontrou a brecha {.smaller}
 
@@ -1151,7 +1068,7 @@ Um achado na revisão do material deste curso:
 Corrigido antes de entrar no curso.
 
 ::: notes
-Mostrar o PR #4 do repositório (github.com/mancano-tales/2026-workshop-agentes-dcp-usp/pull/4): a revisão do Codex apontou que o hook de validação não cobria gravações via Bash; a correção acrescentou um gatilho pós-Bash e um gatilho ao encerrar. A demonstração apresenta o mecanismo e explica os comandos necessários para acompanhá-lo.
+Mostrar o PR #4 do repositório (github.com/mancano-tales/course-llm-agents-for-research/pull/4): a revisão do Codex apontou que o hook de validação não cobria gravações via Bash; a correção acrescentou um gatilho pós-Bash e um gatilho ao encerrar. A demonstração apresenta o mecanismo e explica os comandos necessários para acompanhá-lo.
 :::
 
 ## Para a pesquisa, sem programar muito {.smaller}
@@ -1184,24 +1101,6 @@ Mostrar o PR #4 do repositório (github.com/mancano-tales/2026-workshop-agentes-
 | Análise em R | Positron Assistant; `ellmer`, `mall` | IA dentro do ambiente de análise |
 | Fluxos completos | *templates* de Sant'Anna e Cunningham; site de Blattman | pontos de partida para adaptar |
 
-## Cobertura faz parte da evidência {.smaller}
-
-Em uma busca de literatura ou documentos, “não encontrei” depende da coleta realizada.
-
-**Registrar:**
-
-- bases e fontes consultadas;
-- janela temporal e termos usados;
-- critérios de inclusão e universo esperado;
-- duplicatas, falhas de acesso e documentos ausentes;
-- o que continua sem verificação.
-
-**No nosso corpus:** o validador confere os IDs dos discursos esperados. Numa busca aberta, o universo pode ser desconhecido e precisa ser discutido.
-
-::: notes
-Adaptar a discussão de cobertura do material do Manoel à pesquisa social. Uma API sem resultados pode ter limite de cobertura. Falso negativo em coleta é diferente de erro de classificação. Não apresentar coleta exploratória como revisão sistemática sem um protocolo apropriado.
-:::
-
 ## O ganho precisa ser medido {.smaller}
 
 Compare uma execução inicial com o fluxo revisado, usando os mesmos casos.
@@ -1209,12 +1108,12 @@ Compare uma execução inicial com o fluxo revisado, usando os mesmos casos.
 | Observar | Pergunta |
 |---|---|
 | Qualidade | Quantos erros a revisão encontrou? |
-| Cobertura | Quantos casos ficaram faltando ou sem fonte? |
-| Retrabalho | Quanto tempo foi gasto corrigindo a entrega? |
-| Repetibilidade | Rodando de novo, em dias diferentes, quanto variou? A variância foi relatada? |
-| Custo total | Execução, API e revisão humana compensaram? |
+| Cobertura | Quantos casos faltaram ou ficaram sem fonte? |
+| Retrabalho | Quanto tempo a correção consumiu? |
+| Repetibilidade | Quanto variou em dias diferentes? Foi relatado? |
+| Custo total | Execução, API e revisão compensaram? |
 
-**Para códigos usados em análise:** medir qualidade por meio de uma amostra de validação humana.
+**Códigos usados em análise:** medir qualidade com amostra de validação humana.
 
 ::: notes
 Manter constantes corpus, protocolo e critérios de avaliação quando o objetivo for comparar workflows. Repetibilidade segue a recomendação de Barrie, Palmer e Spirling (2025): rodar o mesmo procedimento várias vezes, em dias ou semanas diferentes, e relatar a variância observada. Uma melhoria observada em poucos exemplos não demonstra ganho geral. Essas métricas servem para avaliar a operação, sem substituir a avaliação metodológica da medida.
@@ -1274,9 +1173,143 @@ Scott Cunningham, série "Claude Code", post 33 (mar. 2026).
 
 Para continuar: série de Cunningham · *template* de Sant'Anna · claudeblattman.com · Anthropic Academy (gratuita)
 
-Materiais: [github.com/mancano-tales/2026-workshop-agentes-dcp-usp](https://github.com/mancano-tales/2026-workshop-agentes-dcp-usp)
+Materiais: [github.com/mancano-tales/course-llm-agents-for-research](https://github.com/mancano-tales/course-llm-agents-for-research)
 
 # Aprofundamento: consulta e extensão
+
+## Da tarefa à primeira *skill* {.smaller}
+
+1. **Delimitar:** uma tarefa que você realmente repete.
+2. **Fixar entradas:** fontes, livro de códigos e exemplos de casos difíceis.
+3. **Escrever o protocolo:** decisões, sequência e como tratar dúvida.
+4. **Definir a saída:** campos, formato e onde salvar.
+5. **Testar:** um caso simples, um ambíguo e um que deve falhar.
+
+**No nosso caso:** categorias vêm do livro de códigos; o agente aplica o protocolo e registra a justificativa.
+
+::: notes
+Uma descrição de papel ajuda quando acompanhada de regras de decisão e exemplos. Pedir ao agente um rascunho da skill é útil; o pesquisador precisa revisar as escolhas metodológicas. Corrigir a skill quando a mesma dificuldade aparece em várias execuções.
+:::
+
+## A entrega também tem um formato {.smaller}
+
+**Uma linha por discurso**, com as colunas do livro de códigos:
+
+| Campo | O que permite conferir |
+|---|---|
+| `id_discurso` | Qual documento recebeu o código |
+| `posicao_educacao` | Categoria atribuída |
+| `confianca` | Casos que precisam de atenção |
+| `trecho_evidencia` | Evidência literal para a interpretação |
+| `codificador`, `data_codificacao` | Modelo usado e momento da anotação |
+
+O mesmo princípio vale para fichamentos e relatórios: definir campos antes de produzir ajuda a comparar e revisar.
+
+::: notes
+Não apresentar a confiança declarada pelo modelo como probabilidade calibrada de acerto. Um esquema de saída organiza a entrega. A fidelidade metodológica exige revisão. O CSV concreto da demo e o validador são a fonte do esquema.
+:::
+
+## Três tipos de verificação {.smaller}
+
+| Papel | Pergunta | No caso dos discursos |
+|---|---|---|
+| Validador | O arquivo cumpre as regras executáveis? | IDs, categorias, formato e trecho literal |
+| Crítico metodológico | A interpretação pode estar errada? | Categoria inadequada ou regra ambígua |
+| Verificador de fontes | A evidência sustenta a afirmação? | Trecho relevante e documento correto |
+
+**O resultado vai ao pesquisador:** divergências relevantes exigem decisão e validação humana.
+
+::: notes
+São funções que podem ser distribuídas entre pessoas, scripts e agentes. Não é obrigatório criar três subagentes para toda tarefa. Na demo, o auditor já realiza parte das duas últimas funções. Em relatórios de literatura, vale separar a conferência das referências da crítica do argumento.
+:::
+
+## Uma rubrica para o parecer {.smaller}
+
+| Dimensão | Evidência exigida |
+|---|---|
+| Cobertura | Todos os discursos aparecem uma única vez |
+| Fidelidade | O código segue a regra e o trecho sustenta a leitura |
+| Ambiguidade | Casos difíceis e lacunas do livro de códigos estão explícitos |
+| Rastreabilidade | Fonte, versão das instruções e modelo podem ser identificados |
+
+**Cada achado:** discurso, problema, evidência, gravidade e ação sugerida.
+
+**Bloqueios:** fonte inventada, evidência sem suporte ou dados brutos alterados.
+
+::: notes
+As dimensões podem receber pontuações, mas os pesos e cortes precisam ser definidos pelo pesquisador e testados em exemplos. Uma soma alta não compensa um bloqueio. A validade da medida exige uma amostra humana; a discordância entre agentes ajuda a localizar casos para revisão.
+:::
+
+## Contexto suficiente para cada etapa {.smaller}
+
+**Quem codifica precisa:** dos discursos, do livro de códigos e do formato de saída.
+
+**Quem audita precisa:** das mesmas fontes e de um protocolo de comparação, com leitura independente primeiro.
+
+**Quem retoma o projeto precisa:** dos arquivos produzidos, das decisões e das pendências.
+
+::: {.tese}
+Salve no projeto o que outra sessão precisará para continuar.
+:::
+
+::: notes
+O contexto de um agente depende do harness e de como ele foi iniciado. Para a independência da demo, conferir as permissões e o protocolo reais, em vez de presumir que todo subagente sempre começa sem histórico.
+:::
+
+## Uma issue organiza a tarefa {.smaller}
+
+**Exemplo didático:** “Revisar apoio condicionado ao gasto em educação”.
+
+| Registrar | Neste caso |
+|---|---|
+| Problema | Divergência nos códigos de D005 e D006 |
+| Fontes | Corpus fictício, livro de códigos e parecer |
+| Entrega | Esclarecimento da regra e casos de teste |
+| Responsável | Pesquisador decide; agente prepara a proposta |
+| Conclusão | Decisão registrada e testes concluídos |
+
+**Mudou a regra? Reavalie os casos afetados.**
+
+::: notes
+A issue é hipotética: não criar uma issue real durante a exposição por padrão. O agente não altera a categoria para fazer a validação passar. Primeiro o pesquisador decide se a dificuldade é aplicação incorreta ou ambiguidade do próprio livro de códigos. Se a definição mudar, identificar a nova versão e reavaliar os casos afetados.
+:::
+
+## Uma revisão acompanha a versão {.smaller}
+
+**Uma aprovação precisa corresponder ao conteúdo que será incorporado.**
+
+- o produtor responde aos achados com mudanças ou justificativa;
+- uma alteração relevante após a revisão exige nova conferência;
+- achados bloqueantes permanecem pendentes até a resolução;
+- a versão aceita conserva o vínculo com a tarefa e a revisão.
+
+As regras do GitHub podem exigir aprovação e invalidar aprovações antigas quando a proposta muda.
+
+::: {.fonte}
+[GitHub Docs: revisões obrigatórias](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-pull-request-reviews-before-merging).
+:::
+
+::: notes
+Separar a recomendação metodológica da funcionalidade configurável do GitHub. Um comentário favorável de agente é um parecer, e sua relação com uma aprovação formal depende do fluxo e da configuração. Não demonstrar merge de proposta real sem autorização do responsável.
+:::
+
+## Cobertura faz parte da evidência {.smaller}
+
+Em uma busca de literatura ou documentos, “não encontrei” depende da coleta realizada.
+
+**Registrar:**
+
+- bases e fontes consultadas;
+- janela temporal e termos usados;
+- critérios de inclusão e universo esperado;
+- duplicatas, falhas de acesso e documentos ausentes;
+- o que continua sem verificação.
+
+**No nosso corpus:** o validador confere os IDs dos discursos esperados. Numa busca aberta, o universo pode ser desconhecido e precisa ser discutido.
+
+::: notes
+Adaptar a discussão de cobertura do material do Manoel à pesquisa social. Uma API sem resultados pode ter limite de cobertura. Falso negativo em coleta é diferente de erro de classificação. Não apresentar coleta exploratória como revisão sistemática sem um protocolo apropriado.
+:::
 
 ## Uma passagem de contexto curta {.smaller}
 

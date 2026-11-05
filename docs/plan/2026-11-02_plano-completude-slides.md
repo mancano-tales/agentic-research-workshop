@@ -2,6 +2,14 @@
 
 Issue: #3. Objetivo: deixar `aulas/agentes-ia-pesquisa.qmd` pronto (web e PDF Beamer) até sexta, 2026-11-06. A aula é na semana seguinte; o que só pode ser feito na véspera (preços, ensaio das demos) fica separado no fim.
 
+## Atualização de 2026-11-05
+
+- **Formato:** os ministrantes decidiram não usar os slides em HTML. A versão da aula é o PDF Beamer, e as revisões passam a ser feitas nele.
+- **Divisão:** as anotações automáticas do Google Meet da reunião de 2026-10-08 indicam Felipe Lamarca na Sessão 1 e Tales Mançano na Sessão 2. Felipe vai refazer a Sessão 1, que pode mudar por inteiro e está marcada como provisória nos slides. Este plano passa a cobrir só a Sessão 2; os ajustes já feitos na Sessão 1 ficam como ponto de partida.
+- **Na mesma reunião:** a nota diz que o GitHub seria apresentado "de forma superficial", enquanto o bloco atual da Sessão 2 tem 10 slides e 20 minutos. Falta decidir qual vale.
+- **Feito nesta data:** itens 1 a 10, com injeção e Codex na versão sem demonstração ao vivo, e 8 slides da Sessão 2 movidos para o aprofundamento (de 47 para 40). Os tempos em `plano-geral.md` e nas notas de aula continuam os antigos.
+- **Barrie, Palmer e Spirling:** números conferidos no manuscrito de 2024-12-17. Não localizamos a versão publicada; `referencias.bib` e `referencias.md` ainda dizem "aceito" na *AJPS*.
+
 ## Onde estamos
 
 - Fonte única das duas sessões, com tema `madrid-web`, site publicado pelo CI (PR #6 e `d7e4cf5`). PDF Beamer em `assets/` gerado em 2026-10-18.
