@@ -61,8 +61,8 @@
 Repositório do minicurso "Workshop Agentes: Inteligência Artificial e Autonomia na Pesquisa Social", oferecido no Seminário Discente DCP-USP 2026, ministrado por Manoel Galdino (DCP-USP), Felipe Lamarca (IESP-UERJ) e Tales Mançano (DCP-USP). Repositório público `mancano-tales/course-llm-agents-for-research` (nome anterior: `2026-workshop-agentes-dcp-usp`; a pasta local pode manter o nome antigo), publicado como site em <https://mancano-tales.github.io/course-llm-agents-for-research/>.
 
 ### Estrutura
-- `index.qmd`, `ementa.qmd`, `materiais.qmd`, `sobre.qmd`, `sessions/index.qmd`: páginas do site.
-- `sessions/0N-*/slides.qmd`: slides de cada sessão, em PDF Beamer; a Sessão 1 traz o plano geral das aulas.
+- `index.qmd`, `llm-agents-for-research-syllabus.qmd`, `materials.qmd`, `about.qmd`, `sessions/index.qmd`: páginas do site.
+- `sessions/0N-*/llm-agents-for-research-session-N-slides.qmd`: slides de cada sessão, em PDF Beamer; a Sessão 1 traz o plano geral das aulas.
 - `sessions/0N-*/`: roteiros do instrutor (`notas-aula.md`), folha de saída e laboratório; não entram no site.
 - `_extensions/mancano-tales/madrid-web/`: tema dos slides, mantido no repositório `presentations` (não edite aqui; atualize com `quarto add mancano-tales/presentations --no-prompt`).
 - `_renders/`: PDFs datados de cada renderização; não versionada.
@@ -78,6 +78,6 @@ Repositório do minicurso "Workshop Agentes: Inteligência Artificial e Autonomi
 * **Migração do histórico**: O autor autorizou em 2026-10-14 a transferência de `0-meta/deprecated/` para `docs/deprecated/`, sem alteração de conteúdo. Essa autorização é uma exceção pontual à proibição de mover o histórico no bloco de governança comum; após a migração, a pasta permanece congelada.
 * **Comunicação Direta**: Manter tom conciso, profissional e acadêmico. Evitar uso de emojis.
 * **Governança**: Decisões e entregas relevantes do curso ficam registradas em issues, PRs e commits (o `NEWS.md` foi aposentado; ver o bloco de governança comum acima).
-* **Site e renderização**: O projeto Quarto é um site (`_quarto.yml`), gerado em `_site/` (não versionado) e publicado no GitHub Pages pelo workflow `publish.yml` a cada push na `main`. Edite os fontes `.qmd`; não versione HTML/PDF compilados. Os PDFs Beamer são gerados localmente por `tools/render-slides.ps1` (o CI não tem LaTeX) e ainda não estão no site. A estrutura de pastas do repositório fica em inglês.
-* **Slides**: Um deck por sessão (`sessions/0N-*/slides.qmd`), só em `madrid-web-beamer`; um remete ao outro. Não use LaTeX solto no corpo: destaques vão em classes (`.tese`, `.alerta`, `.fonte`, `.caixa`, `.camada`). Confira o PDF.
+* **Site e renderização**: O projeto Quarto é um site (`_quarto.yml`), gerado em `_site/` (não versionado) e publicado no GitHub Pages pelo workflow `publish.yml` a cada push na `main`. Edite os fontes `.qmd`; não versione HTML/PDF compilados. Os PDFs Beamer são gerados localmente por `tools/render-slides.ps1` (o CI não tem LaTeX) e ainda não estão no site. A estrutura de pastas do repositório fica em inglês. Os arquivos `.qmd` têm nome completo e descritivo; só `index.qmd` mantém o nome que o site exige.
+* **Slides**: Um deck por sessão (`sessions/0N-*/llm-agents-for-research-session-N-slides.qmd`), só em `madrid-web-beamer`; um remete ao outro. Não use LaTeX solto no corpo: destaques vão em classes (`.tese`, `.alerta`, `.fonte`, `.caixa`, `.camada`). Confira o PDF.
 * **Material privado**: Material de colegas recebido em confiança fica em `materiais-locais/`, ignorada pelo Git e clone do repositório privado `mancano-tales/course-llm-agents-for-research-private`. Nunca copie, cite ou adapte esse conteúdo no repositório público ou no site sem permissão do autor original.

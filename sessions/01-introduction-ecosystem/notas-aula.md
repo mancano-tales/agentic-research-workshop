@@ -1,6 +1,6 @@
 # Sessão 1: Introdução aos Agentes de IA — Conceitos, Modelos e Ecossistema
 
-Roteiro do instrutor para a primeira sessão expositiva (1h30). Formato: bloco por tópico, com cues de tempo, pontos de ênfase, exemplos para apoio da fala e perguntas de engajamento. Alinhado a [ementa.qmd](../../ementa.qmd), Seção 4, Sessão 1 (os blocos 1 a 5 correspondem aos itens 1 a 5 da ementa). Sessão estritamente conceitual — nenhuma habilidade prática é ensinada aqui (fica para a Sessão 2).
+Roteiro do instrutor para a primeira sessão expositiva (1h30). Formato: bloco por tópico, com cues de tempo, pontos de ênfase, exemplos para apoio da fala e perguntas de engajamento. Alinhado a [llm-agents-for-research-syllabus.qmd](../../llm-agents-for-research-syllabus.qmd), Seção 4, Sessão 1 (os blocos 1 a 5 correspondem aos itens 1 a 5 da ementa). Sessão estritamente conceitual — nenhuma habilidade prática é ensinada aqui (fica para a Sessão 2).
 
 Visão de conjunto, casos-âncora e checklist de preparação: [docs/plan/plano-geral.md](../../docs/plan/plano-geral.md). Referências citadas: [referencias.md](../../referencias.md).
 

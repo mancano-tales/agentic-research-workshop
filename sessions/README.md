@@ -1,6 +1,6 @@
 # Slides do minicurso
 
-Cada sessão tem um deck próprio: `01-introduction-ecosystem/slides.qmd` e `02-practical-skills/slides.qmd`. A Sessão 1 traz o plano geral das aulas, e um deck remete ao outro. Os dois geram PDF Beamer Madrid 16:9 com o tema `madrid-web` (extensão em `_extensions/`, mantida no repositório `presentations`). `madrid-header.tex` configura o rodapé e a capa. Não use LaTeX solto no corpo: destaques vão em classes (`.tese`, `.alerta`, `.fonte`).
+Cada sessão tem um deck próprio: `01-introduction-ecosystem/llm-agents-for-research-session-1-slides.qmd` e `02-practical-skills/llm-agents-for-research-session-2-slides.qmd`. A Sessão 1 traz o plano geral das aulas, e um deck remete ao outro. Os dois geram PDF Beamer Madrid 16:9 com o tema `madrid-web` (extensão em `_extensions/`, mantida no repositório `presentations`). `madrid-header.tex` configura o rodapé e a capa. Não use LaTeX solto no corpo: destaques vão em classes (`.tese`, `.alerta`, `.fonte`).
 
 Atualizar o tema: `quarto add mancano-tales/presentations --no-prompt`.
 

@@ -17,6 +17,6 @@ Os slides de cada sessão serão publicados aqui em PDF.
 
 ## Comece por aqui
 
-- [Ementa](ementa.qmd): objetivos, programa e bibliografia básica ([PDF](ementa.pdf), [DOCX](ementa.docx)).
-- [Materiais](materiais.qmd): bibliografia comentada e projeto de demonstração.
-- [Sobre](sobre.qmd): ministrantes, licença e como citar.
+- [Ementa](llm-agents-for-research-syllabus.qmd): objetivos, programa e bibliografia básica ([PDF](llm-agents-for-research-syllabus.pdf), [DOCX](llm-agents-for-research-syllabus.docx)).
+- [Materiais](materials.qmd): bibliografia comentada e projeto de demonstração.
+- [Sobre](about.qmd): ministrantes, licença e como citar.

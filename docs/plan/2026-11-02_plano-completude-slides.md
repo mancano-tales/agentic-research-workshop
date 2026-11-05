@@ -1,6 +1,6 @@
 # Plano de completude dos slides (2026-11-02)
 
-Issue: #3. Objetivo: deixar `sessions/*/slides.qmd` pronto (web e PDF Beamer) até sexta, 2026-11-06. A aula é na semana seguinte; o que só pode ser feito na véspera (preços, ensaio das demos) fica separado no fim.
+Issue: #3. Objetivo: deixar `sessions/0N-*/llm-agents-for-research-session-N-slides.qmd` pronto (web e PDF Beamer) até sexta, 2026-11-06. A aula é na semana seguinte; o que só pode ser feito na véspera (preços, ensaio das demos) fica separado no fim.
 
 ## Atualização de 2026-11-05
 
@@ -73,7 +73,9 @@ Issue: #3. Objetivo: deixar `sessions/*/slides.qmd` pronto (web e PDF Beamer) at
 
 Decisões do autor, que substituem o que este plano diz sobre arquivo único e `assets/`:
 
-- Dois decks Beamer, um por sessão, em `sessions/0N-*/slides.qmd`. A Sessão 1 traz o plano geral das aulas, e um deck remete ao outro.
+- Dois decks Beamer, um por sessão, em `sessions/0N-*/llm-agents-for-research-session-N-slides.qmd`. A Sessão 1 traz o plano geral das aulas, e um deck remete ao outro.
 - Os slides saíram do site; os dois PDFs entram nele depois. `assets/` foi removida, porque só guardava o PDF único.
 - A estrutura de pastas fica em inglês: `aulas/` virou `sessions/`, `docs/pesquisa/` virou `docs/research/` e `projeto-demo/` virou `demo-project/`.
 - Os PDFs ficam em `_renders/`, não versionada, com data, hora, sessão e versão no nome.
+
+Nomes de arquivo (autor, 2026-11-05): os `.qmd` passam a ter nome completo, para que os PDFs não saiam como `slides.pdf` ou `ementa.pdf`: `llm-agents-for-research-syllabus.qmd`, `llm-agents-for-research-session-N-slides.qmd`, `materials.qmd` e `about.qmd`.

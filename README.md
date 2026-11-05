@@ -24,11 +24,11 @@ Materiais, ementa, slides e laboratório do minicurso. Material de terceiros rec
 
 ## Documentos e Materiais
 
-* **Ementa Completa**: Consulte a versão em código em [ementa.qmd](ementa.qmd), a versão compilada (HTML, PDF e DOCX) no site.
+* **Ementa Completa**: Consulte a versão em código em [llm-agents-for-research-syllabus.qmd](llm-agents-for-research-syllabus.qmd), a versão compilada (HTML, PDF e DOCX) no site.
 * **Plano Geral das Aulas**: [docs/plan/plano-geral.md](docs/plan/plano-geral.md) — fio condutor, casos-âncora, cronograma, divisão de papéis e checklist de preparação.
 * **Plano de Preparação (out. 2026)**: [docs/plan/2026-10-06_plano-preparacao-aulas.md](docs/plan/2026-10-06_plano-preparacao-aulas.md) — síntese da pesquisa exploratória, decisões propostas e pauta da reunião dos ministrantes.
 * **Pesquisa Exploratória**: [docs/research/](docs/research/) — panorama de cursos sobre agentes, *code as policy*, modelos e *harnesses*, e o que Scott Cunningham tem publicado.
-* **Slides**: um deck por sessão, em [sessions/01-introduction-ecosystem/slides.qmd](sessions/01-introduction-ecosystem/slides.qmd) e [sessions/02-practical-skills/slides.qmd](sessions/02-practical-skills/slides.qmd). Geram PDFs Beamer com o tema [madrid-web](https://github.com/mancano-tales/presentations/tree/main/_extensions/madrid-web) (`_extensions/`).
+* **Slides**: um deck por sessão, em [sessions/01-introduction-ecosystem/llm-agents-for-research-session-1-slides.qmd](sessions/01-introduction-ecosystem/llm-agents-for-research-session-1-slides.qmd) e [sessions/02-practical-skills/llm-agents-for-research-session-2-slides.qmd](sessions/02-practical-skills/llm-agents-for-research-session-2-slides.qmd). Geram PDFs Beamer com o tema [madrid-web](https://github.com/mancano-tales/presentations/tree/main/_extensions/madrid-web) (`_extensions/`).
 * **Roteiros do Instrutor**:
   * [Sessão 1: Introdução aos Agentes](sessions/01-introduction-ecosystem/notas-aula.md)
   * [Sessão 2: Habilidades Práticas e Governança](sessions/02-practical-skills/notas-aula.md)
@@ -49,8 +49,8 @@ quarto preview
 
 ```bash
 # Ementa em PDF (Typst) e DOCX, dentro de _site/
-quarto render ementa.qmd --to typst
-quarto render ementa.qmd --to docx
+quarto render llm-agents-for-research-syllabus.qmd --to typst
+quarto render llm-agents-for-research-syllabus.qmd --to docx
 ```
 
 ```powershell

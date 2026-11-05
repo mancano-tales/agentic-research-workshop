@@ -6,7 +6,7 @@ Documento de organização pedagógica das duas sessões. Serve como ponto de pa
 - [Sessão 2 — Habilidades Práticas e Governança](../../sessions/02-practical-skills/notas-aula.md)
 - [Bibliografia comentada](../../referencias.md) ([BibTeX](../../referencias.bib))
 
-Tudo aqui segue a ementa submetida ([2026-workshop-agentes-dcp-usp-ementa.qmd](../../2026-workshop-agentes-dcp-usp-ementa.qmd)); nenhum tópico novo foi acrescentado ao programa, apenas detalhado.
+Tudo aqui segue a ementa submetida ([llm-agents-for-research-syllabus.qmd](../../llm-agents-for-research-syllabus.qmd)); nenhum tópico novo foi acrescentado ao programa, apenas detalhado.
 
 ---
 
@@ -70,7 +70,7 @@ Para que os exemplos não fiquem abstratos, sugerimos repetir os mesmos três ca
 | Roteiro da Sessão 2 | Pronto (este commit) | Idem |
 | Projeto de demonstração (`lab/demo-project/`) | Pronto (este commit) | Ensaiar pelo menos uma vez com o agente que será usado ao vivo |
 | Bibliografia comentada | Pronto (este commit) | Decidir se uma lista curta entra na ementa |
-| Slides (Quarto Reveal.js) | A fazer | Sugestão: `sessions/0X-*/slides.qmd`, renderizados para `docs/` |
+| Slides (Quarto Reveal.js) | A fazer | Sugestão: `sessions/0N-*/llm-agents-for-research-session-N-slides.qmd`, renderizados para `docs/` |
 | Gravação de *backup* das demonstrações | A fazer | Vídeo curto de cada demo, caso a rede ou a API falhe |
 | Folha-resumo de uma página para os participantes | A fazer | Checklist do bloco de encerramento da Sessão 2 |
 

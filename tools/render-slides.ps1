@@ -1,8 +1,8 @@
 ﻿$ErrorActionPreference = 'Stop'
 $repoRoot = Split-Path $PSScriptRoot -Parent
 $decks = @(
-    @{ Source = 'sessions/01-introduction-ecosystem/slides.qmd'; Name = 'session-1' },
-    @{ Source = 'sessions/02-practical-skills/slides.qmd'; Name = 'session-2' }
+    @{ Source = 'sessions/01-introduction-ecosystem/llm-agents-for-research-session-1-slides.qmd' },
+    @{ Source = 'sessions/02-practical-skills/llm-agents-for-research-session-2-slides.qmd' }
 )
 Push-Location $repoRoot
 try {
@@ -30,7 +30,7 @@ try {
         if ((Get-Item -LiteralPath $built).LastWriteTime -lt $renderStart) {
             throw "O PDF em $built é de uma rodada anterior."
         }
-        $datedName = '{0}_agentes-ia-pesquisa_{1}_v{2}.pdf' -f $now.ToString('yyyy-MM-dd_HHmm'), $deck.Name, $versao
+        $datedName = '{0}_{1}_v{2}.pdf' -f $now.ToString('yyyy-MM-dd_HHmm'), [IO.Path]::GetFileNameWithoutExtension($deck.Source), $versao
         Copy-Item -LiteralPath $built -Destination (Join-Path $archiveDir $datedName) -Force
         Write-Output "PDF: _renders/$datedName"
     }
