@@ -25,4 +25,5 @@
   \end{beamercolorbox}
 }
 % Versão e data da capa, gravadas por tools/render-slides.ps1.
-\IfFileExists{versao.tex}{\input{versao.tex}}{}
+\setbeamerfont{author}{size=\small}
+\IfFileExists{versao.tex}{\AtBeginDocument{\input{versao.tex}}}{}
