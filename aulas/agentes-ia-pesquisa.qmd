@@ -638,26 +638,30 @@ Plugin é um pacote de capacidades; a composição depende do ambiente. Não ass
 
 A *skill* é prosa: orienta. As regras que não podem falhar ficam nos *hooks*.
 
-## A anatomia da nossa *skill* {.smaller}
+## A anatomia de uma *skill* real {.smaller}
 
 ```yaml
 ---
-name: codificar-discursos
-description: Codifica discursos segundo codebook.md.
+name: review-r
+description: "Revisão de qualidade de código R"
+allowed-tools: ["Read", "Glob", "Grep"]
 ---
 ```
 
 **O corpo explica o protocolo:**
 
-1. ler o livro de códigos e os discursos;
-2. atribuir uma categoria e copiar a evidência literal;
-3. salvar o CSV no formato previsto e corrigir erros de validação;
-4. separar uma amostra para codificação humana às cegas.
+1. não editar nenhum arquivo: só produzir o relatório;
+2. avaliar método, código, reprodutibilidade, desempenho e apresentação;
+3. entregar em formato fixo: resumo, nota e problemas por gravidade.
 
-**A descrição diz quando usar. O protocolo diz como trabalhar.**
+**A descrição diz quando usar. O protocolo diz como trabalhar.** Na demo, `codificar-discursos` tem a mesma forma.
+
+::: {.fonte}
+Manoel Galdino, repositório `agents-workflow` (GPL-3.0), `.claude/skills/review-r/`. Metadados abreviados.
+:::
 
 ::: notes
-Trecho de metadados abreviado para projeção; abrir a skill real da demo para mostrar a descrição completa. Uma skill reutiliza decisões metodológicas do pesquisador. Não dá autoridade ao agente para inventar categorias.
+Abrir o arquivo real para mostrar as cinco dimensões: correção metodológica (erros-padrão, endogeneidade, *collider bias*), qualidade do código, reprodutibilidade, desempenho e apresentação. "Não edite" é prosa. Não apresentar `allowed-tools` como trava sem conferir na documentação do harness o que o campo faz. Mostrar só esta skill: o restante do repositório traz material de uma organização que não entra na aula. Uma skill reutiliza decisões metodológicas do pesquisador; não dá autoridade ao agente para inventar categorias.
 :::
 
 ## Demo 1a — o agente usando a *skill* {.smaller}
@@ -933,6 +937,48 @@ Estrutura sugerida: o projeto em duas linhas · as pastas · como trabalhar · o
 | Regra crítica só em prosa | Mover para *hook* e citar no `AGENTS.md` |
 | Desatualizado | Revisar quando a estrutura mudar; versionar |
 | Gerado automaticamente | Escrever o que só o pesquisador sabe |
+
+## Um `AGENTS.md` real {.smaller}
+
+Trechos do arquivo de `red_trade`, um artigo sobre comércio:
+
+- "Preserve dados brutos e nunca sobrescreva arquivos de origem."
+- "Não rode `targets::tar_make()` sem instrução explícita."
+- "Quem implementa não revisa; quem revisa não edita."
+- "Documente fonte e data de acesso."
+
+::: {.tese}
+Curto e específico do projeto. A linha que não pode falhar vira *hook*.
+:::
+
+::: {.fonte}
+Manoel Galdino, repositório `red_trade` (GPL-3.0), `AGENTS.md`.
+:::
+
+::: notes
+Abrir o arquivo real. O mesmo documento registra o estado do artigo e proíbe um jargão na prosa do manuscrito: decisões que só o pesquisador conhece. Observar que são instruções em prosa: orientam o agente, mas nenhuma delas impede a ação sozinha.
+:::
+
+## Um projeto real: `IVB-paper` {.smaller}
+
+| Pasta ou arquivo | Função |
+|---|---|
+| `ivb_paper_pa.Rmd` | Manuscrito ativo |
+| `ivb_paper_psrm.Rmd` | Versão histórica, fora da edição |
+| `derivations/` | Identidades e notas teóricas |
+| `simulations/` | Scripts e resultados de Monte Carlo |
+| `replication/` | Aplicações a artigos publicados |
+| `quality_reports/` | Pareceres e auditorias |
+
+**O `CLAUDE.md` abre com o estado atual** e guarda o enquadramento que foi invalidado, com uma lista do que não fazer.
+
+::: {.fonte}
+Manoel Galdino, repositório `IVB-paper` (GPL-3.0).
+:::
+
+::: notes
+O ponto é a organização, não o conteúdo do artigo. Quem retoma o projeto, pessoa ou agente, sabe qual arquivo é o ativo e por que uma ideia foi abandonada. Sem esse registro, o agente pode reabrir um caminho já descartado.
+:::
 
 ## O mesmo projeto em outro harness {.smaller}
 
