@@ -79,3 +79,11 @@ Decisões do autor, que substituem o que este plano diz sobre arquivo único e `
 - Os PDFs ficam em `_renders/`, não versionada, com data, hora, sessão e versão no nome.
 
 Nomes de arquivo (autor, 2026-11-05): os `.qmd` passam a ter nome completo, para que os PDFs não saiam como `slides.pdf` ou `ementa.pdf`: `llm-agents-for-research-syllabus.qmd`, `llm-agents-for-research-session-N-slides.qmd`, `materials.qmd` e `about.qmd`.
+
+## Nova estrutura da Sessão 2 (autor, 2026-11-05)
+
+A Sessão 2 passa a seguir a pergunta "como orientamos os agentes?", em quatro blocos: orientar com prosa, garantir com código, pesquisa com repositório e fechamento. O repositório `pedrohcgs/claude-code-my-workflow` (MIT, v2.6.0, commit `7586127`) é o exemplo da parte principal; conferir contagens e caminhos na véspera.
+
+- O projeto de demonstração, as demos e os exemplos de Manoel Galdino foram para o aprofundamento.
+- A parte principal tem 40 slides; os tempos por bloco são estimativas.
+- `notas-aula.md`, `plano-geral.md` e `folha-de-saida.md` ainda seguem a estrutura anterior.

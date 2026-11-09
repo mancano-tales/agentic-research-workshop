@@ -31,13 +31,12 @@ format:
 5. Prosa vs. regra
 :::
 ::: {.column width="50%"}
-**Sessão 2 — demonstrações**
+**Sessão 2 — práticas**
 
-1. *Skills* e auditoria
-2. *Hooks* e *code as policy*
-3. MCP e segurança
-4. `AGENTS.md`, Git e reprodutibilidade
-5. Aplicações exemplares
+1. Orientar com prosa
+2. Garantir com código
+3. Pesquisa com repositório
+4. Outras soluções e sua tarefa
 :::
 :::
 
@@ -46,13 +45,13 @@ format:
 
 | | Sessão 1 | Sessão 2 |
 |---|---|---|
-| Foco | Conceitos | Demonstrações |
+| Foco | Conceitos | Práticas |
 | Duração | 90 minutos | 90 minutos |
 | Condução | Felipe Lamarca | Tales Mançano |
 | Pergunta | O que muda quando o modelo pode agir? | Como manter rigor, registro e revisão? |
 | Material | Este PDF | PDF da Sessão 2 |
 
-Ninguém precisa instalar nada: as demonstrações ficam com os ministrantes.
+Ninguém precisa instalar nada: quem opera as ferramentas são os ministrantes.
 
 ## Sessão 1 em revisão
 
@@ -500,7 +499,7 @@ Cunningham, posts 23 e 41 (2026) e repositório MixtapeTools, `hooks/protect-raw
 Defesa em camadas: harness, Git, servidor (GitHub), revisão independente.
 :::
 
-Na Sessão 2: como cada camada funciona, ao vivo.
+Na Sessão 2: como cada camada funciona em um repositório real.
 
 ## Para levar
 
