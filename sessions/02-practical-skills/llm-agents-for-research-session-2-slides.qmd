@@ -27,7 +27,8 @@ Na Sessão 1, vimos o que são LLMs e o que chamamos de agente;
 
 Cada agente combina ferramentas, janela de contexto, permissões (*guardrails*) e *harness*. 
 
-Hoje: os mecanismos que transformam essa distinção em prática — ao vivo.
+Quais as principais ferramentas de "governaça" dos agentes?
+
 
 | Mecanismo | Para quê |
 |---|---|
@@ -38,65 +39,60 @@ Hoje: os mecanismos que transformam essa distinção em prática — ao vivo.
 | `AGENTS.md` | Instruções persistentes do projeto |
 | Git e GitHub | Histórico, colaboração e revisão |
 
-::: {.fonte}
-Retoma o PDF da Sessão 1: *O que muda quando o modelo pode agir*.
-:::
+## O percurso da Sessão 2 {.smaller}
 
-## O projeto de demonstração {.smaller}
+**Sumário.**
 
-Codificar a posição de parlamentares sobre gasto em educação, a partir de discursos (**fictícios**).
-
-```
-demo-project/
-├── AGENTS.md                 instruções do projeto
-├── codebook.md               livro de códigos: a autoridade
-├── dados/brutos/             somente leitura
-├── dados/processados/        tudo o que é gerado
-├── R/validar_codificacao.R   a regra, executável
-├── logs/                     registro automático
-├── docs/
-├── docs/plan
-├── hooks
-└── .claude/ 
-    ├── skills/codificar-discursos/
-    ├── agents/auditor.md
-    └── settings.json         onde os hooks e permissões são ligados
-```
-
-Você não precisa instalar nada hoje. Assista, pergunte e sugira pedidos ao agente.
-
-## O percurso de hoje {.smaller}
-
-**90 minutos, com demonstrações dos ministrantes.**
-
-| Etapa | Tempo |
-|---|---:|
-| Retomada e projeto | 5 min |
-| Skills e auditoria | 25 min |
-| Hooks e validação | 15 min |
-| MCP e segurança | 10 min |
-| `AGENTS.md` e GitHub | 20 min |
-| Aplicações na pesquisa | 10 min |
-| Encerramento | 5 min |
+| Etapa | O que vemos | Tempo |
+|---|---|---:|
+| Abertura | O problema central | 5 min |
+| 1. Linguagem natural vs. *guardrails* | Prompts, *skills*, arquivos do repositório, contexto | 25 min |
+| 2. Garantir com código | Git, GitHub, *hooks*, revisão, segurança | 30 min |
+| 3. Pesquisa com repositório | Um projeto do início ao fim | 15 min |
+| 4. Fechamento | Soluções exemplares de trabalho acadêmico com IA | 15 min |
 
 ::: notes
 Esta é a pergunta da aula: se não dá para checar tudo, o que precisa estar no projeto antes de o agente começar? O template de Sant'Anna resume a atitude numa lei: "A claim is not evidence. Read the artifact." Fonte: `.claude/references/research-agent-laws.md`, lei 1.
 :::
 
+## Exemplo de Workflow com agentes {.smaller}
+
+```
+claude-code-my-workflow/
+├── CLAUDE.md (AGENTS.md)   instruções lidas em toda sessão
+├── MEMORY.md               lições de correções passadas
+├── .claude/
+│   ├── rules/              37 regras em texto
+│   ├── skills/             61 protocolos reutilizáveis
+│   ├── agents/             18 revisores especializados
+│   ├── hooks/              11 scripts do harness
+│   └── settings.json       liga hooks e permissões
+├── .githooks/, .github/    portões no commit e no servidor
+└── explorations/, quality_reports/   rascunhos, planos e registros
+```
+
+Exemplo de caso de uso com Claude Code para Ciências Sociais, LaTeX e R. **É um menu de possibilidades com muito mais funcionalidades que a maioria dos usos cotidianos.**
+
+::: {.fonte}
+Pedro H. C. Sant'Anna, [`claude-code-my-workflow`](https://github.com/pedrohcgs/claude-code-my-workflow) (MIT), v2.6.0, commit `7586127` (4 nov. 2026).
+:::
+
 # 1. Orientação em linguagem natural
 
-## Prompt: diga o que é "pronto" {.smaller}
+## Estratégias para bons prompts e orientar os agentes {.smaller}
 
-**Pedido vago:** *"Melhore a análise."* Antes de agir, o agente precisa saber:
+*Geralmente escrever intuitivamente em linguagem natural funciona bem, mas algumas estratégias podem melhorar substantivamente o resultado*
+
+- **Clareza na instrução** e **contexto**
 
 | Pergunta | Exemplo |
 |---|---|
 | Qual entrega? | Uma tabela de resultados em `output/` |
-| Quais arquivos e decisões importam? | O script de análise e o plano aprovado |
-| Quais limites valem? | Reprodutível, sem caminho absoluto, dados restritos fora |
-| Quando perguntar? | Quando leituras diferentes mudam o trabalho: qual estimador usar |
+| Quais arquivos e decisões prévias importam? | Contexto do seu projeto e acesso à parte relevante do que já foi feito |
+| Quais as regras da tarefa? | Fazer análises reprodutíveis |
+| Como induzir o agente a agir de forma sistemática? | Quando o agente precisa fazer procedimentos repetitivos específicos |
 
-O template transforma esse hábito numa regra de uma página. O agente resolve o rotineiro e registra as suposições que importam.
+*Prompt shaping*: instruções desambiguar e descobrir o que queremos que seja feito antes de começar a agir.
 
 ::: {.fonte}
 `.claude/rules/prompt-shaping.md`.
@@ -104,91 +100,43 @@ O template transforma esse hábito numa regra de uma página. O agente resolve o
 
 ## Planejar antes de executar {.smaller}
 
-<!-- RESOLVIDO (Claude, 2026-11-09): "Não entendi ese slide". Reescrito sem o jargão MUST/SHOULD/MAY e CLEAR/ASSUMED/BLOCKED (foi para as notas), com um exemplo de pedido. -->
 
-Em tarefas grandes, peça ao agente um plano antes de ele alterar qualquer arquivo.
+Em tarefas grandes, peça ao agente um plano.
 
-1. O agente lê o projeto e descreve o que pretende fazer.
-2. Separa o que está claro, o que está supondo e o que falta saber.
-3. Salva o plano em um arquivo do projeto.
-4. Você aprova, corrige ou recusa. Só então ele executa.
+1. O agente lê o prompt e o contexto e descreve o que pretende fazer.
+2. Facilita a visualização do que está claro, o que está suposto e o que falta saber.
+3. Salva o plano em um arquivo em markdown, que pode ficar documentado.
+4. Você intera e modifica o plano, execultado apenas se for aprovado.
 
-**Exemplo de pedido:** *"Antes de mudar o script de estimação, escreva um plano: quais arquivos vai alterar, o que espera obter e o que ainda não sabe."*
+**Exemplo de pedido:** *"Antes de mudar o script de análise dos dados, escreva um plano: quais arquivos vai alterar, o que espera obter e o que não está claro na tarefa."*
 
-No template, a regra vale para tarefas que mexem em mais de três arquivos. Edições pequenas seguem direto.
+**Exemplo**: no template a regra vale para tarefas que mexem em mais de três arquivos. Edições pequenas seguem direto.
 
 ::: {.tese}
-Revisar um plano pode te poupar muito trabalho desfazendo tarefas erradas.
+Revisar um plano pode poupar muito trabalho desfazendo ações erradas.
 :::
 
 ::: {.fonte}
 `.claude/rules/plan-first-workflow.md`.
 :::
 
-::: notes
-No Claude Code, o modo de plano impede edições até a aprovação. O template vai além: em tarefas ambíguas, o plano lista requisitos (MUST, SHOULD, MAY) e marca cada ponto como CLEAR, ASSUMED ou BLOCKED. Mostrar no arquivo só se houver tempo.
-:::
+
 
 <!-- RESOLVIDO (Claude, 2026-11-09): "Não enteid qual é a desse slide" (li como referente ao slide seguinte, "Onde guardar cada instrução"). Reescrito: a tabela agora parte da instrução ("se a instrução vale só para esta tarefa...") e usa um único exemplo de pesquisa; regras por caminho e subagentes foram para as notas. -->
 
-## Onde colocar cada instrução {.smaller}
+## Como organizar as instruções para Agentes {.smaller}
 
-O lugar de uma instrução depende de quanto tempo ela vale e do custo de o agente ignorá-la.
+As intruções para agentes depende de quão recorrentemente o agente precisa seguir determinanda instrução para determinada tarefa e a consequência dele não receber a intrução.
 
-| Se a instrução... | Coloque em | Exemplo |
+| Se a instrução... | Coloque | Exemplo |
 |---|---|---|
-| vale só para esta tarefa | o pedido | "Revise `02_estimacao.R`" |
+| vale só para uma tarefa | no prompt | "Revise `02_estimacao.R`" |
 | vale para todo o projeto | `AGENTS.md` | "Dados brutos ficam em `data/raw/`" |
-| é um procedimento que se repete | uma *skill* | Como revisar um script R |
-| não pode ser descumprida | um *hook* ou check | Bloquear edição em `data/raw/` |
-| precisa de discussão com coautores | issue ou PR | Trocar o estimador |
+| é um procedimento que se repete em determinado tipo de tarefa | uma *skill* | Como fazer uma revisão de literatura |
+| não pode ser descumprida | um *hook* | Bloquear edição em `data/raw/` |
 
 ::: notes
 O template também usa regras que só carregam ao mexer em certas pastas e subagentes, revisores com contexto próprio. Os dois aparecem mais adiante.
-:::
-
-## O que é uma *skill* {.smaller}
-
-- Uma pasta com `SKILL.md` (instruções em linguagem natural) e, se preciso, scripts de apoio
-- O agente lê só **nome e descrição** de cada *skill*; carrega o resto quando a tarefa pede
-- Padrão aberto desde dez. 2025: Claude Code, Codex, Gemini CLI, Cursor, Copilot…
-
-::: {.tese}
-É o manual que o grupo entrega a cada novo assistente.
-:::
-
-A *skill* orienta, mas o modelo pode não segui-la. O que não pode falhar fica nos *hooks*.
-
-<!-- RESOLVIDO (Claude, 2026-11-09): "MUITO RUIM PEGAR ALGUMA SKILL DO GALDINO...". Trocada a review-r do template pela lit-review do agents-workflow de Galdino (revisão de literatura em CP, RI e economia). -->
-
-## A anatomia de uma *skill* {.smaller}
-
-```yaml
----
-name: lit-review
-description: "Revisão de literatura sistemática + síntese + gaps"
-argument-hint: "[tema ou pergunta de pesquisa]"
-allowed-tools: ["Read", "Glob", "Grep", "WebSearch", "WebFetch"]
----
-```
-
-**O texto da *skill* define as etapas:**
-
-1. Definir o escopo: pergunta, disciplinas, período e região.
-2. Mapear trabalhos seminais, debates centrais e métodos predominantes.
-3. Para cada trabalho: argumento, estratégia empírica, achado e limitações.
-4. Apontar lacunas teóricas, empíricas, metodológicas e de dados, num formato fixo.
-
-::: {.alerta}
-`allowed-tools` dispensa a autorização e `disallowed-tools` bloqueia o uso do comando.
-:::
-
-::: {.fonte}
-Manoel Galdino, [`agents-workflow`](https://github.com/mgaldino/agents-workflow) (GPL-3.0), `lit-review/SKILL.md`, commit `948c294`, resumido.
-:::
-
-::: notes
-Abrir o arquivo real. A skill pede a busca na web, mas não confere se as referências existem: toda citação gerada precisa ser checada (Galdino tem a skill `validate-bib` para isso). A distinção entre `allowed-tools` e `disallowed-tools` vale para o Claude Code; conferir na documentação antes da aula.
 :::
 
 ## A arquitetura de um repositório {.smaller}
@@ -204,21 +152,82 @@ O template não tem um TODO: as pendências ficam em issues do GitHub, e os plan
 
 ## Um `AGENTS.md` {.smaller}
 
-O arquivo tem 165 linhas. Quanto mais conciso e compacto, mais eficiente tende a ser. Em resumo:
+Lido em toda sessão. Quanto mais curto, menos tokens gasta e mais fácil é mantê-lo.
 
-- **Escopo:** fazer só o que foi pedido; extras viram sugestão no fim.
-- **Método:** planejar antes, compilar e conferir depois.
-- **Comandos:** como compilar e testar, escritos por extenso.
-- **Correções:** cada erro corrigido vira uma entrada `[LEARN]` em `MEMORY.md`.
+::: {.columns}
+::: {.column width="52%"}
+```markdown
+# Projeto
+Desastres e reeleição de prefeitos (R)
 
-| Armadilha | Alternativa |
+# Pastas
+data/raw/   dados brutos, não editar
+output/     gerado pelo código
+
+# Comandos
+Rscript scripts/run_all.R
+
+# Como trabalhar
+Faça só o que foi pedido.
+Planeje antes de mudar vários arquivos.
+Rode o código e mostre a saída.
+```
+:::
+::: {.column width="48%"}
+| Evite | Prefira |
 |---|---|
-| Arquivo enorme, com tudo | Curto; detalhes em *skills* e regras |
+| Arquivo enorme, com tudo | Arquivo curto, com detalhes em *skills* e regras |
 | "Seja rigoroso" | "Rode o teste e mostre a saída" |
-| Regra crítica só em texto | Mover para *hook* e citar no arquivo |
+| Regra crítica só em texto | Regra em *hook*, citada no arquivo |
+| Comando descrito em palavras | Comando escrito por extenso |
+:::
+:::
 
 ::: {.fonte}
-`CLAUDE.md` do template, que faz o papel do `AGENTS.md` no Claude Code.
+Exemplo fictício, inspirado no `CLAUDE.md` do template (165 linhas), que faz o papel do `AGENTS.md` no Claude Code.
+:::
+
+## O que é uma *skill* {.smaller}
+
+- Uma pasta com `SKILL.md` (instruções em linguagem natural) e, se preciso, scripts de apoio
+- O agente lê só **nome e descrição** de cada *skill*; carrega o resto quando a tarefa pede
+- Padrão aberto desde dez. 2025: Claude Code, Codex, Gemini CLI, Cursor, Copilot…
+
+::: {.tese}
+É um manual de instruções para determinada tarefa que define como um agente deve proceder quando a skill for aplicável.
+:::
+
+
+<!-- RESOLVIDO (Claude, 2026-11-09): "MUITO RUIM PEGAR ALGUMA SKILL DO GALDINO...". Trocada a review-r do template pela lit-review do agents-workflow de Galdino (revisão de literatura em CP, RI e economia). -->
+
+## Como uma *skill* funciona  {.smaller}
+
+```yaml
+---
+name: lit-review
+description: "Revisão de literatura sistemática + síntese + gaps"
+argument-hint: "[tema ou pergunta de pesquisa]"
+allowed-tools: ["Read", "Glob", "Grep", "WebSearch", "WebFetch"]
+---
+```
+
+**O texto da *skill* define as etapas:**
+
+1. Definir o escopo: pergunta, disciplinas, período e região.
+2. Mapear trabalhos seminais, debates centrais e métodos predominantes.
+3. Para cada trabalho: argumento, estratégia empírica, achado e limitações.
+4. Apontar lacunas teóricas, empíricas, metodológicas e de dados, num formato fixo de *output*.
+
+::: {.alerta}
+`allowed-tools` dispensa a autorização e `disallowed-tools` bloqueia o comando.
+:::
+
+::: {.fonte}
+Manoel Galdino, [`agents-workflow`](https://github.com/mgaldino/agents-workflow) (GPL-3.0), `lit-review/SKILL.md`, commit `948c294`, resumido.
+:::
+
+::: notes
+Abrir o arquivo real. A skill pede a busca na web, mas não confere se as referências existem: toda citação gerada precisa ser checada (Galdino tem a skill `validate-bib` para isso). A distinção entre `allowed-tools` e `disallowed-tools` vale para o Claude Code; conferir na documentação antes da aula.
 :::
 
 ## Janela de contexto: carregar só o necessário {.smaller}
@@ -259,41 +268,6 @@ Os comandos são do Claude Code; outros harnesses têm equivalentes. O campo `pa
 :::
 
 
-## O percurso da Sessão 2 {.smaller}
-
-**90 minutos, percorrendo um template.**
-
-| Etapa | O que vemos | Tempo |
-|---|---|---:|
-| Abertura | O problema central | 5 min |
-| 1. Linguagem natural vs. *guardrails* | Prompts, *skills*, arquivos do repositório, contexto | 25 min |
-| 2. Garantir com código | Git, GitHub, *hooks*, revisão, segurança | 30 min |
-| 3. Pesquisa com repositório | Um projeto do início ao fim | 15 min |
-| 4. Fechamento | Outras soluções e uma tarefa sua | 15 min |
-
-<!-- RESOLVIDO (Claude, 2026-11-09): "Ver aqui se colocamos textos ou outras coisas". Os conteúdos de cada bloco foram para uma coluna própria, e Abertura e Fechamento ganharam descrição. A posição do slide (depois do bloco 1) ficou como você deixou. -->
-
-## Exemplo de Workflow com agentes {.smaller}
-
-```
-claude-code-my-workflow/
-├── CLAUDE.md (AGENTS.md)   instruções lidas em toda sessão
-├── MEMORY.md               lições de correções passadas
-├── .claude/
-│   ├── rules/              37 regras em texto
-│   ├── skills/             61 protocolos reutilizáveis
-│   ├── agents/             18 revisores especializados
-│   ├── hooks/              11 scripts do harness
-│   └── settings.json       liga hooks e permissões
-├── .githooks/, .github/    portões no commit e no servidor
-└── explorations/, quality_reports/   rascunhos, planos e registros
-```
-
-Exemplo de caso de uso com Claude Code para Ciências Sociais, LaTeX e R. **É um menu de possibilidades com muito mais funcionalidades que a maioria dos usos cotidianos.**
-
-::: {.fonte}
-Pedro H. C. Sant'Anna, [`claude-code-my-workflow`](https://github.com/pedrohcgs/claude-code-my-workflow) (MIT), v2.6.0, commit `7586127` (4 nov. 2026).
-:::
 
 # 2. Infraestrutura com código
 
@@ -320,10 +294,11 @@ Por isso, os *hooks* do template barram `git reset --hard`, `git clean -f` e `gi
 ::: {.column width="75%"}
 **Git** é um protocolo leve e eficiente de controle de versões. **GitHub** hospeda o repositório e organiza a conversa sobre as mudanças.
 
-- O Git roda na sua máquina; o GitHub guarda uma cópia do repositório on-line.
-- Coautores e agentes enviam suas mudanças para esse mesmo repositório.
-- Cada mudança pode ser discutida, revisada e testada antes de entrar no projeto.
-- O repositório pode ser público ou privado. GitLab e Codeberg cumprem o mesmo papel.
+- O Git roda na sua máquina
+- O GitHub guarda uma cópia do repositório on-line, é um drive de repositórios GIT.
+- Coautores e, agora, agentes enviam suas mudanças para esse mesmo repositório.
+- Cada mudança pode ser discutida, revisada e testada antes de entrar no projeto em versões (*branches*).
+- O repositório pode ser público ou privado. GitLab e Codeberg são alternativas similares.
 :::
 :::
 
@@ -333,7 +308,7 @@ Por isso, os *hooks* do template barram `git reset --hard`, `git clean -f` e `gi
 
 ![](images/github-repositorio.png){width=80%}
 
-Pastas e arquivos do projeto, a última mudança de cada um e, no alto, as abas de issues, *pull requests* e *Actions* (os checks).
+Pastas e arquivos do projeto, a última mudança de cada um e, no alto, as abas de *issues*, *pull requests* e *Actions*.
 
 ::: {.fonte}
 Página de `pedrohcgs/claude-code-my-workflow`, capturada em 9 nov. 2026.
@@ -384,7 +359,6 @@ O `AGENTS.md` faz uma sugestão que pode ser ignorada. O *hook* é um código de
 ::: notes
 Analogia com git hooks só como intuição. Claude Code, Codex, Gemini CLI e Cursor têm hooks com a mesma lógica (sair com código 2 ou responder "deny" bloqueia). O log-reminder.py também pode impedir o encerramento, mas isso é opcional.
 :::
-
 ## Como um *hook* é ligado {.smaller}
 
 ```json
@@ -584,21 +558,17 @@ O texto entra de qualquer jeito. A regra age sobre a ação.
 :::
 
 ::: notes
-Cenário, sem demonstração ao vivo: o modelo pode ou não obedecer, e a tabela mostra o que muda quando obedece. O bloqueio só vale para as ações cobertas pela regra. Os hooks do template não cobrem apagar uma pasta de resultados: seria preciso escrever essa regra.
+Cenário, sem demonstração o modelo pode ou não obedecer, e a tabela mostra o que muda quando obedece. O bloqueio só vale para as ações cobertas pela regra. Os hooks do template não cobrem apagar uma pasta de resultados: seria preciso escrever essa regra.
 :::
 
-## MCP: uma tomada universal {.smaller}
+## MCP um padrão de comunicação entre ferramentas e agentes {.smaller}
 
 *Model Context Protocol*: padrão aberto para conectar agentes a ferramentas e dados.
 
-- Cada serviço implementa um servidor MCP **uma vez**; qualquer agente compatível usa.
+- Cada serviço implementa um servidor MCP compatível com agentes.
 - No template: `stata-mcp` roda o Stata; `/triage-inbox` lê e-mail e agenda.
 
 **MCP ou linha de comando?** Se um programa ou pacote R já faz o serviço, o agente pode simplesmente rodá-lo. MCP compensa com autenticação ou muitas operações.
-
-::: {.alerta}
-Cada servidor ocupa contexto e amplia o risco. Um e-mail é conteúdo não confiável.
-:::
 
 # 3. Pesquisa com repositório
 
@@ -673,18 +643,6 @@ Quando o script muda, o *hook* `claim-reconcile.py` avisa que aquele número pod
 `guide/workflow-guide.qmd`, tradução livre e adaptada.
 :::
 
-## Workflows de outros pesquisadores {.smaller}
-
-| Quem | Repositório | Foco |
-|---|---|---|
-| Pedro H. C. Sant'Anna | `claude-code-my-workflow` | Template com portões |
-| Hugo Sant'Anna | `clo-author` | Fluxo centrado no artigo |
-| Chris Blattman | `claudeblattman` | Acadêmicos sem formação técnica |
-| Scott Cunningham | `MixtapeTools` | Apresentações e auditoria |
-| Manoel Galdino | `red_trade`, `IVB-paper` | Projetos reais de artigo |
-
-Exemplos de Galdino e o projeto deste curso estão no aprofundamento.
-
 # 4. Fechamento
 
 ## Contêineres: dois usos {.smaller}
@@ -740,10 +698,51 @@ O template tem 61 *skills*, e o próprio guia diz para começar com o `CLAUDE.md
 Copie o princípio, não o repositório. Comece por uma tarefa que você realmente repete.
 :::
 
+# 5. Boas pesquisas com IA
+
+## LLMs anotam melhor que especialistas? {.smaller}
+
+Törnberg pediu a cada método que adivinhasse o partido de um parlamentar a partir de um único tuíte, em 11 países.
+
+| Quem anotou (EUA, 500 mensagens) | Acurácia |
+|---|---:|
+| GPT-4, sem nenhum exemplo de treino | 0,93 |
+| Três cientistas políticos, voto da maioria | 0,86 |
+| Trabalhadores do MTurk, voto da maioria | 0,85 |
+| BERT, treinado com 5.000 mensagens por partido | 0,81 |
+| Naive Bayes, mesmo treino | 0,79 |
+
+O GPT-4 teve a maior acurácia nos 11 países, com o mesmo prompt em inglês. Acertou mensagens que dependem de ironia, referências implícitas e conhecimento do contexto político.
+
 ::: {.fonte}
-`guide/workflow-guide.qmd`.
+Petter Törnberg, "Large Language Models Outperform Expert Coders and Supervised Classifiers at Annotating Political Social Media Messages", *Social Science Computer Review* 43(6), 2025, publicado on-line em 2024.
 :::
 
+::: notes
+A tarefa é binária e balanceada (250 mensagens por partido), por isso a acurácia é uma boa medida. Fora dos EUA, todos os métodos caem, e a Suécia é o caso mais difícil. Os especialistas provavelmente se saíram melhor do que num projeto real, porque o material era pequeno e não houve cansaço.
+:::
+
+## O que torna o estudo confiável {.smaller}
+
+| Prática | No artigo |
+|---|---|
+| Gabarito objetivo | O partido do autor é conhecido, sem anotação humana |
+| Comparação justa | Especialistas com a mesma instrução do modelo |
+| Robustez | Resultado estável com outros prompts |
+| Versão fixada | `gpt-4-0314`, via API e não pelo chat |
+| Análise dos erros | Cada erro foi lido e classificado |
+| Reprodutibilidade | Código e dados públicos no GitHub |
+| Limites declarados | Pode não valer para outras tarefas |
+
+::: {.tese}
+O modelo pode anotar, mas a validação continua sendo responsabilidade de quem pesquisa.
+:::
+
+::: notes
+O autor recomenda não usar a interface do chat para pesquisa, porque os dados podem ir para treino, a versão do modelo não é controlada e o prompt de sistema reduz a reprodutibilidade. Com dados pessoais ou sigilosos, sugere modelo hospedado na própria infraestrutura. As justificativas que o modelo dá para cada resposta devem ser lidas como racionalizações posteriores, não como o motivo real.
+:::
+
+<!--
 ## O ganho precisa ser medido {.smaller}
 
 Compare uma execução inicial com o fluxo revisado, usando os mesmos casos.
@@ -1298,3 +1297,4 @@ Uma issue define a tarefa. O PR reúne a proposta e sua revisão.
 ::: notes
 Material complementar. Em análise empírica, acrescentar checagens específicas do desenho e dos dados. Verificar referências não valida identificação causal. O formato de colaboração pode ser usado para artigos, scripts, livros de códigos e apresentações.
 :::
+-->
