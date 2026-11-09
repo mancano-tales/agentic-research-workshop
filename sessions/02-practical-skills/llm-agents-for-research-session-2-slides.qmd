@@ -167,7 +167,8 @@ output/     gerado pelo código
 Rscript scripts/run_all.R
 
 # Como trabalhar
-Salve as análises de dados de forma reprodutível.
+Salve as análises de forma
+reprodutível.
 Planeje antes de mudar vários arquivos.
 ```
 :::
@@ -312,10 +313,10 @@ Um script que o *harness* executa **sempre**, em momentos definidos:
 
 | Momento | Pode | No template |
 |---|---|---|
-| Antes de uma ação | **Bloquear** | `git-guardrails.py` nega `git reset --hard` |
-| Depois de uma ação | Avisar | `claim-reconcile.py` acusa número desatualizado |
-| Ao encerrar | Registrar | `log-reminder.py` escreve o log da sessão |
-| Antes de compactar | Salvar estado | `pre-compact.py` guarda o plano ativo |
+| Antes de uma ação | **Bloquear** | `git-guardrails.py` nega `reset --hard` |
+| Depois de uma ação | Avisar | `claim-reconcile.py` acusa número velho |
+| Ao encerrar | Registrar | `log-reminder.py` grava o log |
+| Antes de compactar | Salvar estado | `pre-compact.py` salva o plano |
 
 ::: {.tese}
 O `AGENTS.md` faz uma sugestão que pode ser ignorada. O *hook* é um código determinístico que funciona como uma infraestrutura do repositório.
@@ -359,7 +360,7 @@ Analogia com git hooks só como intuição. Claude Code, Codex, Gemini CLI e Cur
 Como criar regras que contribuam para a validade, replicação, sigilo ou integridade dos dados?
 :::
 
-## *Hook* não é uma garantia definitiva {.smaller}
+## *Hook* não é uma garantia completa {.smaller}
 
 É fundamental ampliar os *backups* das dimensões mais sensíveis do seu trabalho.
 
@@ -456,7 +457,53 @@ São os mesmos princípios da sessão. Rastrear até a fonte e aprovar antes de 
 Lembrar que os PDFs e as perguntas vão para o provedor do modelo escolhido. Conferir na véspera os planos e quais modelos estão disponíveis.
 :::
 
-# E
+## QualiLab, análise qualitativa no navegador {.smaller}
+
+![](images/qualilab-codificacao.png){height=4.6cm}
+
+Ferramenta gratuita de análise qualitativa (CAQDAS) que roda no navegador, sem instalação. Codifica texto e PDF, permite pesquisa em grupo e usa IA só se o pesquisador quiser, com a própria chave.
+
+::: {.fonte}
+Luiz Pimenta Filho (LabDados, FGV Direito SP), [`QualiLab`](https://github.com/LuizPF42/QualiLab) (MIT), v1.4.83. Imagem do manual do usuário, com dados fictícios.
+:::
+
+## QualiLab, alternativa gratuita ao NVivo {.smaller}
+
+::: {.columns}
+::: {.column width="45%"}
+![](images/qualilab-prompt.png){height=6.2cm}
+:::
+::: {.column width="55%"}
+- Mostra o modelo, o custo estimado e exatamente o que será enviado à IA.
+- Trechos marcados como nomes ou empresas ficam fora do envio.
+- O prompt diz à IA que ela só propõe, e quem decide é o pesquisador.
+- Aceita modelo local, sem enviar nada para fora.
+
+::: {.alerta}
+O próprio autor avisa que a ferramenta não anonimiza o material e ainda não passou por auditoria de segurança.
+:::
+:::
+:::
+
+::: {.fonte}
+QualiLab, manual do usuário, tela "Configurar Prompt"; `README.md`.
+:::
+
+## Transcritório, transcrição local de entrevistas {.smaller}
+
+![](images/transcritorio.png){height=4.6cm}
+
+Aplicativo gratuito que transcreve entrevistas em português e separa os falantes. Tudo roda no computador do pesquisador, e o áudio não vai para a nuvem. Traz um texto pronto para o projeto no CEP.
+
+::: {.fonte}
+Rogério Jerônimo Barbosa (IESP-UERJ/CERES), [`Transcritorio`](https://github.com/antrologos/Transcritorio) (MIT), v0.2.8. Site do projeto capturado em 9 nov. 2026.
+:::
+
+::: notes
+Segundo o README, a acurácia fica entre 90% e 96% em áudios limpos, e uma hora de áudio é transcrita em poucos minutos com o motor padrão. O primeiro uso pede uma conta gratuita na Hugging Face para baixar o modelo de separação de falantes. Também faz resumo e busca nas entrevistas com IA local.
+:::
+
+# Evidências de fronteira sobre uso de IA em tarefas acadêmicas
 
 ## LLMs anotam melhor que especialistas? {.smaller}
 
