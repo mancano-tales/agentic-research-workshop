@@ -168,9 +168,8 @@ output/     gerado pelo código
 Rscript scripts/run_all.R
 
 # Como trabalhar
-Faça só o que foi pedido.
+Salve todas as análises de datos de forma que sejam reprodutíveis
 Planeje antes de mudar vários arquivos.
-Rode o código e mostre a saída.
 ```
 :::
 ::: {.column width="48%"}
@@ -183,10 +182,6 @@ Rode o código e mostre a saída.
 :::
 :::
 
-::: {.fonte}
-Exemplo fictício, inspirado no `CLAUDE.md` do template (165 linhas), que faz o papel do `AGENTS.md` no Claude Code.
-:::
-
 ## O que é uma *skill* {.smaller}
 
 - Uma pasta com `SKILL.md` (instruções em linguagem natural) e, se preciso, scripts de apoio
@@ -196,9 +191,6 @@ Exemplo fictício, inspirado no `CLAUDE.md` do template (165 linhas), que faz o 
 ::: {.tese}
 É um manual de instruções para determinada tarefa que define como um agente deve proceder quando a skill for aplicável.
 :::
-
-
-<!-- RESOLVIDO (Claude, 2026-11-09): "MUITO RUIM PEGAR ALGUMA SKILL DO GALDINO...". Trocada a review-r do template pela lit-review do agents-workflow de Galdino (revisão de literatura em CP, RI e economia). -->
 
 ## Como uma *skill* funciona  {.smaller}
 
@@ -219,7 +211,7 @@ allowed-tools: ["Read", "Glob", "Grep", "WebSearch", "WebFetch"]
 4. Apontar lacunas teóricas, empíricas, metodológicas e de dados, num formato fixo de *output*.
 
 ::: {.alerta}
-`allowed-tools` dispensa a autorização e `disallowed-tools` bloqueia o comando.
+`allowed-tools` dispensa a autorização e `disallowed-tools` bloqueia o uso.
 :::
 
 ::: {.fonte}
@@ -228,26 +220,6 @@ Manoel Galdino, [`agents-workflow`](https://github.com/mgaldino/agents-workflow)
 
 ::: notes
 Abrir o arquivo real. A skill pede a busca na web, mas não confere se as referências existem: toda citação gerada precisa ser checada (Galdino tem a skill `validate-bib` para isso). A distinção entre `allowed-tools` e `disallowed-tools` vale para o Claude Code; conferir na documentação antes da aula.
-:::
-
-## Janela de contexto: carregar só o necessário {.smaller}
-
-- **Instruções curtas:** o `CLAUDE.md` entra em toda sessão.
-- ***Skills*:** só nome e descrição, até serem usadas.
-- **Regras por caminho:** `confidential-data.md` só carrega ao mexer em `data/`.
-- **Subagentes:** leem muito no próprio contexto e devolvem um relatório.
-- **Tarefa nova:** `/clear`. Mesma tarefa: `/compact` com o foco desejado.
-
-::: {.tese}
-O que entra no contexto compete com a tarefa.
-:::
-
-::: {.fonte}
-`.claude/rules/confidential-data.md` (campo `paths:`); `guide/workflow-guide.qmd`.
-:::
-
-::: notes
-Os comandos são do Claude Code; outros harnesses têm equivalentes. O campo `paths:` no início de uma regra define quando ela é carregada.
 :::
 
 ## O que não está em disco se perde {.smaller}
@@ -688,6 +660,39 @@ O contrato viaja com o projeto. A regra precisa ser ligada em cada *harness*.
 | Codificação qualitativa | Taguette + pré-codificação por LLM validada | o pesquisador continua dono do livro de códigos |
 | Análise em R | Positron Assistant; `ellmer`, `mall` | IA dentro do ambiente de análise |
 
+## Beaver, um assistente dentro do Zotero {.smaller}
+
+![](images/beaver-zotero.png){width=60%}
+
+Fica na lateral do Zotero, busca em toda a biblioteca, inclusive no texto dos PDFs, e responde sobre o artigo aberto.
+
+::: {.fonte}
+[beaverapp.ai](https://www.beaverapp.ai/), página inicial capturada em 9 nov. 2026. Criado por Joscha Legewie, sociólogo de Harvard.
+:::
+
+## Cada resposta aponta para a fonte {.smaller}
+
+::: {.columns}
+::: {.column width="50%"}
+![](images/beaver-citacao.png){width=90%}
+
+Cada frase da resposta cita o trecho e a página de onde saiu. Um clique abre o PDF no trecho grifado.
+:::
+::: {.column width="50%"}
+![](images/beaver-anotacoes.png){width=90%}
+
+Também grifa e anota os PDFs e roda a mesma tarefa em centenas de artigos. Mudanças na biblioteca só entram com a sua aprovação.
+:::
+:::
+
+::: {.tese}
+São os mesmos princípios da sessão. Rastrear até a fonte e aprovar antes de mudar.
+:::
+
+::: notes
+Lembrar que os PDFs e as perguntas vão para o provedor do modelo escolhido. Conferir na véspera os planos e quais modelos estão disponíveis.
+:::
+
 ## Adapte os recursos às suas necessidades {.smaller}
 
 Há muitas soluções, e elas vão continuar surgindo. Cada workflow acaba sendo específico.
@@ -740,6 +745,79 @@ O modelo pode anotar, mas a validação continua sendo responsabilidade de quem 
 
 ::: notes
 O autor recomenda não usar a interface do chat para pesquisa, porque os dados podem ir para treino, a versão do modelo não é controlada e o prompt de sistema reduz a reprodutibilidade. Com dados pessoais ou sigilosos, sugere modelo hospedado na própria infraestrutura. As justificativas que o modelo dá para cada resposta devem ser lidas como racionalizações posteriores, não como o motivo real.
+:::
+
+## A IA já revisa artigos melhor que pareceristas? {.smaller}
+
+King e Worthington compararam 134 pareceres humanos e 124 de IA sobre os mesmos artigos.
+
+| Pareceres humanos | Pareceres de IA |
+|---|---|
+| Especialistas bem pagos, de outras instituições | Claude Opus 4.8, com as mesmas orientações |
+| 88% dos autores os acharam de alta qualidade | Uma versão sem internet e outra com busca |
+
+Quem julgou foi o GPT-5.5, de outra empresa, sem saber qual parecer era de quem. Três ex-editores de revistas importantes também julgaram 10 pares às cegas.
+
+::: {.fonte}
+Gary King e Steven Worthington, "AI Article Reviews Dominate Human Peer Reviews at Their Best. Evidence and Policy Choices", working paper, 28 out. 2026, [GaryKing.org/peerless](https://GaryKing.org/peerless).
+:::
+
+::: notes
+Os artigos vêm do rapidPeer, serviço do IQSS de Harvard que dá pareceres duplo-cegos a professores antes da submissão. Os autores do estudo criaram e mantêm o rapidPeer e declaram esse conflito de interesse.
+:::
+
+## O parecer da IA venceu em todas as medidas {.smaller}
+
+| Medida | IA | Humanos |
+|---|---:|---:|
+| Preferido pelo juiz de IA | 100% | 0% |
+| Preferido pelos ex-editores | 87% | 13% |
+| Afirmações que contradizem o artigo | 5,5% | 15,9% |
+| Pareceres com ao menos um erro factual | 37% | 64% |
+| Referências inventadas | 0 de 651 | |
+
+A vantagem aparece nas sete áreas avaliadas, de teoria e métodos a figuras e tabelas. Os ex-editores concordaram mais com o juiz de IA (87%) do que entre si (80%).
+
+::: {.alerta}
+Mais de um terço dos pareceres de IA ainda tinha algum erro factual.
+:::
+
+::: {.fonte}
+King e Worthington (2026), figura 1 e tabelas 4 e 5.
+:::
+
+## Como os autores testaram o próprio resultado {.smaller}
+
+| Suspeita | Teste | Resultado |
+|---|---|---|
+| A IA escreve mais | Só pares de tamanho parecido | IA vence 44 de 44 |
+| O juiz prefere o estilo da IA | Humanos reescritos no estilo da IA | Humanos seguem perdendo |
+| O juiz é uma IA | Ex-editores julgam às cegas | IA vence 26 de 30 |
+| A IA leu o que veio depois | Resultado por ano | Vantagem igual em todo ano |
+| O juiz não vê erros | Frases falsas inseridas | 258 de 258 detectadas |
+| Depende do modelo | Outros modelos e juízes | IA vence 94% a 97% |
+
+::: {.tese}
+É o desenho que vimos na sessão. Quem escreve não julga, e o julgamento é testado antes de ser usado.
+:::
+
+## O que o artigo não mostra e o que propõe {.smaller}
+
+**Não mostra**
+
+- Se os artigos melhoraram depois dos pareceres.
+- O efeito coletivo de todos usarem os mesmos modelos. A ciência pode ficar mais homogênea e dependente de poucas empresas.
+- Se o resultado vale com modelos mais fracos e configurações padrão.
+
+**Propõe às revistas**
+
+- Autores revisarem o artigo com IA antes de submeter.
+- Revistas publicarem um prompt oficial de revisão.
+- Exigir o parecer da IA e uma carta do autor respondendo a ele.
+- Deixar com o editor a decisão de publicar.
+
+::: notes
+Risco apontado pelos autores. Se o prompt da revista for público, o autor pode revisar até agradar a IA, sem melhorar a ciência. Por isso sugerem um segundo prompt que só o editor conhece. Ressaltar que é um working paper, ainda sem revisão por pares.
 :::
 
 <!--
