@@ -620,6 +620,74 @@ King e Worthington (2026), figura 1 e tabelas 4 e 5.
 Risco apontado pelos autores. Se o prompt da revista for público, o autor pode revisar até agradar a IA, sem melhorar a ciência. Por isso sugerem um segundo prompt que só o editor conhece. Ressaltar que é um working paper, ainda sem revisão por pares.
 :::
 
+## Um parecer de IA para cada artigo da AAAI-26 {.smaller}
+
+Na AAAI-26, cada um dos 22.977 artigos em revisão completa recebeu um parecer de IA identificado como tal, ao lado de pelo menos dois pareceres humanos.
+
+- O sistema dividia a revisão em etapas, como argumento, apresentação, avaliação, correção e relevância, com código para conferir contas e busca na web para a literatura.
+- O parecer da IA não dava nota nem recomendação, e nenhum parecerista humano foi substituído.
+- Todos os pareceres saíram em menos de 24 horas, a menos de US$ 1 por artigo.
+
+::: {.fonte}
+Biswas et al., "AI-Assisted Peer Review at Scale. The AAAI-26 AI Review Pilot", arXiv:2604.13940, 2026.
+:::
+
+::: notes
+Os créditos de API foram doados pela OpenAI, patrocinadora da conferência. Depois de uma autocrítica, o sistema revisava o próprio parecer em busca de afirmações sem base e checava se as referências citadas existiam.
+:::
+
+## O que autores e comitê acharam dos pareceres da AAAI-26 {.smaller}
+
+Uma pesquisa opcional recebeu 5.834 respostas de autores e membros do comitê. As três últimas afirmações foram feitas só ao comitê.
+
+| Afirmação sobre o parecer de IA | Concordam | Discordam |
+|----------------------------------------------|------:|------:|
+| Foi útil | 53,9% | 20,2% |
+| Achou problemas que um humano dificilmente veria | 46,6% | 21,3% |
+| Deixou passar pontos que um humano veria | 49,4% | 14,0% |
+| Mudou a avaliação do artigo | 13,8% | 55,6% |
+
+O parecer de IA foi mais bem avaliado em seis de nove critérios, como encontrar erros técnicos. As críticas mais comuns foram julgar mal a novidade e a relevância, insistir em detalhes e escrever demais.
+
+::: {.alerta}
+Quem respondeu pode não representar todos os participantes.
+:::
+
+## Pareceristas usam IA mesmo quando é proibido? {.smaller}
+
+No ICML 2026, com cerca de 24 mil artigos, parte dos pareceristas foi sorteada entre duas regras.
+
+- **Conservadora** proibia qualquer uso de LLM.
+- **Permissiva** permitia usar LLM para entender o artigo e polir o texto, mas não para avaliar.
+
+A regra quase não mudou as decisões (27,0% contra 26,5% de aceitos). Na pesquisa posterior, com 1.486 respostas, 22,5% dos pareceristas sob a regra conservadora disseram ter usado LLM mesmo assim, e 36,5% dos que estavam sob a permissiva relataram algum uso proibido.
+
+::: {.tese}
+Se proibir não impede o uso, que regras fazem sentido quando o uso é difícil de verificar?
+:::
+
+::: {.fonte}
+Kim, Deng et al., "Use and Effects of LLMs in Peer Review. A Randomized Experiment and Survey at ICML 2026", arXiv:2609.19420, 2026.
+:::
+
+::: notes
+Os pareceres sob a regra permissiva ficaram de 5,5% a 7% mais longos. Os motivos mais citados para descumprir a regra foram excesso de trabalho e dúvida sobre onde fica o limite do uso permitido.
+:::
+
+## Refine, revisão técnica antes da submissão {.smaller}
+
+![](images/refine.png){height=4.6cm}
+
+Ferramenta comercial que lê o manuscrito procurando erros técnicos, como pesos de escore de propensão errados, provas com suposições faltando e texto que não bate com as tabelas. Promete fazer em cerca de 30 minutos o trabalho de dias de um parecerista.
+
+::: {.fonte}
+[refine.ink](https://www.refine.ink/), página inicial capturada em 10 nov. 2026.
+:::
+
+::: notes
+Os números de desempenho que aparecem no site são do próprio fornecedor e não foram avaliados de forma independente. Conferir preço e política de dados antes de enviar um manuscrito inédito.
+:::
+
 <!--
 ## O ganho precisa ser medido {.smaller}
 
