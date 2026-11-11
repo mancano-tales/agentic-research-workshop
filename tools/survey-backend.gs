@@ -13,6 +13,7 @@
 const SHEET_NAME = "respostas";
 const MAX_ROWS = 500;
 const CACHE_SECONDS = 3;
+const LOCK_WAIT_MS = 45000;
 
 // Os códigos precisam ser iguais aos de QUESTIONS em survey/survey.js.
 const QUESTIONS = {
@@ -32,9 +33,18 @@ function json_(payload) {
 function sheet_() {
   const book = SpreadsheetApp.getActiveSpreadsheet();
   let sheet = book.getSheetByName(SHEET_NAME);
-  if (!sheet) {
-    sheet = book.insertSheet(SHEET_NAME);
-    sheet.appendRow(["data_hora"].concat(IDS));
+  if (sheet) return sheet;
+  // Só a criação da aba usa trava, para duas respostas não criarem a mesma aba.
+  const lock = LockService.getScriptLock();
+  lock.waitLock(20000);
+  try {
+    sheet = book.getSheetByName(SHEET_NAME);
+    if (!sheet) {
+      sheet = book.insertSheet(SHEET_NAME);
+      sheet.appendRow(["data_hora"].concat(IDS));
+    }
+  } finally {
+    lock.releaseLock();
   }
   return sheet;
 }
@@ -55,16 +65,24 @@ function doPost(e) {
   const invalid = IDS.some((id) => QUESTIONS[id].indexOf(answers[id]) === -1);
   if (invalid) return json_({ ok: false, error: "resposta" });
 
+  let sheet;
+  try {
+    sheet = sheet_();
+  } catch (error) {
+    return json_({ ok: false, error: "ocupado" });
+  }
+  if (sheet.getLastRow() > MAX_ROWS) return json_({ ok: false, error: "limite" });
+  // A trava é necessária: num teste com 40 envios simultâneos sem ela, só 13 linhas
+  // ficaram na planilha. O flush garante a gravação antes de liberar a vez.
   const lock = LockService.getScriptLock();
   try {
-    lock.waitLock(15000);
+    lock.waitLock(LOCK_WAIT_MS);
   } catch (error) {
     return json_({ ok: false, error: "ocupado" });
   }
   try {
-    const sheet = sheet_();
-    if (sheet.getLastRow() > MAX_ROWS) return json_({ ok: false, error: "limite" });
     sheet.appendRow([new Date()].concat(IDS.map((id) => answers[id])));
+    SpreadsheetApp.flush();
   } finally {
     lock.releaseLock();
   }

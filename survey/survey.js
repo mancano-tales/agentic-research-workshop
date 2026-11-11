@@ -7,6 +7,7 @@
   const ENDPOINT = "https://script.google.com/macros/s/AKfycbwnXSzgE-8tb37sgBM7SYscbhG8h5BTXpITiXN9rvllBqmH5DkpmM7iR9xFoW4hCZlj/exec";
   const STORAGE_KEY = "enquete-sessao-1-respondida";
   const POLL_MS = 4000;
+  const MAX_TRIES = 4;
 
   // Os códigos precisam ser iguais aos de QUESTIONS em tools/survey-backend.gs.
   const QUESTIONS = [
@@ -78,15 +79,32 @@
     }
   }
 
-  function send(answers) {
-    if (MOCK) return new Promise((resolve) => setTimeout(() => resolve({ ok: true }), 300));
-    if (!ENDPOINT) return Promise.reject(new Error("sem backend"));
+  function post(answers) {
     // text/plain evita a requisição preflight, que o Apps Script não atende.
     return fetch(ENDPOINT, {
       method: "POST",
       headers: { "Content-Type": "text/plain;charset=utf-8" },
       body: JSON.stringify(answers),
     }).then((response) => response.json());
+  }
+
+  // Com a sala inteira enviando ao mesmo tempo, um envio pode falhar por sobrecarga.
+  // Tenta de novo sozinho, com espera crescente, antes de mostrar o erro.
+  function send(answers, attempt) {
+    if (MOCK) return new Promise((resolve) => setTimeout(() => resolve({ ok: true }), 300));
+    if (!ENDPOINT) return Promise.reject(new Error("sem backend"));
+    const tries = attempt || 1;
+    const retry = () =>
+      new Promise((resolve) => setTimeout(resolve, tries * 1500 + Math.random() * 1000)).then(() =>
+        send(answers, tries + 1)
+      );
+    return post(answers).then(
+      (result) => (!result.ok && result.error === "ocupado" && tries < MAX_TRIES ? retry() : result),
+      (error) => {
+        if (tries < MAX_TRIES) return retry();
+        throw error;
+      }
+    );
   }
 
   function showThanks(root) {
