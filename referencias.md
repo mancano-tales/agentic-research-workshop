@@ -76,6 +76,12 @@ Observação: boa parte do material mais útil sobre agentes de pesquisa circula
 - **Egami, Naoki; Hinck, Musashi; Stewart, Brandon M.; Wei, Hanying (2023).** "Using Imperfect Surrogates for Downstream Inference: Design-based Supervised Learning for Social Science Applications of Large Language Models". *NeurIPS*. Como usar rótulos de LLM numa regressão sem viés, com uma amostra de validação. Pacote R `dsl`. **[S1][S2]**
 - **Baumann, Joachim et al. (2025).** "Large Language Model Hacking: Quantifying the Hidden Risks of Using LLMs for Text Annotation". arXiv:2509.08825. Escolhas de modelo, *prompt* e temperatura mudam conclusões substantivas — um novo grau de liberdade do pesquisador. **[S1]**
   <https://arxiv.org/abs/2509.08825>
+- **Vallejo Vera, Sebastián; Driggers, Hunter (2024).** "Bias in LLMs as Annotators: The Effect of Party Cues on Labelling Decision by Large Language Models". arXiv:2408.15895. LLMs usam a filiação partidária para julgar declarações políticas, inclusive de partidos de centro. **[S1]**
+  <https://arxiv.org/abs/2408.15895>
+- **Schroeder, Hope; Roy, Deb; Kabbara, Jad (2025).** "Just Put a Human in the Loop? Investigating LLM-Assisted Annotation for Subjective Tasks". arXiv:2507.15821. Com 410 anotadores, as sugestões do LLM mudaram a distribuição dos rótulos e elevaram o desempenho medido do modelo. **[S1]**
+  <https://arxiv.org/abs/2507.15821>
+- **Kim, Elliot Myunghoon; Garg, Avi; Peng, Kenny; Garg, Nikhil (2025).** "Correlated Errors in Large Language Models". *ICML*. Quando dois modelos erram, coincidem na resposta errada em cerca de 60% dos casos, num conjunto de dados de *leaderboard*. **[S1]**
+  <https://proceedings.mlr.press/v267/kim25e.html>
 - **Gilardi, Fabrizio; Alizadeh, Meysam; Kubli, Maël (2023).** "ChatGPT Outperforms Crowd Workers for Text-Annotation Tasks". *PNAS* 120(30). O artigo que popularizou a anotação com LLMs na ciência política. **[S1]**
 - **Törnberg, Petter (2024).** "Best Practices for Text Annotation with Large Language Models". *Sociologica* 18(2). Lista prática de cuidados: validação, documentação, modelos abertos. **[S2]**
 - **Spirling, Arthur (2023).** "Why Open-Source Generative AI Models Are an Ethical Choice for Science". *Nature* 616: 413. **[S1][S2]**

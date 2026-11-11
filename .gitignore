@@ -29,3 +29,7 @@ desktop.ini
 # PDFs datados de cada renderização dos slides
 /_renders/
 /sessions/versao.tex
+
+# PDFs de terceiros e respostas brutas da API (trazem e-mails de autores) da execução de preparação da demonstração
+/sessions/01-introduction-ecosystem/lab/demo-literature/backup/dados/pdfs/
+/sessions/01-introduction-ecosystem/lab/demo-literature/backup/dados/*.json
