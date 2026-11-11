@@ -1,0 +1,16 @@
+---
+title: "Enquete da Sessão 1"
+toc: false
+page-navigation: false
+css: survey.css
+resources:
+  - survey.js
+---
+
+Quatro perguntas rápidas. A enquete é anônima: não pedimos nome nem e-mail, e só os totais aparecem na tela da sala.
+
+```{=html}
+<div id="survey-form"><p>Carregando...</p></div>
+<noscript>Esta enquete precisa de JavaScript.</noscript>
+<script src="survey.js"></script>
+```

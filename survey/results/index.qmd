@@ -1,0 +1,13 @@
+---
+title: "Resultados da enquete"
+toc: false
+page-layout: full
+page-navigation: false
+css: ../survey.css
+---
+
+```{=html}
+<p id="survey-results-status" role="status"></p>
+<div id="survey-results"></div>
+<script src="../survey.js"></script>
+```

@@ -9,6 +9,8 @@ project:
     - sessions/02-practical-skills/llm-agents-for-research-session-2-slides.qmd
     - materials.qmd
     - about.qmd
+    - survey/index.qmd
+    - survey/results/index.qmd
   resources:
     - referencias.bib
 

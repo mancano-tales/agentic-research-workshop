@@ -1,0 +1,126 @@
+/* Enquete da Sessão 1. Formulário pensado para celular; resultados, para o projetor. */
+.survey-question {
+  border: 0;
+  margin: 0 0 1.5rem;
+  padding: 0;
+}
+
+.survey-question legend {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.survey-option {
+  align-items: center;
+  border: 1px solid #c9ccd6;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+  min-height: 44px;
+  padding: 0.45rem 0.75rem;
+}
+
+.survey-option:has(input:checked) {
+  background: #e6e6f7;
+  border-color: #3333b2;
+}
+
+.survey-submit {
+  background: #3333b2;
+  border: 0;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1.1rem;
+  min-height: 48px;
+  width: 100%;
+}
+
+.survey-submit:disabled {
+  background: #a9abb8;
+}
+
+.survey-status {
+  margin-top: 0.5rem;
+  min-height: 1.5rem;
+}
+
+.survey-thanks {
+  font-size: 1.25rem;
+  margin: 2rem 0;
+}
+
+#survey-results {
+  display: grid;
+  gap: 1.25rem 3rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.results-total,
+.results-compare {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.results-total {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.results-compare {
+  color: #5f6472;
+  font-size: 1.05rem;
+}
+
+.results-question h2 {
+  border: 0;
+  font-size: 1.15rem;
+  margin: 0 0 0.6rem;
+}
+
+.results-row {
+  align-items: center;
+  display: grid;
+  gap: 0.6rem;
+  grid-template-columns: 11.5rem minmax(0, 1fr) 3.2rem;
+  margin-bottom: 0.35rem;
+}
+
+.results-label {
+  font-size: 1rem;
+  line-height: 1.15;
+}
+
+.results-track {
+  background: #eef0f3;
+  border-radius: 4px;
+  display: block;
+  height: 1.3rem;
+}
+
+.results-bar {
+  background: #3333b2;
+  border-radius: 0 4px 4px 0;
+  display: block;
+  height: 100%;
+  transition: width 0.4s ease;
+}
+
+.results-value {
+  font-size: 1.1rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  text-align: right;
+}
+
+@media (max-width: 800px) {
+  #survey-results {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .results-row {
+    grid-template-columns: 8rem minmax(0, 1fr) 3rem;
+  }
+}
