@@ -4,7 +4,7 @@
 (function () {
   "use strict";
 
-  const ENDPOINT = "";
+  const ENDPOINT = "https://script.google.com/macros/s/AKfycbwnXSzgE-8tb37sgBM7SYscbhG8h5BTXpITiXN9rvllBqmH5DkpmM7iR9xFoW4hCZlj/exec";
   const STORAGE_KEY = "enquete-sessao-1-respondida";
   const POLL_MS = 4000;
 
